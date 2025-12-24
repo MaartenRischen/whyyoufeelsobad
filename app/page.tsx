@@ -3,7 +3,7 @@ import { FAQItem } from '@/lib/types';
 
 async function getFAQData(): Promise<FAQItem[]> {
   const res = await fetch('https://demismatch.com/api/faq', {
-    next: { revalidate: 3600 } // Cache for 1 hour, then refresh
+    next: { revalidate: 60 } // Cache for 1 minute, then refresh
   });
 
   if (!res.ok) {
