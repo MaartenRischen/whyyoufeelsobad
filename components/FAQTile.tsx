@@ -164,95 +164,103 @@ export function FAQTile({ faqData }: FAQTileProps) {
 
   return (
     <div
-      className={`bg-[#1a1a1a] rounded-2xl border border-gray-800 shadow-xl overflow-hidden transition-all duration-300 ${
+      className={`overflow-hidden transition-all duration-300 ${
         isTransitioning ? 'opacity-50' : 'opacity-100'
       }`}
     >
-      {/* Question */}
+      {/* QUESTION - RED background, WHITE text */}
       <div
-        className={`p-8 ${!isRevealed ? 'cursor-pointer hover:bg-[#222]' : ''} transition-colors`}
+        className={`bg-[#DC2626] ${!isRevealed ? 'cursor-pointer' : ''}`}
         onClick={!isRevealed ? handleReveal : undefined}
       >
-        <h3
-          className="text-2xl md:text-3xl text-[#faf9f6] leading-snug font-playfair"
-        >
-          {currentQ.question}
-        </h3>
+        <div className="p-10 md:p-14">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl text-white font-bold leading-tight font-playfair">
+            {currentQ.question}
+          </h3>
 
-        {!isRevealed && (
-          <p className="text-gray-500 text-sm mt-4">Click to reveal answer</p>
-        )}
+          {!isRevealed && (
+            <p className="text-white/80 text-lg mt-6">
+              Click to reveal →
+            </p>
+          )}
+        </div>
       </div>
 
-      {/* Answer (when revealed) */}
+      {/* ANSWER - WHITE background, BLACK text */}
       {isRevealed && (
         <div className="animate-fadeIn">
-          {/* Answer content */}
-          <div className="px-8 pt-6 pb-4">
-            {parseAnswer(currentQ.answer)}
-          </div>
+          <div className="bg-white p-10 md:p-14">
+            <div className="text-xl md:text-2xl text-black leading-relaxed space-y-4 [&_a]:text-[#DC2626] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:bg-[#DC2626] [&_a:hover]:text-white [&_a]:transition-all [&_p]:text-black [&_p]:mb-4">
+              {parseAnswer(currentQ.answer)}
+            </div>
 
-          {/* Image */}
-          <div className="px-8 pb-6 flex justify-center">
-            <div className="w-48 h-48 rounded-lg overflow-hidden border border-gray-700 shadow-lg">
-              <Image
-                src={currentQ.imageUrl}
-                alt={currentQ.question}
-                width={192}
-                height={192}
-                className="object-cover w-full h-full"
-              />
+            {/* Single image with red border */}
+            <div className="mt-10 flex justify-center">
+              <div className="w-48 h-48 md:w-64 md:h-64 overflow-hidden border-4 border-[#DC2626]">
+                <Image
+                  src={currentQ.imageUrl}
+                  alt={currentQ.question}
+                  width={256}
+                  height={256}
+                  className="object-cover w-full h-full"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="border-t border-gray-800 mx-8" />
-
-          {/* Next Question Teaser */}
+          {/* NEXT - BLACK background */}
           <div
-            className="p-8 cursor-pointer hover:bg-[#222] transition-colors group"
+            className="bg-black cursor-pointer group p-10 md:p-14"
             onClick={handleNext}
           >
-            <p className="text-sm text-gray-500 mb-2">Next question:</p>
-            <p
-              className="text-lg text-gray-400 group-hover:text-[#faf9f6] italic transition-colors font-playfair"
-            >
+            <p className="text-white/50 text-sm uppercase tracking-widest mb-3">
+              Next
+            </p>
+            <p className="text-2xl md:text-3xl text-white group-hover:text-[#DC2626] transition-colors font-playfair">
               {nextQ.question}
             </p>
           </div>
         </div>
       )}
 
-      {/* Navigation */}
-      <div className="px-8 py-4 bg-[#111] border-t border-gray-800">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1">
-            <button
-              onClick={handleRewind}
-              className="px-2 py-1 text-gray-500 hover:text-gray-300 hover:bg-gray-800 rounded transition-colors text-sm font-mono"
-              title="Back to first question"
-            >
-              &lt;&lt;
-            </button>
-            <button
-              onClick={handlePrev}
-              className="px-2 py-1 text-gray-500 hover:text-gray-300 hover:bg-gray-800 rounded transition-colors text-sm font-mono"
-              title="Previous question"
-            >
-              &lt;
-            </button>
-            <button
-              onClick={handleNext}
-              className="px-2 py-1 text-gray-500 hover:text-gray-300 hover:bg-gray-800 rounded transition-colors text-sm font-mono"
-              title="Next question"
-            >
-              &gt;
-            </button>
-          </div>
-          <span className="text-gray-600 text-sm font-mono">
-            {currentIndex + 1} / {faqData.length}
-          </span>
+      {/* NAVIGATION - RED bar */}
+      <div className="bg-[#DC2626] px-6 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-1">
+          <button
+            onClick={handleRewind}
+            className="px-3 py-2 text-white/80 hover:text-white text-lg"
+            title="Back to first"
+          >
+            ««
+          </button>
+          <button
+            onClick={handlePrev}
+            className="px-3 py-2 text-white/80 hover:text-white text-lg"
+            title="Previous"
+          >
+            ‹
+          </button>
+          <button
+            onClick={handleNext}
+            className="px-3 py-2 text-white/80 hover:text-white text-lg"
+            title="Next"
+          >
+            ›
+          </button>
         </div>
+
+        <span className="text-white/80 text-sm">
+          {currentIndex + 1} / {faqData.length}
+        </span>
+
+        <a
+          href="https://demismatch.com/faq"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white/80 hover:text-white text-sm"
+        >
+          See all →
+        </a>
       </div>
     </div>
   );
