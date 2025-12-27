@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-[#faf9f6] p-4 md:p-8">
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-5xl">
         <FAQTile faqData={faqData} />
       </div>
 
