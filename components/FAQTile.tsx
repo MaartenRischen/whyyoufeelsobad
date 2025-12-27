@@ -97,7 +97,7 @@ function parseAnswer(text: string): React.ReactNode[] {
     if (trimmed === '') return;
 
     elements.push(
-      <p key={`p-${lineKey++}`} className="text-gray-300 mb-3 leading-relaxed last:mb-0">
+      <p key={`p-${lineKey++}`} className="text-[#4A4A4A] mb-3 leading-relaxed last:mb-0">
         {processLine(trimmed, idx)}
       </p>
     );
@@ -110,6 +110,7 @@ export function FAQTile({ faqData }: FAQTileProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isRevealed, setIsRevealed] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [imagePopup, setImagePopup] = useState<number | null>(null);
 
   // Persist progress in localStorage
   useEffect(() => {
@@ -125,6 +126,15 @@ export function FAQTile({ faqData }: FAQTileProps) {
   useEffect(() => {
     localStorage.setItem('wyfsb-index', currentIndex.toString());
   }, [currentIndex]);
+
+  // Close popup on Escape key
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setImagePopup(null);
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
 
   const currentQ = faqData[currentIndex];
   const nextQ = faqData[(currentIndex + 1) % faqData.length];
@@ -163,105 +173,255 @@ export function FAQTile({ faqData }: FAQTileProps) {
   };
 
   return (
-    <div
-      className={`overflow-hidden transition-all duration-300 ${
-        isTransitioning ? 'opacity-50' : 'opacity-100'
-      }`}
-    >
-      {/* QUESTION - RED background, WHITE text */}
+    <>
+      {/* Animation styles */}
+      <style jsx global>{`
+        @keyframes faq-reveal {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .faq-reveal-anim {
+          animation: faq-reveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+      `}</style>
+
       <div
-        className={`bg-[#DC2626] ${!isRevealed ? 'cursor-pointer' : ''}`}
-        onClick={!isRevealed ? handleReveal : undefined}
+        className={`transition-all duration-500 ${
+          isTransitioning ? 'opacity-0 scale-[0.98]' : 'opacity-100 scale-100'
+        }`}
       >
-        <div className="p-10 md:p-14">
-          <h3 className="text-3xl md:text-4xl lg:text-5xl text-white font-bold leading-tight font-playfair">
-            {currentQ.question}
-          </h3>
+        {/* THE QUESTION — Terracotta background like demismatch.com */}
+        <div
+          className={`relative overflow-hidden ${!isRevealed ? 'cursor-pointer group' : ''}`}
+          onClick={!isRevealed ? handleReveal : undefined}
+          style={{ backgroundColor: '#C75B39' }}
+        >
+          {/* Subtle grid pattern */}
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                               linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px)`,
+              backgroundSize: '20px 20px'
+            }}
+          />
 
-          {!isRevealed && (
-            <p className="text-white/80 text-lg mt-6">
-              Click to reveal →
-            </p>
-          )}
-        </div>
-      </div>
-
-      {/* ANSWER - WHITE background, BLACK text */}
-      {isRevealed && (
-        <div className="animate-fadeIn">
-          <div className="bg-white p-10 md:p-14">
-            <div className="text-xl md:text-2xl text-black leading-relaxed space-y-4 [&_a]:text-[#DC2626] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:bg-[#DC2626] [&_a:hover]:text-white [&_a]:transition-all [&_p]:text-black [&_p]:mb-4">
-              {parseAnswer(currentQ.answer)}
+          <div className="relative p-8 md:p-12">
+            {/* Question number badge */}
+            <div className="flex items-center gap-4 mb-6">
+              <span className="w-12 h-12 flex items-center justify-center bg-white/20 text-white font-bold text-lg">
+                {String(currentIndex + 1).padStart(2, '0')}
+              </span>
+              <span className="text-white/60 text-xs font-bold uppercase tracking-[0.2em]">
+                of {faqData.length}
+              </span>
             </div>
 
-            {/* Single image with red border */}
-            <div className="mt-10 flex justify-center">
-              <div className="w-48 h-48 md:w-64 md:h-64 overflow-hidden border-4 border-[#DC2626]">
-                <Image
-                  src={currentQ.imageUrl}
-                  alt={currentQ.question}
-                  width={256}
-                  height={256}
-                  className="object-cover w-full h-full"
-                />
+            {/* THE HEADLINE — ALL CAPS for bold, brave, direct impact */}
+            <h3
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-tight font-black uppercase tracking-wide"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              {currentQ.question}
+            </h3>
+
+            {/* Reveal CTA */}
+            {!isRevealed && (
+              <div className="mt-8 flex items-center gap-4">
+                <span className="text-white/80 text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">
+                  <span className="hidden md:inline">Click</span>
+                  <span className="md:hidden">Tap</span>
+                  {" "}to reveal
+                </span>
+                <div className="h-px bg-white/30 w-8 group-hover:w-16 transition-all duration-500" />
+                <svg className="w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* THE ANSWER */}
+        {isRevealed && (
+          <div className="faq-reveal-anim">
+            {/* Answer content — White background */}
+            <div className="bg-white">
+              <div className="p-8 md:p-12 flex flex-col items-center text-center">
+                {/* Answer text */}
+                <div className="text-lg md:text-xl leading-relaxed space-y-4 max-w-2xl">
+                  {parseAnswer(currentQ.answer)}
+                </div>
+
+                {/* Image Gallery - 2x2 grid */}
+                <div className="mt-10 w-full max-w-2xl">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#8B8B8B] mb-4">Related Images</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {currentQ.imageUrls.slice(0, 4).map((url, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setImagePopup(idx)}
+                        className="group/img relative"
+                        title="Click to enlarge"
+                      >
+                        <div className="relative aspect-square overflow-hidden border border-[#E5E0D8] bg-[#F0EDE6]">
+                          <Image
+                            src={url}
+                            alt={`${currentQ.question} - image ${idx + 1}`}
+                            fill
+                            className="object-cover group-hover/img:scale-110 transition-transform duration-500"
+                          />
+                          {/* Hover overlay */}
+                          <div className="absolute inset-0 bg-[#C75B39]/0 group-hover/img:bg-[#C75B39]/20 transition-colors" />
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* NEXT QUESTION TEASER — Dark section */}
+            <div
+              className="bg-[#0A0A0A] cursor-pointer group/next"
+              onClick={handleNext}
+            >
+              <div className="p-8 md:p-12 flex items-center justify-between gap-6">
+                <div className="flex-1">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#C75B39] mb-3">
+                    Up Next
+                  </p>
+                  <p
+                    className="text-lg md:text-xl lg:text-2xl text-white/70 group-hover/next:text-white leading-tight font-bold uppercase tracking-wide transition-colors"
+                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                  >
+                    {nextQ.question}
+                  </p>
+                </div>
+                <div className="w-12 h-12 flex items-center justify-center bg-[#C75B39] text-white group-hover/next:bg-white group-hover/next:text-[#C75B39] transition-all">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
+        )}
 
-          {/* NEXT - BLACK background */}
+        {/* NAVIGATION BAR */}
+        <div className="bg-[#F0EDE6] border-t border-[#E5E0D8]">
+          <div className="flex items-center justify-between px-6 py-4">
+            {/* Nav controls */}
+            <div className="flex items-center gap-1">
+              <button
+                onClick={handleRewind}
+                className="w-10 h-10 flex items-center justify-center text-[#8B8B8B] hover:text-[#C75B39] hover:bg-white transition-all"
+                title="Back to first"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={handlePrev}
+                className="w-10 h-10 flex items-center justify-center text-[#8B8B8B] hover:text-[#C75B39] hover:bg-white transition-all"
+                title="Previous"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={handleNext}
+                className="w-10 h-10 flex items-center justify-center text-[#8B8B8B] hover:text-[#C75B39] hover:bg-white transition-all"
+                title="Next"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Progress bar */}
+            <div className="flex items-center gap-3 flex-1 max-w-xs mx-4">
+              <div className="flex-1 h-1 bg-[#E5E0D8] relative">
+                <div
+                  className="absolute left-0 top-0 h-full bg-[#C75B39] transition-all duration-300"
+                  style={{ width: `${((currentIndex + 1) / faqData.length) * 100}%` }}
+                />
+              </div>
+              <span className="text-sm text-[#8B8B8B] font-bold tabular-nums">
+                {currentIndex + 1}/{faqData.length}
+              </span>
+            </div>
+
+            {/* View all link */}
+            <a
+              href="https://demismatch.com/faq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-xs font-bold uppercase tracking-widest border-2 border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all"
+            >
+              View All
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Image Popup Modal */}
+      {imagePopup !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setImagePopup(null)}
+        >
           <div
-            className="bg-black cursor-pointer group p-10 md:p-14"
-            onClick={handleNext}
+            className="relative max-w-2xl w-full mx-4"
+            onClick={(e) => e.stopPropagation()}
           >
-            <p className="text-white/50 text-sm uppercase tracking-widest mb-3">
-              Next
-            </p>
-            <p className="text-2xl md:text-3xl text-white group-hover:text-[#DC2626] transition-colors font-playfair">
-              {nextQ.question}
-            </p>
+            <button
+              onClick={() => setImagePopup(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-[#0A0A0A] text-white flex items-center justify-center hover:bg-[#C75B39] transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            {/* Navigation arrows for gallery */}
+            {currentQ.imageUrls.length > 1 && (
+              <>
+                <button
+                  onClick={() => setImagePopup(imagePopup > 0 ? imagePopup - 1 : currentQ.imageUrls.length - 1)}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#0A0A0A] text-white flex items-center justify-center hover:bg-[#C75B39] transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setImagePopup(imagePopup < currentQ.imageUrls.length - 1 ? imagePopup + 1 : 0)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#0A0A0A] text-white flex items-center justify-center hover:bg-[#C75B39] transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </>
+            )}
+            <div className="relative w-full aspect-square bg-[#F0EDE6]">
+              <Image
+                src={currentQ.imageUrls[imagePopup]}
+                alt={`${currentQ.question} - image ${imagePopup + 1}`}
+                fill
+                className="object-contain"
+              />
+            </div>
+            {/* Image counter */}
+            <div className="mt-4 text-center text-white/60 text-sm">
+              {imagePopup + 1} of {currentQ.imageUrls.length}
+            </div>
           </div>
         </div>
       )}
-
-      {/* NAVIGATION - RED bar */}
-      <div className="bg-[#DC2626] px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-1">
-          <button
-            onClick={handleRewind}
-            className="px-3 py-2 text-white/80 hover:text-white text-lg"
-            title="Back to first"
-          >
-            ««
-          </button>
-          <button
-            onClick={handlePrev}
-            className="px-3 py-2 text-white/80 hover:text-white text-lg"
-            title="Previous"
-          >
-            ‹
-          </button>
-          <button
-            onClick={handleNext}
-            className="px-3 py-2 text-white/80 hover:text-white text-lg"
-            title="Next"
-          >
-            ›
-          </button>
-        </div>
-
-        <span className="text-white/80 text-sm">
-          {currentIndex + 1} / {faqData.length}
-        </span>
-
-        <a
-          href="https://demismatch.com/faq"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white/80 hover:text-white text-sm"
-        >
-          See all →
-        </a>
-      </div>
-    </div>
+    </>
   );
 }
