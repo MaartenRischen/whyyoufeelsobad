@@ -1,20 +1,10 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-});
-
 export const metadata: Metadata = {
-  title: 'Why You Feel So Bad',
-  description: 'The answer might surprise you. A framework explaining why modern humans suffer and what conditions would let them thrive.',
+  title: 'Why you feel so bad - Your feelings are right.',
+  description:
+    'Your feelings are right. Look at what they are reacting to. The dread, the low mood and the loneliness are a healthy human reacting to a world that is wrong for humans.',
   metadataBase: new URL('https://whyyoufeelsobad.com'),
   icons: {
     icon: [
@@ -25,22 +15,17 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'Why You Feel So Bad',
-    description: 'The answer might surprise you.',
+    title: 'Your feelings are right.',
+    description: 'Look at what they are reacting to.',
     type: 'website',
+    siteName: 'Why you feel so bad',
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${inter.variable} antialiased`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
