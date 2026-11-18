@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Mock-up A - Why you feel so bad</title>
+<meta name="theme-color" content="#f6ecd4">
+<link rel="stylesheet" href="../film/film.css">
+<style>
+/* Direction A: the film is the page. One stage, pinned. The scroll tells the film how far to
+   play; the film plays there at its own speed. The page takes the sky's colour and the feeling's
+   light, so the picture has no frame. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0}
+body{background:var(--sky,#f6ecd4);color:#22202e;font:500 17px/1.42 "Montserrat",system-ui,sans-serif;overflow-x:hidden;transition:color .4s}
+body.night{color:#f7f0de}
+h1,h2,p{margin:0}
+a{color:inherit}
+/* the same paper grain as the film, over the whole page */
+body::before{content:"";position:fixed;inset:0;background:url(../film/assets/grain.png);background-size:calc(540px*var(--s,.36)) auto;mix-blend-mode:multiply;opacity:.42;pointer-events:none;z-index:5}
+.card{display:inline-block;background:#f7f0de;color:#22202e;border:3px solid #22202e;border-radius:9px;box-shadow:5px 6px 0 rgba(34,32,46,.3);font-weight:700;padding:8px 14px 9px}
+.card.dark{background:#22202e;color:#f7f0de}
+
+.reel{position:relative;z-index:1}
+/* the opening words lie over the sky of the wide picture and scroll away; the picture stays */
+.hero{position:absolute;left:0;top:0;width:100%;z-index:3;padding:22px 18px 0;pointer-events:none}
+.hero>*{pointer-events:auto}
+.hero .q{font-size:17px;transform:rotate(-2deg);margin-left:-2px}
+.hero h1{font:400 clamp(58px,17.5vw,210px)/.9 "Archivo Black",sans-serif;letter-spacing:-.035em;margin:16px 0 0;text-wrap:balance}
+.hero .sum{display:block;font-size:clamp(24px,7vw,54px);line-height:1.12;margin:86vh 0 0;margin-top:86svh;max-width:13em;transform:rotate(1.2deg);padding:14px 18px 16px}
+.hero .lead{display:block;margin:34vh 0 0;margin-top:34svh;max-width:30em;font-size:18px;font-weight:500;line-height:1.42;padding:16px 18px 18px;transform:rotate(-.6deg)}
+.hero .lead b{font-weight:800}
+.hero .gap{height:70vh;height:70svh}
+
+.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.pin::before{content:"";position:absolute;inset:0;background:var(--feelc,transparent);opacity:var(--feel,0);pointer-events:none;transition:opacity .25s,background-color .25s}
+.rest{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transform:translate(var(--shift,0px),var(--drop,0px))}
+.who{position:relative;z-index:2;width:100%;padding:0 18px;min-height:2.05em;font:400 clamp(21px,6.4vw,40px)/1 "Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:-.01em;opacity:var(--chrome,1)}
+.who p{position:absolute;left:18px;right:18px;bottom:0;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s}
+.who p.on{opacity:1;transform:none}
+.who b{font:700 .5em/1 "Space Mono",monospace;background:currentColor;border-radius:4px;padding:3px 7px 4px;margin-right:8px;vertical-align:.32em;letter-spacing:.02em}
+.who b span{color:var(--sky,#f6ecd4)}
+.stagebox{position:relative;z-index:1;width:calc((1080px - 2*var(--in,0px))*var(--s,.36));height:calc(1350px*var(--s,.36));flex:none;overflow:hidden}
+#root{position:absolute;left:calc(-1*var(--in,0px)*var(--s,.36));top:0;transform:scale(var(--s,.36));transform-origin:0 0;background:transparent}
+.lab,.lab.wrap{white-space:normal;width:max-content;max-width:calc(1080px - 2*var(--in,0px) - 76px);text-wrap:balance}
+.rail{position:relative;z-index:2;display:flex;gap:6px;width:100%;padding:0 18px;opacity:var(--chrome,1)}
+.rail i{flex:1;height:7px;border:2px solid currentColor;border-radius:4px;overflow:hidden}
+.rail i::before{content:"";display:block;height:100%;width:calc(var(--p,0)*100%);background:currentColor}
+.rail i:nth-child(5){flex:1.9}
+
+.after{position:relative;z-index:1;padding:44px 18px 20px;max-width:900px;margin:0 auto}
+.tile .say{font-size:19px;transform:rotate(-1.5deg)}
+.tile h2{font:400 clamp(40px,12vw,120px)/.92 "Archivo Black",sans-serif;letter-spacing:-.03em;margin:18px 0 0;text-wrap:balance}
+.tile .b{margin:18px 0 0;font-size:19px;max-width:30em}
+.tile .more{margin:16px 0 0;font-weight:700}
+.soon{display:grid;gap:14px;margin-top:44px}
+.ph{aspect-ratio:4/5;max-height:70vh;width:100%;border:3px dashed currentColor;border-radius:9px;display:flex;flex-direction:column;justify-content:space-between;padding:16px;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(34,32,46,.06) 14px 28px)}
+.ph .tag{font:700 12px/1.3 "Space Mono",monospace;text-transform:uppercase}
+.ph .say{align-self:flex-start;font-size:19px}
+.note{position:relative;z-index:1;margin:40px auto 0;padding:16px 18px 50px;max-width:900px;font:700 12px/1.5 "Space Mono",monospace;opacity:.7}
+
+@media (min-width:900px){
+  .hero{padding:40px 40px 0}
+  .hero .q{font-size:22px}
+  .hero h1{font-size:clamp(70px,7.6vw,150px);max-width:6.2em}
+  .hero .sum,.hero .lead{max-width:min(30em,44vw)}
+  .hero .sum{margin-left:6vw}
+  .hero .lead{margin-left:6vw;font-size:21px}
+  .rest{flex-direction:row;gap:36px}
+  .who{width:auto;flex:1;min-width:0;min-height:3em;font-size:clamp(26px,2.9vw,52px);text-align:right;padding:0}
+  .who p{left:24px;right:0;bottom:auto;top:0}
+  .who b{display:table;margin:0 0 12px auto}
+  .rail{flex:1;width:auto;flex-direction:column;align-self:stretch;justify-content:center;padding:0 40px 0 0}
+  .rail i{flex:none;width:9px;height:9vh}
+  .rail i::before{width:100%;height:calc(var(--p,0)*100%)}
+  .rail i:nth-child(5){flex:none;height:17vh}
+  .soon{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:reduce){.who p,.pin::before,body{transition:none}}
+</style>
+</head>
+<body>
+
+<section class="reel" id="reel" aria-label="The film">
+  <header class="hero" id="hero">
+    <p class="q card">Why you feel so bad:</p>
+    <h1>Your feelings are right.</h1>
+    <p class="sum card dark">You live in a world that isn't built for humans.</p>
+    <p class="lead card">You live among strangers and work for people who would replace you in a week. No human was built for that, and your body keeps telling you so. Doctors, coaches and apps each sell you a different fault to fix in yourself. <b>Unless a test finds a physical cause, there is nothing in you to fix.</b></p>
+    <div class="gap"></div>
+  </header>
+  <div class="pin" id="pin">
+   <div class="rest" id="rest">
+    <div class="who" id="who">
+      <p data-k="fish"><b><span>1/5</span></b>Three-spined stickleback</p>
+      <p data-k="beetle"><b><span>2/5</span></b>Dung beetle</p>
+      <p data-k="toad"><b><span>3/5</span></b>Common toad</p>
+      <p data-k="monkeys"><b><span>4/5</span></b>Rhesus macaque</p>
+      <p data-k="human"><b><span>5/5</span></b>Human</p>
+    </div>
+    <div class="stagebox">
+      <div id="root" class="notab">
+        <div id="film">
+          <svg id="stage" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><style id="palcss"></style><g id="cam"></g></svg>
+          <div id="grain" style="display:none"></div>
+          <div id="dim"></div>
+          <svg id="aura" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs id="adefs"></defs><g id="ahalo"></g><g id="acam"></g><g id="aring"></g></svg>
+          <svg id="lines" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+          <!-- The film's lines, as real text. The film places each one next to what it is about. -->
+          <div id="labels">
+            <p class="lab" data-lab="fish-0"><span class="n">1</span><span class="t">A stickleback attacks red.</span></p>
+            <p class="lab" data-lab="fish-1"><span class="n">2</span><span class="t">The red rival leaves.</span></p>
+            <p class="lab chg" data-lab="fish-2"><span class="t">Now there is a red block.</span></p>
+            <p class="lab" data-lab="fish-3"><span class="n">3</span><span class="t">A stickleback attacks red.</span></p>
+            <p class="lab" data-lab="fish-4"><span class="n">4</span><span class="t">The red block stays.</span></p>
+            <p class="lab" data-lab="beetle-0"><span class="n">1</span><span class="t">A dung beetle steers by light.</span></p>
+            <p class="lab" data-lab="beetle-1"><span class="n">2</span><span class="t">Starlight. It rolls straight.</span></p>
+            <p class="lab chg" data-lab="beetle-2"><span class="t">Now there are street lights.</span></p>
+            <p class="lab" data-lab="beetle-3"><span class="n">3</span><span class="t">A dung beetle steers by light.</span></p>
+            <p class="lab" data-lab="beetle-4"><span class="n">4</span><span class="t">Lamplight. It rolls to the lamp.</span></p>
+            <p class="lab" data-lab="toad-0"><span class="n">1</span><span class="t">Each spring a toad walks home.</span></p>
+            <p class="lab" data-lab="toad-1"><span class="n">2</span><span class="t">It reaches its pond and breeds.</span></p>
+            <p class="lab chg" data-lab="toad-2"><span class="t">Now there is a road.</span></p>
+            <p class="lab" data-lab="toad-3"><span class="n">3</span><span class="t">Each spring a toad walks home.</span></p>
+            <p class="lab" data-lab="toad-4"><span class="n">4</span><span class="t">It reaches the road.</span></p>
+            <p class="lab" data-lab="monkeys-0"><span class="n">1</span><span class="t">A baby monkey needs to cling.</span></p>
+            <p class="lab" data-lab="monkeys-1"><span class="n">2</span><span class="t">It clings to its mother. It feels safe.</span></p>
+            <p class="lab chg" data-lab="monkeys-2"><span class="t">Now there is a cloth dummy.</span></p>
+            <p class="lab" data-lab="monkeys-3"><span class="n">3</span><span class="t">A baby monkey needs to cling.</span></p>
+            <p class="lab" data-lab="monkeys-4"><span class="n">4</span><span class="t">It clings to the cloth.</span></p>
+            <p class="lab wrap" data-lab="human-0"><span class="n">1</span><span class="t">Human children learn by moving, exploring and playing together.</span></p>
+            <p class="lab wrap" data-lab="human-1"><span class="n">2</span><span class="t">Sitting still for long feels bad.</span></p>
+            <p class="lab wrap" data-lab="human-2"><span class="n">3</span><span class="t">So the child gets up.</span></p>
+            <p class="lab wrap" data-lab="human-3"><span class="n">4</span><span class="t">It plays with the others for hours.</span></p>
+            <p class="lab wrap" data-lab="human-4"><span class="n">5</span><span class="t">It is worn out and calm.</span></p>
+            <p class="lab chg wrap" data-lab="human-5"><span class="t">Now there is a desk. Six hours a day.</span></p>
+            <p class="lab wrap" data-lab="human-6"><span class="n">1</span><span class="t">Human children learn by moving, exploring and playing together.</span></p>
+            <p class="lab wrap" data-lab="human-7"><span class="n">2</span><span class="t">Sitting still for long feels bad.</span></p>
+            <p class="lab wrap" data-lab="human-8"><span class="n">3</span><span class="t">So the child gets up.</span></p>
+            <p class="lab wrap" data-lab="human-9"><span class="n">4</span><span class="t">It is told to sit down.</span></p>
+            <p class="lab wrap" data-lab="human-10"><span class="n">5</span><span class="t">It is restless all day.</span></p>
+          </div>
+          <div id="tab"><span class="k" id="tabk">1/5</span><span id="tabt">THREE-SPINED STICKLEBACK</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="rail" id="rail" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+   </div>
+  </div>
+</section>
+
+<section class="after">
+  <article class="tile">
+    <p class="say card">“I can't focus.”</p>
+    <h2>Restless people, made to sit still.</h2>
+    <p class="b">ADHD is a name for people who move a lot and notice everything, once school or an office puts them in a chair all day.</p>
+    <p class="more"><a href="https://whatreally.is/adhd/">What really is: ADHD</a></p>
+  </article>
+  <div class="soon">
+    <div class="ph"><p class="tag">Placeholder. Film not made yet.</p><p class="say card">“I'm lonely.”</p></div>
+    <div class="ph"><p class="tag">Placeholder. Film not made yet.</p><p class="say card">“I dread going to work.”</p></div>
+    <div class="ph"><p class="tag">Placeholder. Film not made yet.</p><p class="say card">“I can't stop scrolling.”</p></div>
+  </div>
+</section>
+<p class="note">Mock-up A, 18 Nov 2026. Top of the page only. <a href="../">The other directions</a></p>
+
+<script src="../film/js/gsap.min.js"></script>
+<script src="../film/js/util.js"></script>
+<script src="../film/js/tl.js"></script>
+<script src="../film/js/world.js"></script>
+<script src="../film/js/east.js"></script>
+<script src="../film/js/rigs.js"></script>
+<script src="../film/js/rigs_human.js"></script>
+<script src="../film/js/stage.js"></script>
+<script src="../film/js/seq_fish.js"></script>
+<script src="../film/js/seq_beetle.js"></script>
+<script src="../film/js/seq_toad.js"></script>
+<script src="../film/js/seq_monk.js"></script>
+<script src="../film/js/seq_human.js"></script>
+<script src="../film/js/finale.js"></script>
+<script src="../shared.js"></script>
+<script>
+(function () {
+  "use strict";
+  var film = window.__film, reel = document.getElementById("reel"), pin = document.getElementById("pin");
+  var who = document.getElementById("who"), rail = document.getElementById("rail").children;
+  var theme = document.querySelector('meta[name="theme-color"]');
+  var KEYS = ["fish", "beetle", "toad", "monkeys", "human"];
+
+  var hero = document.getElementById("hero"), rest = document.getElementById("rest"), box = document.querySelector(".stagebox");
+  /* the stage is laid out at 1080 x 1350 and scaled to the screen. On a narrow screen the page
+     shows the middle four fifths of the picture, so the animals and the lines are larger. */
+  var S = 0.36, IN = 0;
+  function size() {
+    var wide = window.innerWidth >= 900, vw = document.documentElement.clientWidth, vh = window.innerHeight;
+    IN = wide ? 0 : 108;
+    S = Math.min((vw - (wide ? 420 : 0)) / (1080 - 2 * IN), (vh - (wide ? 40 : 96)) / 1350);
+    window.__inset = IN;
+    document.documentElement.style.setProperty("--s", S.toFixed(4));
+    document.documentElement.style.setProperty("--in", IN + "px");
+  }
+  size();
+
+  /* one step for each line of the film. A subject's first step starts with the camera move to it. */
+  var steps = [];
+  KEYS.forEach(function (k, ki) {
+    var b = WY.beats(film, k);
+    b.beats.forEach(function (bt, i) {
+      var start = i === 0 ? b.move[0] : bt[0], end = i + 1 < b.beats.length ? b.beats[i + 1][0] - 0.02 : bt[1];
+      steps.push({ k: k, ki: ki, i: i, n: b.beats.length, start: start, end: end, w: Math.max(0.75, Math.min(1.5, (end - start) / 2.6)) });
+    });
+  });
+  var total = 0;
+  steps.forEach(function (s) { s.at = total; total += s.w; });
+  var UNIT = 0.58;   /* screens of scrolling for a step of normal length */
+  var heroH = 0, vh = 0;
+  function layout() {
+    size();
+    vh = window.innerHeight;
+    heroH = hero.offsetHeight;
+    reel.style.height = Math.round(heroH + vh * (total * UNIT + 1.3)) + "px";
+  }
+  layout();
+  window.addEventListener("resize", layout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+
+  var player = new WY.Player(film.draw, { t: 0.2 });
+  var cur = -2, lastFeel = "", lastNight = -1, lastWho = "x";
+  var firstOf = [], lastOf = [];
+  steps.forEach(function (s) { if (!firstOf[s.ki]) firstOf[s.ki] = s; lastOf[s.ki] = s; });
+  player.onframe = function (t) {
+    /* the name and the rail say what the picture shows now */
+    var k = "";
+    for (var i = 0; i < 5; i++) {
+      var a = firstOf[i].start, b = lastOf[i].end;
+      if (t >= a + 0.3) k = KEYS[i];
+      rail[i].style.setProperty("--p", Math.max(0, Math.min(1, (t - a) / (b - a))).toFixed(3));
+    }
+    if (k !== lastWho) { lastWho = k; Array.prototype.forEach.call(who.children, function (p) { p.classList.toggle("on", p.dataset.k === k); }); }
+    /* the page round the picture: night, and the light of the feeling */
+    var n = ST.Wd.night > 0.5 ? 1 : 0;
+    if (n !== lastNight) { lastNight = n; document.body.classList.toggle("night", !!n); theme.content = n ? "#1a1f4e" : "#f6ecd4"; }
+    var f = window.__feel || [null, 0], key = (f[0] || "") + Math.round(f[1] * 10);
+    if (key !== lastFeel) {
+      lastFeel = key;
+      pin.style.setProperty("--feelc", f[0] === "red" ? "#ff2440" : f[0] === "green" ? "#19e57c" : "transparent");
+      pin.style.setProperty("--feel", (0.2 * f[1]).toFixed(2));
+    }
+  };
+  player.show(0.2);
+
+  WY.onScroll(function () {
+    var y = -reel.getBoundingClientRect().top;
+    /* while the opening words pass, the picture stands on the bottom edge of the screen */
+    var settle = Math.min(1, Math.max(0, (y - (heroH - vh * 1.1)) / (vh * 0.6)));
+    settle = settle * settle * (3 - 2 * settle);
+    var r0 = rest.getBoundingClientRect(), bb = box.getBoundingClientRect();
+    var drop = Math.max(0, vh - (bb.bottom - r0.top));
+    rest.style.setProperty("--drop", ((1 - settle) * drop).toFixed(1) + "px");
+    rest.style.setProperty("--chrome", settle.toFixed(2));
+    /* on a wide screen the picture stands to the right of the opening words */
+    rest.style.setProperty("--shift", (window.innerWidth >= 900 ? (1 - settle) * window.innerWidth * 0.21 : 0).toFixed(1) + "px");
+    var u = (y - (heroH - vh * 0.35)) / (vh * UNIT), idx = -1;
+    for (var i = 0; i < steps.length; i++) if (u >= steps[i].at) idx = i;
+    if (idx !== cur) {
+      cur = idx;
+      var s = steps[idx];
+      if (!s) player.chase(0.2, 0.2); else player.chase(s.end, s.start);
+    }
+  });
+})();
+</script>
+</body>
+</html>

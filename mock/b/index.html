@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Mock-up B - Why you feel so bad</title>
+<meta name="theme-color" content="#000000">
+<style>
+/* Direction B: the film is inside the words. The film fills the screen behind the page. A black
+   plate lies over it with the sentence cut out, so the picture shows through the letters. Scrolling
+   pushes through one letter into the picture. Black, white and the film's red, nothing else. */
+@font-face{font-family:"Montserrat";font-weight:500;font-display:swap;src:url(../fonts/montserrat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:800;font-display:swap;src:url(../fonts/montserrat-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Archivo Black";font-weight:400;font-display:swap;src:url(../fonts/archivo-black-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:700;font-display:swap;src:url(../fonts/space-mono-latin-700-normal.woff2) format("woff2")}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;background:#000}
+body{color:#fff;font:500 18px/1.42 "Montserrat",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,p{margin:0}
+a{color:inherit}
+#stage{position:fixed;left:0;top:0;width:100%;height:100vh;height:100lvh;background:#000}
+/* while a plate is closed, the picture behind it is lifted a little so dark scenes still read as letters */
+#lift{position:fixed;left:0;top:0;width:100%;height:100vh;height:100lvh;background:#fff;opacity:0;pointer-events:none}
+
+.step{position:relative}
+/* a plate: black with the words cut out. multiply keeps black black and lets white show the film. */
+.plate{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000;color:#fff;mix-blend-mode:multiply;display:flex;align-items:center}
+.step.plate-step{height:260vh;height:260svh}
+.big{font:400 100px/.86 "Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:-.035em;padding:0 16px;width:100%;will-change:transform}
+.big .w{display:inline-block;white-space:nowrap}
+.big small{display:block;font-size:.34em;line-height:1;letter-spacing:-.02em;margin-bottom:.5em}
+/* a slab: a solid red card with a change on it. It passes over the picture and is gone. */
+.slab{background:#e4472d;color:#000;min-height:100vh;min-height:100svh;display:flex;align-items:center}
+/* a line said over the open picture */
+.cap-step{min-height:105vh;min-height:105svh;display:flex;align-items:flex-end;padding:0 0 22vh}
+.line{font:400 clamp(30px,9.6vw,92px)/1.1 "Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:-.03em;padding:0 14px;max-width:16em}
+.line span{background:#000;color:#fff;padding:.04em .22em .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.line.say span{background:#fff;color:#000}
+.read{background:#000;padding:10px 16px 12px;max-width:34em;margin:0 14px;font-size:18px}
+.read b{font-weight:800}
+.read a{font-weight:800}
+.chip{position:fixed;left:12px;top:12px;top:max(12px,env(safe-area-inset-top));z-index:5;background:#fff;color:#000;font:700 12px/1 "Space Mono",monospace;text-transform:uppercase;padding:6px 8px 5px;opacity:0;transition:opacity .2s}
+.chip.on{opacity:1}
+.chip b{background:#000;color:#fff;padding:2px 5px;margin-right:6px}
+.who{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+.end{position:relative;background:#000;padding:60px 16px 30px}
+.soon{display:grid;gap:14px;margin-top:10px}
+.ph{aspect-ratio:4/5;max-height:70vh;border:3px dashed #fff;display:flex;flex-direction:column;justify-content:space-between;padding:16px}
+.ph .tag{font:700 12px/1.3 "Space Mono",monospace;text-transform:uppercase}
+.ph .line{padding:0;font-size:clamp(26px,8vw,54px)}
+.note{margin:40px 0 0;font:700 12px/1.5 "Space Mono",monospace;opacity:.7}
+@media (min-width:900px){
+  .big{padding:0 40px}
+  .line{padding:0 40px}
+  .read{margin:0 40px;font-size:21px}
+  .soon{grid-template-columns:repeat(3,1fr)}
+  .end{padding:80px 40px 40px}
+}
+@media (prefers-reduced-motion:reduce){
+  .plate{position:relative}
+  .step.plate-step{height:auto}
+  .chip{transition:none}
+}
+</style>
+</head>
+<body>
+<div id="stage" aria-hidden="true"></div>
+<div id="lift" aria-hidden="true"></div>
+<p class="chip" id="chip" aria-hidden="true"><b></b><span></span></p>
+
+<main>
+<section class="step plate-step" data-hero>
+  <div class="plate"><h1 class="big"><small>Why you feel so bad:</small>Your feelings are right.</h1></div>
+</section>
+<section class="step cap-step" data-hero>
+  <p class="line"><span>You live in a world that isn't built for humans.</span></p>
+</section>
+<section class="step cap-step" data-hero>
+  <p class="read">You live among strangers and work for people who would replace you in a week. No human was built for that, and your body keeps telling you so. Doctors, coaches and apps each sell you a different fault to fix in yourself. <b>Unless a test finds a physical cause, there is nothing in you to fix.</b></p>
+</section>
+
+<p class="who" data-k="fish" data-n="1/5">Three-spined stickleback</p>
+<section class="step plate-step" data-k="fish" data-i="0">
+  <div class="plate"><h2 class="big">A stickleback attacks red.</h2></div>
+</section>
+<section class="step cap-step" data-k="fish" data-i="1"><p class="line"><span>The red rival leaves.</span></p></section>
+<section class="step slab" data-k="fish" data-i="2"><p class="big">Now there is a red block.</p></section>
+<section class="step plate-step" data-k="fish" data-i="3">
+  <div class="plate"><p class="big">A stickleback attacks red.</p></div>
+</section>
+<section class="step cap-step" data-k="fish" data-i="4"><p class="line"><span>The red block stays.</span></p></section>
+
+<p class="who" data-k="human" data-n="5/5">Human</p>
+<section class="step plate-step" data-k="human" data-i="0">
+  <div class="plate"><h2 class="big">Human children learn by moving, exploring and playing together.</h2></div>
+</section>
+<section class="step cap-step" data-k="human" data-i="1"><p class="line"><span>Sitting still for long feels bad.</span></p></section>
+<section class="step cap-step" data-k="human" data-i="2"><p class="line"><span>So the child gets up.</span></p></section>
+<section class="step cap-step" data-k="human" data-i="3"><p class="line"><span>It plays with the others for hours.</span></p></section>
+<section class="step cap-step" data-k="human" data-i="4"><p class="line"><span>It is worn out and calm.</span></p></section>
+<section class="step slab" data-k="human" data-i="5"><p class="big">Now there is a desk. Six hours a day.</p></section>
+<section class="step plate-step" data-k="human" data-i="6">
+  <div class="plate"><p class="big">Human children learn by moving, exploring and playing together.</p></div>
+</section>
+<section class="step cap-step" data-k="human" data-i="7"><p class="line"><span>Sitting still for long feels bad.</span></p></section>
+<section class="step cap-step" data-k="human" data-i="8"><p class="line"><span>So the child gets up.</span></p></section>
+<section class="step cap-step" data-k="human" data-i="9"><p class="line"><span>It is told to sit down.</span></p></section>
+<section class="step cap-step" data-k="human" data-i="10"><p class="line"><span>It is restless all day.</span></p></section>
+
+<section class="step cap-step" data-k="human" data-i="10" data-keep>
+  <p class="line say"><span>“I can't focus.”</span></p>
+</section>
+<section class="step plate-step" data-k="human" data-i="10" data-keep>
+  <div class="plate"><h2 class="big">Restless people, made to sit still.</h2></div>
+</section>
+<section class="step cap-step" data-k="human" data-i="10" data-keep>
+  <p class="read">ADHD is a name for people who move a lot and notice everything, once school or an office puts them in a chair all day. <a href="https://whatreally.is/adhd/">What really is: ADHD</a></p>
+</section>
+</main>
+
+<section class="end">
+  <div class="soon">
+    <div class="ph"><p class="tag">Placeholder. Film not made yet.</p><p class="line say"><span>“I'm lonely.”</span></p></div>
+    <div class="ph"><p class="tag">Placeholder. Film not made yet.</p><p class="line say"><span>“I dread going to work.”</span></p></div>
+    <div class="ph"><p class="tag">Placeholder. Film not made yet.</p><p class="line say"><span>“I can't stop scrolling.”</span></p></div>
+  </div>
+  <p class="note">Mock-up B, 18 Nov 2026. Top of the page only. <a href="../">The other directions</a></p>
+</section>
+
+<script src="../shared.js"></script>
+<script>
+(function () {
+  "use strict";
+  var stage = document.getElementById("stage"), chip = document.getElementById("chip"), liftEl = document.getElementById("lift");
+  var steps = Array.prototype.slice.call(document.querySelectorAll(".step"));
+  var bigs = Array.prototype.slice.call(document.querySelectorAll(".big"));
+  var whos = {};
+  Array.prototype.forEach.call(document.querySelectorAll(".who"), function (w) { whos[w.dataset.k] = w; });
+  /* which part of the picture stays in view when the screen is narrower or flatter than 4:5 */
+  var FOCUS = { fish: [0.5, 0.78], human: [0.5, 0.62], hero: [0.5, 0.45] };
+
+  /* each word on one line; the type is as large as the longest word allows */
+  bigs.forEach(function (b) {
+    var walk = function (node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var f = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { f.appendChild(document.createTextNode(" ")); return; }
+            var s = document.createElement("span"); s.className = "w";
+            var at = b._eye ? -1 : part.search(/[iI]/);
+            if (at >= 0) {
+              s.appendChild(document.createTextNode(part.slice(0, at)));
+              var e = document.createElement("span"); e.className = "eye"; e.textContent = part[at]; s.appendChild(e);
+              s.appendChild(document.createTextNode(part.slice(at + 1)));
+              b._eye = e;
+            } else s.textContent = part;
+            f.appendChild(s);
+          });
+          node.replaceChild(f, n);
+        } else if (n.nodeType === 1 && n.tagName !== "SMALL") walk(n);
+      });
+    };
+    walk(b);
+  });
+  function fit() {
+    var vw = document.documentElement.clientWidth, vh = window.innerHeight, pad = vw >= 900 ? 80 : 32;
+    bigs.forEach(function (b) {
+      b.style.fontSize = "100px";
+      var max = 0;
+      Array.prototype.forEach.call(b.querySelectorAll(".w"), function (w) { max = Math.max(max, w.offsetWidth); });
+      var fs = Math.min(vw >= 900 ? vw * 0.2 : 400, (vw - pad) / max * 100);
+      b.style.fontSize = fs + "px";
+      /* never taller than the screen */
+      var guard = 0;
+      while (b.offsetHeight > vh * 0.86 && guard++ < 30) { fs *= 0.94; b.style.fontSize = fs + "px"; }
+      b._fs = fs;
+    });
+  }
+  fit();
+  window.addEventListener("resize", fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+
+  WY.frame(stage, { fit: "cover", fx: 0.5, fy: 0.45 }).then(function (player) {
+    var film = player.film, cur = null, curFocus = "";
+    function trigger(st) {
+      var k = st.dataset.k, f = k || "hero";
+      if (f !== curFocus) { curFocus = f; player.focus(FOCUS[f][0], FOCUS[f][1]); }
+      if (!k) {
+        /* the opening: the whole landscape, seen from far off, changing as the film goes by */
+        player.play(0.2, 41.7, { rate: 5, loop: true, hold: 2.5, view: [0, 0, 1080], still: 41.7 });
+        chip.classList.remove("on");
+        return;
+      }
+      var b = WY.beats(film, k), i = +st.dataset.i, bt = b.beats[i];
+      player.view = null;
+      if (!st.hasAttribute("data-keep")) {
+        var end = i + 1 < b.beats.length ? b.beats[i + 1][0] - 0.02 : bt[1];
+        player.chase(end, i === 0 ? b.move[1] - 0.9 : bt[0]);
+      }
+      chip.firstChild.textContent = whos[k].dataset.n; chip.lastChild.textContent = whos[k].textContent;
+      chip.classList.add("on");
+    }
+    WY.onScroll(function () {
+      var vh = window.innerHeight, act = steps[0], lift = 0;
+      steps.forEach(function (st) {
+        var r = st.getBoundingClientRect();
+        if (r.top < vh * 0.6) act = st;
+        /* push through the letter */
+        var plate = st.firstElementChild;
+        if (!WY.RM && plate.classList.contains("plate") && r.bottom > 0 && r.top < vh) {
+          var big = plate.firstElementChild, p = Math.min(1, Math.max(0, -r.top / (r.height - vh)));
+          var u = Math.min(1, Math.max(0, (p - 0.22) / 0.7));
+          lift = Math.max(lift, Math.min(1, Math.max(0, (vh - r.top) / vh)) * (1 - u));
+          if (u <= 0) { big.style.transform = ""; plate.style.opacity = ""; }
+          else {
+            var eye = big._eye, fs = big._fs || 100;
+            if (!big._o) {
+              var prev = big.style.transform; big.style.transform = "";
+              var eb = eye.getBoundingClientRect(), bb = big.getBoundingClientRect();
+              big._o = [eb.left + eb.width / 2 - bb.left, eb.top + eb.height * 0.5 - bb.top];
+              big.style.transform = prev;
+            }
+            var S = Math.max(window.innerWidth / (fs * 0.2), vh / (fs * 0.55)) * 1.5;
+            var sc = Math.exp(Math.log(S) * u * u);
+            big.style.transformOrigin = big._o[0].toFixed(1) + "px " + big._o[1].toFixed(1) + "px";
+            big.style.transform = "scale(" + sc.toFixed(3) + ")";
+            plate.style.opacity = u > 0.93 ? ((1 - u) / 0.07).toFixed(2) : "";
+          }
+        }
+      });
+      liftEl.style.opacity = (WY.RM ? 0 : 0.3 * lift).toFixed(3);
+      if (act !== cur) { cur = act; trigger(act); }
+    });
+    window.addEventListener("resize", function () { bigs.forEach(function (b) { b._o = null; }); });
+  });
+})();
+</script>
+</body>
+</html>

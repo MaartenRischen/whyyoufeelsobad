@@ -1,0 +1,29 @@
+/* The coded film's own styles (from mismatch-series/coded/index.html), for use on a web page.
+   The film is always laid out at 1080 x 1350 and scaled by its container. */
+@font-face{font-family:"Montserrat";font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:800;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Archivo Black";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/archivo-black-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/space-mono-latin-700-normal.woff2) format("woff2")}
+
+:root{--paper:#f7f0de;--inkc:#22202e;--redc:#e4472d;--greenc:#2fae68}
+#root{position:relative;width:1080px;height:1350px;overflow:hidden;font-family:"Montserrat",sans-serif;background:#f6ecd4}
+#root *{box-sizing:border-box}
+#film{position:absolute;inset:0}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1350px;display:block}
+#grain{position:absolute;inset:-20px;background:url(assets/grain.png);background-size:540px 540px;mix-blend-mode:multiply;opacity:.42;pointer-events:none}
+#dim{position:absolute;inset:0;background:#1b1830;mix-blend-mode:multiply;opacity:0;pointer-events:none}
+#aura{position:absolute;left:0;top:0;width:1080px;height:1350px;pointer-events:none}
+.ly-hills path,#canopyB,#canopyF,.ly-patch,.ly-pond{filter:drop-shadow(0 4px 2px rgba(34,32,46,.2))}
+.pp{filter:drop-shadow(0 2.5px 1px rgba(20,18,40,.28))}
+#lines{position:absolute;left:0;top:0;width:1080px;height:1350px;pointer-events:none}
+.lab{position:absolute;left:40px;top:44px;display:flex;align-items:flex-start;gap:13px;max-width:900px;white-space:nowrap;margin:0;padding:11px 22px 12px 12px;background:var(--paper);color:var(--inkc);border:3px solid var(--inkc);border-radius:9px;box-shadow:5px 6px 0 rgba(34,32,46,.3);font-weight:700;font-size:36px;line-height:1.2;letter-spacing:-.01em;opacity:0}
+.lab .n{flex:none;width:40px;height:40px;border-radius:50%;background:var(--inkc);color:var(--paper);font-family:"Archivo Black",sans-serif;font-weight:400;font-size:23px;line-height:40px;text-align:center}
+.lab .t{display:block;padding-top:0}
+.lab.wrap{white-space:normal;width:max-content;max-width:900px;text-wrap:balance;font-size:34px}
+.lab.chg{background:var(--inkc);color:var(--paper);border-color:var(--inkc);padding-left:22px}
+#tab{position:absolute;right:40px;bottom:34px;display:flex;align-items:center;gap:12px;padding:8px 16px 8px 10px;background:var(--paper);border:3px solid var(--inkc);border-radius:7px;box-shadow:4px 5px 0 rgba(34,32,46,.3);font-family:"Space Mono",monospace;font-weight:700;font-size:28px;letter-spacing:.02em;color:var(--inkc);opacity:0}
+#tab .k{background:var(--inkc);color:var(--paper);padding:2px 9px;border-radius:4px}
+/* a page that shows the lines itself turns the film's own labels off */
+.nolabels #labels,.nolabels #lines,.nolabels #tab{visibility:hidden}
+.notab #tab{visibility:hidden}

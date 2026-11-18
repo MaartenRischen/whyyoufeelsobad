@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Film stage</title>
+<link rel="stylesheet" href="film.css">
+<style>
+html,body{margin:0;width:1080px;height:1350px;overflow:hidden;background:#f6ecd4}
+</style>
+</head>
+<body>
+<!-- The film stage on its own, for pages that show it in a frame. The page that holds the frame
+     decides which moment is drawn: frame.contentWindow.__film.draw(seconds). -->
+<div id="root">
+  <div id="film">
+    <svg id="stage" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><style id="palcss"></style><g id="cam"></g></svg>
+    <div id="grain"></div>
+    <div id="dim"></div>
+    <svg id="aura" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs id="adefs"></defs><g id="ahalo"></g><g id="acam"></g><g id="aring"></g></svg>
+    <svg id="lines" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+    <div id="labels"></div>
+    <div id="tab"><span class="k" id="tabk">1/5</span><span id="tabt">THREE-SPINED STICKLEBACK</span></div>
+  </div>
+</div>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search), r = document.getElementById("root");
+    if (q.get("labels") === "0") r.classList.add("nolabels");
+    if (q.get("grain") === "0") document.getElementById("grain").style.display = "none";
+  })();
+</script>
+<script src="js/gsap.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/tl.js"></script>
+<script src="js/world.js"></script>
+<script src="js/east.js"></script>
+<script src="js/rigs.js"></script>
+<script src="js/rigs_human.js"></script>
+<script src="js/stage.js"></script>
+<script src="js/seq_fish.js"></script>
+<script src="js/seq_beetle.js"></script>
+<script src="js/seq_toad.js"></script>
+<script src="js/seq_monk.js"></script>
+<script src="js/seq_human.js"></script>
+<script src="js/finale.js"></script>
+</body>
+</html>
