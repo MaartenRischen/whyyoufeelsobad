@@ -24,7 +24,7 @@ input[type=range]{flex:1;min-width:0}
 <body>
 <main>
 <h1>The orca: sea, then tank</h1>
-<p>Test page, not part of the site. The picture is drawn live from the film's code; there is no video file and no sound. It plays in a loop. Version 2, 18 November 2026.</p>
+<p>Test page, not part of the site. The picture is drawn live from the film's code; there is no video file and no sound. It plays in a loop. Version 3 (the shorter lines), 18 November 2026.</p>
 <div id="box"><iframe id="fr" src="embed.html" title="The orca: sea, then tank" scrolling="no"></iframe></div>
 <div class="bar"><button id="pp" type="button">Pause</button><input id="sc" type="range" min="0" max="1" step="0.001" value="0" aria-label="Position in the film"><span id="tm">0.0 s</span></div>
 <div class="bar len" id="len" role="group" aria-label="Length of the film"><span>Length:</span></div>
@@ -32,7 +32,7 @@ input[type=range]{flex:1;min-width:0}
 </main>
 <script>
 (function () {
-  var LENS = [10, 15];
+  var LENS = [9, 13];
   var fr = document.getElementById("fr"), box = document.getElementById("box"), pp = document.getElementById("pp"), sc = document.getElementById("sc"), tm = document.getElementById("tm"), len = document.getElementById("len");
   var film = null, t = 0, playing = false, last = 0, rate = 1, hold = 0;
   function fit() { fr.style.transform = "scale(" + box.clientWidth / 1080 + ")"; }

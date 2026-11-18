@@ -1,23 +1,26 @@
 /* tl.js - the words and their timing for the orca film.
-   Words: Open Brain thought 4822, steps 5 and 6, word for word (approved by Maarten, 18 Nov 2026).
+   Words: Open Brain thought 4840, word for word (shorter lines by claude-web on Maarten's "I think the
+   lines can be shorter too", 18 Nov 2026). They replace steps 5 and 6 of thought 4822.
    Version 2 (dispatch 4839): the film does the job of an animated diagram. A label stays for as long
-   as it takes to read it and no longer: 0.15 s to find it + 28 characters a second, at least 0.6 s.
+   as it takes to read it and no longer: 0.15 s to find it + 28 characters a second. With two and
+   three word labels the limit is the picture, not the reading: no label is up for less than 0.8 s,
+   the least time an action gets to be seen.
    (v1 and the ADHD film: 0.4 s + 20 characters a second, plus time for the action.) */
 const FPS = 30;
-const rd = (s) => Math.max(0.6, 0.15 + s.length / 28);
+const rd = (s) => Math.max(0.8, 0.15 + s.length / 28);
 const KEY = "orca", NAME = "ORCA";
 
 const TEXT = [
   "An orca needs its family to survive.",
-  "So being apart from them feels bad.",
-  "So it calls to them.",
-  "They call back.",
-  "Being back with them feels good.",
+  "Apart, it feels bad.",
+  "So it calls.",
+  "They answer.",
+  "It feels good.",
   "Now it lives in a tank.",
   "It still needs its family.",
-  "Being apart still feels bad.",
+  "Apart, it still feels bad.",
   "So it still calls.",
-  "Nobody calls back.",
+  "Nobody answers.",
   "The bad feeling never stops."];
 const NUM = ["1", "2", "3", "4", "5", null, "1", "2", "3", "4", "5"];
 /* the action has to fit the label, so there is no extra time on any of them */

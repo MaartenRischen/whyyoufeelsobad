@@ -54,10 +54,10 @@
      It turns round. The water is empty. It comes up and looks. */
   turn(hs, lostT, 0.18, 1);
   face(hs, lostT + 0.09, 0.1, "alert", { px: 4, py: -1 });
-  to(hs, lostT + 0.25, 0.6, { x: 480, y: 800 }, "sine.inOut");
-  face(hs, lostT + 0.3, 0.2, "search", { px: 4, py: -1 });
-  to(hs, lostT + 0.45, 0.14, { px: -3 }, "sine.inOut"); to(hs, lostT + 0.72, 0.14, { px: 4 }, "sine.inOut");
-  face(hs, lostT + 0.95, 0.2, "sad", { px: 4, py: 0 });
+  to(hs, lostT + 0.2, 0.45, { x: 480, y: 800 }, "sine.inOut");
+  face(hs, lostT + 0.2, 0.14, "search", { px: 4, py: -1 });
+  to(hs, lostT + 0.36, 0.12, { px: -3 }, "sine.inOut"); to(hs, lostT + 0.54, 0.12, { px: 4 }, "sine.inOut");
+  face(hs, lostT + 0.68, 0.16, "sad", { px: 4, py: 0 });
 
   /* ================================================================= 3. it calls */
   to(hs, B[2] - 0.08, 0.14, { pitch: -8 }, "sine.inOut");
@@ -89,9 +89,9 @@
   to(ms, meetT, 0.28, { y: 640, pitch: 7 }, "sine.inOut");
   face(hs, meetT + 0.1, 0.2, "bliss", { px: 3, py: -2 });
   face(ms, meetT + 0.1, 0.2, "bliss", { px: 2, py: 2 });
-  [0, 1].forEach((k) => { to(hs, meetT + 0.32 + k * 0.32, 0.16, { y: 708, x: 1750 }, "sine.inOut"); to(hs, meetT + 0.48 + k * 0.32, 0.16, { y: 718, x: 1740 }, "sine.inOut"); });
-  to(cs, meetT, 0.3, { x: 1900, y: 742 }, "sine.inOut"); to(cs, meetT + 0.3, 0.35, { x: 1880, y: 826 }, "sine.inOut"); to(cs, meetT + 0.65, 0.3, { x: 1910, y: 780 }, "sine.inOut");
-  to(bs, meetT + 0.05, 0.3, { pitch: 5 }, "sine.inOut"); to(bs, meetT + 0.5, 0.3, { pitch: 0 }, "sine.inOut");
+  to(hs, meetT + 0.32, 0.16, { y: 708, x: 1750 }, "sine.inOut"); to(hs, meetT + 0.48, 0.16, { y: 718, x: 1740 }, "sine.inOut");
+  to(cs, meetT, 0.3, { x: 1900, y: 742 }, "sine.inOut"); to(cs, meetT + 0.3, 0.35, { x: 1890, y: 800 }, "sine.inOut");
+  to(bs, meetT + 0.05, 0.28, { pitch: 5 }, "sine.inOut"); to(bs, meetT + 0.38, 0.28, { pitch: 0 }, "sine.inOut");
 
   /* ================================================================= the change: a tank is put down here */
   const floorT = K.floorT, wallRT = K.wallRT, wallLT = K.wallLT, poolT = K.poolT, backT = K.backT;
@@ -131,7 +131,7 @@
   face(hs, B[7] + 0.06, 0.2, "sad", { px: 4, py: 2 });
   turn(hs, B[7] + 0.44, 0.18, -1);
   to(hs, B[7] + 0.44, 0.18, { pitch: 0 }, "sine.inOut");
-  to(hs, B[7] + 0.58, 0.5, { x: 1440, y: 740 }, "sine.inOut");
+  to(hs, B[7] + 0.58, 0.42, { x: 1440, y: 740 }, "sine.inOut");
   /* ================================================================= 3 again. It calls. The call ends at the walls. */
   turn(hs, B[8] - 0.07, 0.16, 1);
   to(hs, B[8] + 0.02, 0.1, { pitch: -8 }, "sine.inOut");
@@ -201,7 +201,7 @@
     [0.02, "green", 0.4, 0.2],                /* with its family: all in order */
     [chaseT + 0.05, "green", 0.5, 0.2],       /* salmon: something it wants */
     [lostT + 0.08, "red", 0.45, 0.2],         /* it turns round: nobody */
-    [B[1] + 0.6, "red", 0.68, 0.5],           /* apart, and it stays that way */
+    [B[1] + 0.4, "red", 0.68, 0.4],           /* apart, and it stays that way */
     [B[2] + 0.05, "red", 0.75, 0.3],
     [hearT, "green", 0.5, 0.18],              /* an answer: this is what the call is for */
     [goT + 0.15, "green", 0.7, 0.3],          /* on the way to them */
