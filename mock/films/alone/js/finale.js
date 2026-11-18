@@ -155,7 +155,7 @@
     ["below", 40, 0.92, hFeet],
     ["below", 40, 0.5, hFeet], ["below", 40, 0.5, hFeet], ["below", 40, 0.5, hFeet, [1745, GH + 12]], ["below", 40, 0.5, hFeet], ["below", 40, 0.96, hFeet],
     ["above", 34, 0.6, hHead]];
-  const SEC = { key: KEY, text: TEXT, num: NUM, beats: BEATS, move: [0.1, 1.0], end: END + 1, cfg: LCFG, name: NAME };
+  const SEC = { key: KEY, text: TEXT, num: NUM, beats: BEATS, end: END + 1, cfg: LCFG, name: NAME };
   const LAB = TEXT.map((txt, i) => {
     const say = i === TEXT.length - 1;
     const have = labelsEl.querySelector('[data-lab="' + KEY + "-" + i + '"]');
@@ -175,15 +175,12 @@
     LAB.forEach((el, i) => {
       const b0 = sec.beats[i][0], b1 = i < n - 1 ? sec.beats[i + 1][0] : e;
       let a = 0;
-      if (t >= b0 && t < b1 + 0.12) {
-        const ain = sat((t - b0) / 0.14);
-        a = ain * sat((b1 + 0.12 - t) / 0.12);
+      if (t >= b0 && t < b1) {
+        /* v2: in over two frames, out on the cut: two labels are never up at once */
+        const ain = sat((t - b0) / 0.06);
+        a = ain;
         const cfg = sec.cfg[i];
-        let A_ = ANCH[i];
-        if (i === 0) {
-          const k = ss((t - sec.move[1]) / 0.35);
-          if (k < 1) { const L = scr(cfg[3]()); A_ = [lerp(L[0], A_[0], k), lerp(L[1], A_[1], k)]; }
-        }
+        const A_ = ANCH[i];
         const w = el.offsetWidth, h = el.offsetHeight;
         const x = clamp(A_[0] - w / 2, 34 + IN, Math.max(34 + IN, 1080 - 34 - IN - w));
         const y = clamp(cfg[0] === "above" ? A_[1] - cfg[1] - h : A_[1] + cfg[1], 30, 1350 - 100 - h);
@@ -194,7 +191,7 @@
       }
       el.style.opacity = Math.round(a * 1000) / 1000;
     });
-    tab.style.opacity = t < s - 0.3 ? 0 : Math.round(ss((t - (s - 0.3)) / 0.3) * 1000) / 1000;
+    tab.style.opacity = Math.round(ss(t / 0.12) * 1000) / 1000;
     if (tabt.textContent !== sec.name) tabt.textContent = sec.name;
     /* the short line from the label to what it is about */
     if (!cur) { OP(lineG, 0); return; }
@@ -203,7 +200,7 @@
     const p = scr(tp);
     const above = cur.cfg[0] === "above";
     const sy = above ? cur.y + cur.h + 2 : cur.y - 2;
-    const grow = ss((t - cur.b0 - 0.08) / 0.2);
+    const grow = ss((t - cur.b0 - 0.03) / 0.1);
     if (grow <= 0 || (above ? p[1] < sy + 14 : p[1] > sy - 14)) { OP(lineG, 0); return; }
     const sx = clamp(p[0], cur.x + 30, cur.x + cur.w - 30);
     const ex = lerp(sx, p[0], grow), ey = lerp(sy, p[1], grow);
@@ -231,7 +228,7 @@
   tl.to(drv, { t: END, duration: END, ease: "none" }, 0);
   window.__timelines = window.__timelines || {};
   window.__timelines["main"] = tl;
-  /* state: the numbers the timeline moves, for tests (sound/.., the stateless check). Read only. */
+  /* state: the numbers the timeline moves, for tests (the stateless check). Read only. */
   window.__film = { KEY, NAME, END, BEATS, TEXT, NUM, draw, cam: C, state: A.state, _main: main };
   /* take each label's place from the picture at its own moment */
   ANCH = BEATS.map((b, i) => { const c = LCFG[i], ts = b[0] + (b[1] - b[0]) * c[2]; draw(ts); return scr(c[4] || c[3]()); });

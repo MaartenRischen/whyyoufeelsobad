@@ -28,7 +28,7 @@ input[type=range]{flex:1;min-width:0}
 <div id="box"><iframe id="fr" src="embed.html" title="The orca: sea, then tank" scrolling="no"></iframe></div>
 <div class="bar"><button id="pp" type="button">Pause</button><input id="sc" type="range" min="0" max="1" step="0.001" value="0" aria-label="Position in the film"><span id="tm">0.0 s</span></div>
 <div class="bar len" id="len" role="group" aria-label="Length of the film"><span>Length:</span></div>
-<p style="margin-top:10px">The film is built at the middle length. The other lengths play the same film faster or slower, to test what still reads.</p>
+<p style="margin-top:10px">The film is built at the length that is marked when the page opens. The other lengths play the same film faster or slower, to test what still reads.</p>
 </main>
 <script>
 (function () {
@@ -42,7 +42,7 @@ input[type=range]{flex:1;min-width:0}
   function go() { playing = true; pp.textContent = "Pause"; last = performance.now(); requestAnimationFrame(tick); }
   function tick(now) {
     if (!playing) return;
-    t += Math.min(0.1, (now - last) / 1000) * rate; last = now;
+    t += Math.max(0, Math.min(0.1, (now - last) / 1000)) * rate; last = now;
     /* at the end: the last picture stays for half a second, then the film starts again */
     if (t >= film.END + 0.5 * rate) t = 0;
     show(); requestAnimationFrame(tick);

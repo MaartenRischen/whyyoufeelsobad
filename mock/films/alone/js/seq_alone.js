@@ -1,5 +1,5 @@
 /* seq_alone.js - the human. It sits with the others at the fire and is given food. The fire burns
-   low, it goes for wood, and out there at dusk it is alone. It goes back, they welcome it, it sits
+   low, it runs for wood, and out there at dusk it is alone. It runs back, they welcome it, it sits
    among them. Then a flat is put down on the same spot: a wall between it and the others, a floor,
    the front of a block with this one cell cut open, a chair, a table, a lamp. It looks for the
    others at the window and at the door. Nobody is there.
@@ -21,7 +21,7 @@
   const standK = hero.low(HP.stand);
   const SEAT = 59;                      /* hip height on the armchair */
   const FIRE = EP.fire, PILE = EP.pile;
-  const X_OUT = PILE[0] + 30, X_MEET = 1568, X_FIRE = 1756, X_WOOD = 1772, X_SIT0 = 1722;
+  const X_OUT = PILE[0] + 30, X_MEET = 1540, X_FIRE = 1756, X_WOOD = 1772, X_SIT0 = 1722;
 
   /* ---- things ---- */
   const bread = G('<circle r="9" class="f-wood"/><circle r="9" fill="none" class="s-wood2" stroke-width="2.4"/><path class="s-wood2" stroke-width="1.8" stroke-linecap="round" d="M-4,-2 l8,4"/>', E.props, "bread");
@@ -84,259 +84,245 @@
   hero.lx = X_SIT0; yv.lx = 1622; el.lx = 1952; teen.lx = 2016; kid.lx = 1890;
 
   /* ================================================================= the camera */
-  const V_CAMP = [1575, 540, 500], V_AWAY = [980, 225, 900], V_MEET = [1470, 520, 520], V_GOOD = [1610, 560, 460], V_FLAT = [1410, 300, 640], V_END = [1480, 400, 520];
-  cut(0.1, 1.0, V_CAMP, 0);
-  cut(HK.walkT + 0.1, HK.walkT + 2.5, V_AWAY, 0);
-  cut(HK.backT + 0.05, HK.backT + 1.75, V_MEET, 0);
-  cut(HK.moveT + 0.1, HK.moveT + 1.3, V_GOOD, 0);
-  cut(H[5] + 0.05, H[5] + 1.0, V_FLAT, 0);
-  cut(H[10] + 0.6, H[10] + 4.4, V_END, 0);
+  const V_CAMP = [1575, 540, 500], V_AWAY = [980, 225, 900], V_MEET = [1390, 480, 640], V_GOOD = [1610, 560, 460], V_FLAT = [1410, 300, 640], V_END = [1480, 400, 520];
+  cut(-0.2, -0.1, V_CAMP, 0);                           /* the film opens on the fire */
+  cut(HK.upT + 0.05, HK.arriveT - 0.05, V_AWAY, 0);    /* the camera leaves before the human does, so it stays in the picture */
+  cut(HK.backT, HK.stopT - 0.05, V_MEET, 0);
+  cut(HK.moveT + 0.05, HK.moveT + 0.5, V_GOOD, 0);
+  cut(H[5] + 0.02, H[5] + 0.5, V_FLAT, 0);
+  cut(H[10] + 0.2, H[10] + 0.85, V_END, 0);
 
   /* the hour: late afternoon, then dusk while it is out there, and the moon comes up */
   const h0 = H[0];
-  to(Wd, h0 + 0.6, 4.6, { sy: 566 }, "sine.inOut");
-  to(Wd, h0 + 1.4, 4.2, { night: 0.62 }, "sine.inOut");
-  to(Wd, h0 + 1.4, 4.2, { lit: 0.32 }, "sine.inOut");
-  to(Wd, h0 + 2.6, 3.6, { my: 366 }, "sine.out");
+  to(Wd, h0 + 0.25, 1.5, { sy: 566 }, "sine.inOut");
+  to(Wd, h0 + 0.55, 1.3, { night: 0.62 }, "sine.inOut");
+  to(Wd, h0 + 0.55, 1.3, { lit: 0.32 }, "sine.inOut");
+  to(Wd, h0 + 0.85, 1.2, { my: 366 }, "sine.out");
 
   /* ================================================================= 1. it needs the others.
-     The one next to it hands it food. It eats. The fire burns low. */
+     The one next to it hands it food. It eats. The fire burns low, and it goes for wood. */
   const giveT = HK.giveT, biteT = HK.biteT;
-  to(ys, h0 + 0.05, 0.32, { Ru: -34, Rf: -4, r: 9, Rz: 2 }, "power2.out");
-  face(ys, h0 + 0.05, 0.3, "happy", { px: 3, py: 0 });
-  to(hs, h0 + 0.1, 0.25, { turn: -0.8, headR: -4 }, "sine.inOut");
-  face(hs, h0 + 0.14, 0.25, "happy", { px: -3, py: 1 });
-  to(hs, h0 + 0.16, 0.26, { Lu: 46, Lf: -46 }, "power2.out");
-  to(W, giveT, 0.18, { bread: 1 }, "sine.inOut");
-  to(ys, giveT + 0.24, 0.4, { Ru: -14, Rf: -56, r: 0, Rz: 1 }, "sine.inOut");
-  to(hs, giveT + 0.2, 0.3, { Lu: -34, Lf: -128, Lz: 2, turn: 0.5, headR: 0 }, "power2.inOut");
-  face(hs, giveT + 0.25, 0.2, "happy", { px: 2, py: 1 });
-  [0, 0.38].forEach((dt, k) => {
-    to(hs, biteT + dt - 0.07, 0.07, { open: 0.9 }, "none");
-    to(hs, biteT + dt + 0.02, 0.07, { open: 0.05 }, "none");
-    set(W, biteT + dt + 0.02, { breadS: k ? 0 : 0.6 });
-    [0.11, 0.2].forEach((c) => { to(hs, biteT + dt + c, 0.045, { open: 0.3 }, "none"); to(hs, biteT + dt + c + 0.045, 0.045, { open: 0.03 }, "none"); });
-  });
-  to(hs, biteT + 0.6, 0.3, { Lu: -18, Lf: -52, Lz: 1 }, "sine.inOut");
-  face(ys, giveT + 0.9, 0.4, "calm", { px: 2.5, py: 1.5, mouth: 0.5 });
-  to(W, HK.dipT, 0.6, { fire: 0.5 }, "sine.inOut");
-  to(hs, HK.dipT + 0.3, 0.25, { headR: 5 }, "sine.inOut");
-  face(hs, HK.dipT + 0.45, 0.25, "calm", { px: 3, py: 2.5, mouth: 0.1 });
+  to(ys, 0.02, 0.2, { Ru: -34, Rf: -4, r: 9, Rz: 2 }, "power2.out");
+  face(ys, 0.02, 0.2, "happy", { px: 3, py: 0 });
+  to(hs, 0.04, 0.18, { turn: -0.8, headR: -4 }, "sine.inOut");
+  face(hs, 0.05, 0.18, "happy", { px: -3, py: 1 });
+  to(hs, 0.06, 0.18, { Lu: 46, Lf: -46 }, "power2.out");
+  to(W, giveT, 0.12, { bread: 1 }, "sine.inOut");
+  to(ys, giveT + 0.14, 0.25, { Ru: -14, Rf: -56, r: 0, Rz: 1 }, "sine.inOut");
+  to(hs, giveT + 0.13, 0.18, { Lu: -34, Lf: -128, Lz: 2, turn: 0.5, headR: 0 }, "power2.inOut");
+  face(hs, giveT + 0.14, 0.15, "happy", { px: 2, py: 1 });
+  to(hs, biteT - 0.06, 0.06, { open: 0.9 }, "none");
+  to(hs, biteT + 0.01, 0.06, { open: 0.05 }, "none");
+  set(W, biteT + 0.01, { breadS: 0 });
+  face(ys, giveT + 0.45, 0.25, "calm", { px: 2.5, py: 1.5, mouth: 0.5 });
+  to(W, HK.dipT, 0.4, { fire: 0.5 }, "sine.inOut");
   /* it gets up and goes for wood */
   const upT = HK.upT, walkT = HK.walkT;
-  pz(hero, upT, 0.2, "crouch", { r: 14, Lu: 20, Lf: -20, Ru: 10, Rf: -30, headR: 0 }, "power2.out");
-  pz(hero, upT + 0.2, 0.2, "stand", { r: 0, Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0 }, "back.out(1.6)");
-  go(hero, walkT, HK.arriveT - walkT, X_OUT, { amp: 0.6 });
-  to(hs, walkT, 0.2, { turn: 0.6 }, "none");
-  face(hs, walkT, 0.3, "calm", { px: 3, py: 0, mouth: 0.2 });
-  to(ys, walkT + 0.25, 0.3, { turn: -0.8 }, "sine.inOut"); face(ys, walkT + 0.25, 0.3, "calm", { px: -3, py: 0, mouth: 0.4 });
-  to(ys, walkT + 1.3, 0.4, { turn: 0.6 }, "sine.inOut"); face(ys, walkT + 1.3, 0.4, "calm", { px: 2.5, py: 2, mouth: 0.3 });
-  /* the others, all along: the little one rocks, the big one pokes at the fire with its eyes */
+  face(hs, biteT + 0.08, 0.14, "calm", { px: 3, py: 2, mouth: 0.1 });                            /* a look at the fire */
+  pz(hero, upT, 0.11, "crouch", { r: 14, Lu: 20, Lf: -20, Lz: 1, Ru: 10, Rf: -30, headR: 0 }, "power2.out");
+  pz(hero, upT + 0.11, 0.14, "stand", { r: 0, Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0 }, "back.out(1.6)");
+  go(hero, walkT, HK.arriveT - walkT, X_OUT, { amp: 1 });
+  to(hs, walkT, 0.12, { turn: 0.6 }, "none");
+  face(hs, walkT, 0.2, "calm", { px: 3, py: 0, mouth: 0.2 });
+  to(ys, walkT + 0.1, 0.2, { turn: -0.8 }, "sine.inOut"); face(ys, walkT + 0.1, 0.2, "calm", { px: -3, py: 0, mouth: 0.4 });
+  to(ys, walkT + 0.7, 0.3, { turn: 0.6 }, "sine.inOut"); face(ys, walkT + 0.7, 0.3, "calm", { px: 2.5, py: 2, mouth: 0.3 });
+  /* the others, all along: the little one rocks, the big one looks into the fire */
   for (let t = 0.3; t < HK.seeT - 1.4; t += 1.3) { to(ks, t, 0.6, { r: 4 }, "sine.inOut"); to(ks, t + 0.65, 0.6, { r: -3 }, "sine.inOut"); }
-  for (let t = 0.6; t < HK.seeT - 0.6; t += 2.1) { to(ts, t, 0.4, { px: -1, py: 2.5, headR: 5 }, "sine.inOut"); to(ts, t + 1.0, 0.4, { px: 2.5, py: 1, headR: 0 }, "sine.inOut"); }
+  for (let t = 0.6; t < HK.seeT - 1.5; t += 2.1) { to(ts, t, 0.4, { px: -1, py: 2.5, headR: 5 }, "sine.inOut"); to(ts, t + 1.0, 0.4, { px: 2.5, py: 1, headR: 0 }, "sine.inOut"); }
 
   /* ================================================================= 2. alone.
-     It reaches the dead wood as the light goes, picks some up, and looks round. */
+     It reaches the dead wood as the light goes, picks some up, and looks back at the fire, a long way off. */
   const h1 = H[1], aT = HK.arriveT, pickT = HK.pickT, lookT = HK.lookT;
-  face(hs, h1 + 0.2, 0.7, "restless", { px: 3, py: 0, mouth: -0.2, brow: -0.3 });
-  pz(hero, aT, 0.22, "crouch", { r: 16, Lu: -44, Lf: -24, Ru: -34, Rf: -26, Lz: 2, Rz: 1, headR: 6 }, "power2.out");
+  face(hs, h1 - 0.25, 0.3, "restless", { px: 3, py: 0, mouth: -0.2, brow: -0.3 });
+  pz(hero, aT, 0.12, "crouch", { r: 16, Lu: -44, Lf: -24, Ru: -34, Rf: -26, Lz: 2, Rz: 1, headR: 6 }, "power2.out");
   set(W, pickT, { carry: 1, pile: 0 });
-  pz(hero, pickT + 0.06, 0.3, "stand", { r: 0, Lu: -14, Lf: -84, Ru: -4, Rf: -6, Rz: 0, headR: 0 }, "back.out(1.4)");
-  to(hs, lookT, 0.3, { turn: 0.85, headR: -5 }, "sine.inOut");                                   /* into the dark */
-  face(hs, lookT, 0.3, "alert", { px: 3, py: -1, open: 0.1, mouth: -0.35 });
-  to(hs, lookT + 0.55, 0.32, { turn: -0.85, headR: 4 }, "sine.inOut");                           /* and back, to the fire a long way off */
-  face(hs, lookT + 0.55, 0.4, "sad", { px: -3, py: 0, mouth: -0.6, lid: 0.12 });
-  to(hs, lookT + 0.4, 0.45, { Ru: 12, Rf: 118, Rz: 1 }, "sine.inOut");                         /* its free arm comes across its body */
-  to(hs, lookT + 0.5, 0.5, { shiver: 0.4 }, "none");
+  pz(hero, pickT + 0.03, 0.18, "stand", { r: 0, Lu: -14, Lf: -84, Ru: -4, Rf: -6, Rz: 0, headR: 0 }, "back.out(1.4)");
+  to(hs, lookT, 0.2, { turn: -0.85, headR: 4 }, "sine.inOut");
+  face(hs, lookT, 0.25, "sad", { px: -3, py: 0, mouth: -0.6, lid: 0.12 });
+  to(hs, lookT + 0.03, 0.28, { Ru: 12, Rf: 118, Rz: 1 }, "sine.inOut");                          /* its free arm comes across its body */
+  to(hs, lookT + 0.1, 0.3, { shiver: 0.4 }, "none");
 
   /* ================================================================= 3. it goes to the others */
   const h2 = H[2], backT = HK.backT, stopT = HK.stopT;
   set(hs, HK.turnT, { flip: 1, turn: 0.7 });
-  to(hs, HK.turnT, 0.2, { headR: 0, shiver: 0 }, "none");
-  face(hs, HK.turnT, 0.25, "restless", { px: 3, py: 0, brow: -0.7, mouth: -0.4 });
-  to(hs, backT - 0.05, 0.2, { Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
-  go(hero, backT, stopT - backT, X_MEET, { amp: 0.85 });
+  to(hs, HK.turnT, 0.08, { headR: 0, shiver: 0 }, "none");
+  face(hs, HK.turnT, 0.15, "restless", { px: 3, py: 0, brow: -0.7, mouth: -0.4 });
+  to(hs, backT - 0.06, 0.12, { Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
+  go(hero, backT, stopT - backT, X_MEET, { amp: 1 });
   dust(backT + 0.02, X_OUT - 6, GH, 4);
-  face(hs, backT + 0.9, 0.4, "restless", { px: 3, py: 0, brow: -0.4, mouth: -0.1, pup: 1.1 });
+  face(hs, backT + 0.45, 0.25, "restless", { px: 3, py: 0, brow: -0.4, mouth: -0.1, pup: 1.1 });
 
   /* ================================================================= 4. they welcome it.
      They see it coming. The one who fed it gets up and takes the wood. The little one runs to it
      and holds on. The others wave. The wood goes on the fire. */
   const seeT = HK.seeT, takeT = HK.takeT, kidT = HK.kidT, hugT = HK.hugT, woodT = HK.woodT, moveT = HK.moveT;
-  to(ys, seeT, 0.14, { turn: -0.9 }, "sine.inOut"); face(ys, seeT, 0.3, "happy", { px: -3, py: 0, open: 0.3 });
-  to(ks, seeT + 0.08, 0.16, { turn: 0.9 }, "sine.inOut"); face(ks, seeT + 0.08, 0.2, "laugh", { px: 3, py: 0 });
-  to(es, seeT + 0.15, 0.3, { turn: 0.9, headR: 0 }, "sine.inOut"); face(es, seeT + 0.15, 0.3, "happy", { px: 3, py: 0 });
-  to(ts, seeT + 0.2, 0.3, { turn: 0.9, headR: 0 }, "sine.inOut"); face(ts, seeT + 0.2, 0.3, "laugh", { px: 3, py: 0 });
-  to(W, seeT + 0.1, 0.3, { weave: 0 }, "none");
+  to(ys, seeT, 0.07, { turn: -0.9 }, "sine.inOut"); face(ys, seeT, 0.2, "happy", { px: -3, py: 0, open: 0.3 });
+  to(ks, seeT + 0.04, 0.12, { turn: 0.9 }, "sine.inOut"); face(ks, seeT + 0.04, 0.15, "laugh", { px: 3, py: 0 });
+  to(es, seeT + 0.08, 0.2, { turn: 0.9, headR: 0 }, "sine.inOut"); face(es, seeT + 0.08, 0.2, "happy", { px: 3, py: 0 });
+  to(ts, seeT + 0.1, 0.2, { turn: 0.9, headR: 0 }, "sine.inOut"); face(ts, seeT + 0.1, 0.2, "laugh", { px: 3, py: 0 });
+  to(W, seeT + 0.05, 0.2, { weave: 0 }, "none");
   /* the one who fed it: up, and its hands out for the wood */
-  set(ys, seeT + 0.16, { flip: -1, turn: 0.7 });
-  pz(yv, seeT + 0.16, 0.18, "crouch", { r: 10, Lu: 20, Lf: -20, Ru: 10, Rf: -30 }, "power2.out");
-  pz(yv, seeT + 0.34, 0.24, "stand", { r: 0, Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0 }, "back.out(1.5)");
-  to(ys, takeT - 0.22, 0.22, { Lu: -62, Lf: -22, Lz: 2, Ru: -54, Rf: -26, Rz: 1 }, "power2.out");
-  to(hs, takeT - 0.2, 0.2, { Lu: -58, Lf: -28, Lz: 2 }, "power2.out");
-  to(W, takeT, 0.2, { take: 1 }, "sine.inOut");                                                  /* the wood changes hands */
-  face(hs, takeT - 0.15, 0.3, "awe", { px: 3, py: 1, mouth: 0.25, open: 0.15 });
-  to(hs, takeT + 0.22, 0.3, { Lu: 6, Lf: -6, Lz: 1 }, "sine.inOut");
-  set(ys, takeT + 0.26, { flip: 1, turn: 0.6 });
-  to(ys, takeT + 0.22, 0.2, { Lu: -14, Lf: -84, Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
-  go(yv, takeT + 0.3, 0.75, X_WOOD, { amp: 0.5 });
-  face(ys, takeT + 0.3, 0.3, "happy", { px: 3, py: 1 });
-  pz(yv, woodT - 0.3, 0.22, "crouch", { r: 12, Lu: -64, Lf: -14, Lz: 2 }, "power2.out");
-  to(W, woodT - 0.12, 0.2, { carry: 0 }, "power2.in");
-  set(W, woodT + 0.06, { fwood: 1 });
-  to(W, woodT + 0.05, 0.35, { fire: 1.3 }, "back.out(2)");
-  to(W, woodT + 0.7, 1.2, { fire: 1.12 }, "sine.inOut");
-  puff(E.fire, woodT + 0.06, 0, -24, { n: 9, r: 2.6, v: 46, fill: "#FFD98A", a0: -PI * 0.85, a1: -PI * 0.15, life: 0.7, rise: 50, seed: 31, op: 0.95 });
-  pz(yv, woodT + 0.22, 0.22, "stand", { r: 0, Lu: 6, Lf: -6, Lz: 1 }, "back.out(1.5)");
-  go(yv, woodT + 0.4, 0.62, 1890, { amp: 0.45 });                                                /* round the fire, to the place the little one left */
-  set(ys, woodT + 1.06, { flip: -1, turn: 0.6 });
-  pz(yv, woodT + 1.08, 0.35, "cross", { Lu: -20, Lf: -50, Ru: -14, Rf: -56, Rz: 1 }, "power2.inOut");
-  face(ys, woodT + 1.1, 0.4, "happy", { px: 2, py: 1 });
+  set(ys, seeT + 0.08, { flip: -1, turn: 0.7 });
+  pz(yv, seeT + 0.08, 0.1, "crouch", { r: 10, Lu: 20, Lf: -20, Ru: 10, Rf: -30 }, "power2.out");
+  pz(yv, seeT + 0.18, 0.14, "stand", { r: 0, Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0 }, "back.out(1.5)");
+  to(ys, takeT - 0.14, 0.14, { Lu: -62, Lf: -22, Lz: 2, Ru: -54, Rf: -26, Rz: 1 }, "power2.out");
+  to(hs, takeT - 0.14, 0.14, { Lu: -58, Lf: -28, Lz: 2 }, "power2.out");
+  to(W, takeT, 0.12, { take: 1 }, "sine.inOut");                                                 /* the wood changes hands */
+  face(hs, takeT - 0.1, 0.2, "awe", { px: 3, py: 1, mouth: 0.25, open: 0.15 });
+  set(ys, takeT + 0.16, { flip: 1, turn: 0.6 });
+  to(ys, takeT + 0.13, 0.14, { Lu: -14, Lf: -84, Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
+  go(yv, takeT + 0.2, 0.36, X_WOOD, { amp: 0.6 });
+  face(ys, takeT + 0.2, 0.2, "happy", { px: 3, py: 1 });
+  to(ys, woodT - 0.1, 0.1, { r: 8, Lu: -64, Lf: -14, Lz: 2 }, "power2.out");                     /* onto the fire */
+  to(W, woodT - 0.08, 0.1, { carry: 0 }, "power2.in");
+  set(W, woodT + 0.04, { fwood: 1 });
+  to(W, woodT + 0.03, 0.25, { fire: 1.3 }, "back.out(2)");
+  to(W, woodT + 0.4, 0.6, { fire: 1.12 }, "sine.inOut");
+  puff(E.fire, woodT + 0.04, 0, -24, { n: 9, r: 2.6, v: 46, fill: "#FFD98A", a0: -PI * 0.85, a1: -PI * 0.15, life: 0.6, rise: 50, seed: 31, op: 0.95 });
+  to(ys, woodT + 0.02, 0.12, { r: 0, Lu: 6, Lf: -6, Lz: 1 }, "sine.inOut");
+  go(yv, woodT + 0.14, 0.33, 1890, { amp: 0.6 });                                                /* round the fire, to the place the little one left */
+  set(ys, woodT + 0.49, { flip: -1, turn: 0.6 });
+  pz(yv, woodT + 0.5, 0.25, "cross", { Lu: -20, Lf: -50, Ru: -14, Rf: -56, Rz: 1 }, "power2.inOut");
+  face(ys, woodT + 0.5, 0.25, "happy", { px: 2, py: 1 });
   /* the little one: up, across, and its arms round the human */
-  pz(kid, seeT + 0.25, 0.22, "stand", { Lu: 6, Lf: -6, Ru: -4, Rf: -6, r: 0 }, "back.out(2)");
+  pz(kid, seeT + 0.16, 0.14, "stand", { Lu: 6, Lf: -6, Ru: -4, Rf: -6, r: 0 }, "back.out(2)");
   go(kid, kidT, hugT - kidT - 0.05, X_MEET + 27);
-  to(ks, hugT - 0.22, 0.2, { Lu: -104, Lf: -8, Ru: -96, Rf: -10, Lz: 2, Rz: 1 }, "power2.out");
-  to(ks, hugT, 0.22, { Lu: -78, Lf: -30, Ru: -70, Rf: -28, r: 10, headR: -6 }, "power2.out");
-  face(ks, hugT, 0.25, "bliss", { px: 2, py: 0 });
+  to(ks, hugT - 0.18, 0.16, { Lu: -104, Lf: -8, Ru: -96, Rf: -10, Lz: 2, Rz: 1 }, "power2.out");
+  to(ks, hugT, 0.16, { Lu: -78, Lf: -30, Ru: -70, Rf: -28, r: 10, headR: -6 }, "power2.out");
+  face(ks, hugT, 0.2, "bliss", { px: 2, py: 0 });
   /* the two across the fire */
-  to(es, hugT - 0.1, 0.25, { Lu: -152, Lf: 8 }, "back.out(1.6)");
-  [0, 1, 2].forEach((k) => { to(es, hugT + 0.2 + k * 0.26, 0.13, { Lf: 34 }, "sine.inOut"); to(es, hugT + 0.33 + k * 0.26, 0.13, { Lf: -8 }, "sine.inOut"); });
-  to(es, hugT + 1.1, 0.4, { Lu: -42, Lf: -62 }, "sine.inOut");
-  pz(teen, seeT + 0.5, 0.22, "crouch", { r: 10 }, "power2.out");
-  pz(teen, seeT + 0.72, 0.25, "stand", { r: 0, Lu: -160, Lf: 6, Ru: 160, Rf: -6, Lz: 2, Rz: 2 }, "back.out(1.8)");
-  [0, 1].forEach((k) => hop(ts, hugT + k * 0.4, 0.3, 9));
-  to(ts, hugT + 0.9, 0.4, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, Lz: 1, Rz: 0 }, "sine.inOut");
-  pz(teen, hugT + 1.4, 0.35, "cross", { Lu: -20, Lf: -50, Ru: -14, Rf: -56, Rz: 1, turn: 0.5 }, "power2.inOut");
-  face(ts, hugT + 1.4, 0.4, "happy", { px: 2, py: 2 });
+  to(es, hugT - 0.08, 0.16, { Lu: -152, Lf: 8 }, "back.out(1.6)");
+  [0, 1].forEach((k) => { to(es, hugT + 0.1 + k * 0.2, 0.1, { Lf: 34 }, "sine.inOut"); to(es, hugT + 0.2 + k * 0.2, 0.1, { Lf: -8 }, "sine.inOut"); });
+  to(es, hugT + 0.52, 0.25, { Lu: -42, Lf: -62 }, "sine.inOut");
+  pz(teen, seeT + 0.3, 0.12, "crouch", { r: 10 }, "power2.out");
+  pz(teen, seeT + 0.42, 0.16, "stand", { r: 0, Lu: -160, Lf: 6, Ru: 160, Rf: -6, Lz: 2, Rz: 2 }, "back.out(1.8)");
+  hop(ts, hugT, 0.24, 9);
+  to(ts, hugT + 0.3, 0.2, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, Lz: 1, Rz: 0 }, "sine.inOut");
+  pz(teen, hugT + 0.52, 0.25, "cross", { Lu: -20, Lf: -50, Ru: -14, Rf: -56, Rz: 1, turn: 0.5 }, "power2.inOut");
+  face(ts, hugT + 0.52, 0.25, "happy", { px: 2, py: 2 });
   /* the human: the feeling changes when it is held */
-  to(hs, hugT, 0.14, { r: -4 }, "power2.out"); to(hs, hugT + 0.14, 0.3, { r: 0 }, "sine.inOut");
-  to(hs, hugT + 0.05, 0.3, { Lu: -26, Lf: -34, Lz: 1, Ru: -20, Rf: -50, Rz: 1, headR: 12, turn: 0.5 }, "power2.out");   /* its arms come down round the little one */
-  face(hs, hugT + 0.08, 0.35, "happy", { px: 2, py: 3, lid: 0.25, lidL: 0.3 });
-  to(hs, hugT + 0.85, 0.3, { headR: 3, turn: 0.85 }, "sine.inOut");                              /* and it looks up at the others, at the fire */
-  face(hs, hugT + 0.85, 0.3, "happy", { px: 3, py: -0.5, lid: 0.15, lidL: 0.4, open: 0.3 });
+  to(hs, hugT, 0.1, { r: -4 }, "power2.out"); to(hs, hugT + 0.1, 0.2, { r: 0 }, "sine.inOut");
+  to(hs, hugT + 0.02, 0.22, { Lu: -26, Lf: -34, Lz: 1, Ru: -20, Rf: -50, Rz: 1, headR: 12, turn: 0.5 }, "power2.out");   /* its arms come down round the little one */
+  face(hs, hugT + 0.04, 0.25, "happy", { px: 2, py: 3, lid: 0.25, lidL: 0.3 });
+  to(hs, hugT + 0.34, 0.15, { headR: 3, turn: 0.85 }, "sine.inOut");                             /* and it looks up at the others, at the fire */
+  face(hs, hugT + 0.34, 0.15, "happy", { px: 3, py: -0.5, lid: 0.15, lidL: 0.4, open: 0.3 });
   /* they go to the fire together */
-  to(hs, moveT - 0.06, 0.25, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0, headR: 0, turn: 0.6 }, "sine.inOut");
-  to(ks, moveT - 0.12, 0.2, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, r: 0, headR: 0, Lz: 1, Rz: 0 }, "sine.inOut");
-  face(ks, moveT - 0.1, 0.2, "laugh", { px: 3, py: 0 });
-  go(kid, moveT, 0.5, X_FIRE - 50);
-  pz(kid, moveT + 0.58, 0.3, "knees", { Lu: -50, Lf: -74, Ru: -58, Rf: -62, Rz: 1, turn: 0.6 }, "power2.out");
-  face(ks, moveT + 0.58, 0.3, "happy", { px: 2, py: 1 });
-  go(hero, moveT + 0.12, 0.9, X_FIRE, { amp: 0.5 });
-  to(es, moveT + 0.3, 0.4, { turn: 0.5, headR: 8 }, "sine.inOut");
-  face(es, moveT + 0.3, 0.4, "happy", { px: 2, py: 2, lid: 0.2 });
-  to(W, moveT + 0.5, 0.4, { weave: 1 }, "none");
+  to(hs, moveT - 0.02, 0.15, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0, headR: 0, turn: 0.6 }, "sine.inOut");
+  to(ks, moveT - 0.08, 0.12, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, r: 0, headR: 0, Lz: 1, Rz: 0 }, "sine.inOut");
+  face(ks, moveT - 0.06, 0.12, "laugh", { px: 3, py: 0 });
+  go(kid, moveT + 0.06, 0.38, X_FIRE - 50);                                                      /* the little one stays at its side */
+  pz(kid, moveT + 0.46, 0.2, "knees", { Lu: -50, Lf: -74, Ru: -58, Rf: -62, Rz: 1, turn: 0.6 }, "power2.out");
+  face(ks, moveT + 0.46, 0.2, "happy", { px: 2, py: 1 });
+  go(hero, moveT + 0.06, 0.38, X_FIRE, { amp: 0.6 });
+  to(es, moveT + 0.25, 0.3, { turn: 0.5, headR: 8 }, "sine.inOut");
+  face(es, moveT + 0.25, 0.3, "happy", { px: 2, py: 2, lid: 0.2 });
+  to(W, moveT + 0.3, 0.3, { weave: 1 }, "none");
 
   /* ================================================================= 5. with the others.
      It sits down among them and the little one leans on it. */
   const h4 = H[4], sitT = HK.sitT, leanT = HK.leanT;
-  pz(hero, sitT, 0.36, "cross", { r: 0, Lu: -18, Lf: -52, Ru: -12, Rf: -58, Lz: 1, Rz: 1, turn: 0.5, headR: 0 }, "power2.inOut");
-  face(hs, sitT, 0.4, "happy", { px: 2.5, py: 1.5 });
-  to(hs, sitT + 0.3, 0.6, { breath: 1.4 }, "none");
-  to(ks, leanT, 0.45, { r: 12, headR: 8 }, "sine.inOut");
-  face(ks, leanT, 0.5, "bliss", { px: 2, py: 1 });
-  to(hs, leanT + 0.15, 0.4, { turn: -0.5, headR: -7 }, "sine.inOut");                            /* a look down at it */
-  face(hs, leanT + 0.15, 0.4, "happy", { px: -2.5, py: 2.5, lid: 0.3, lidL: 0.3 });
-  to(hs, leanT + 1.0, 0.5, { turn: 0.5, headR: 3 }, "sine.inOut");                               /* and into the fire */
-  face(hs, leanT + 1.0, 0.7, "bliss", { px: 2, py: 1.5, mouth: 0.8, lid: 0.4, lidL: 0.3 });
-  face(ys, leanT + 0.4, 0.6, "bliss", { px: 2, py: 1.5, lid: 0.4 });
+  pz(hero, sitT, 0.25, "cross", { r: 0, Lu: -18, Lf: -52, Ru: -12, Rf: -58, Lz: 1, Rz: 1, turn: 0.5, headR: 0 }, "power2.inOut");
+  face(hs, sitT, 0.25, "happy", { px: 2.5, py: 1.5 });
+  to(hs, sitT + 0.2, 0.4, { breath: 1.4 }, "none");
+  to(ks, leanT, 0.3, { r: 12, headR: 8 }, "sine.inOut");
+  face(ks, leanT, 0.3, "bliss", { px: 2, py: 1 });
+  to(hs, leanT + 0.08, 0.25, { turn: -0.5, headR: -7 }, "sine.inOut");                           /* a look down at it */
+  face(hs, leanT + 0.08, 0.25, "happy", { px: -2.5, py: 2.5, lid: 0.3, lidL: 0.3 });
+  to(hs, leanT + 0.5, 0.3, { turn: 0.5, headR: 3 }, "sine.inOut");                               /* and into the fire */
+  face(hs, leanT + 0.5, 0.35, "bliss", { px: 2, py: 1.5, mouth: 0.8, lid: 0.4, lidL: 0.3 });
+  face(ys, leanT + 0.2, 0.35, "bliss", { px: 2, py: 1.5, lid: 0.4 });
 
   /* ================================================================= the change: a flat is put down here */
   const C0 = H[5], wallT = HK.wallT, floorT = HK.floorT, frontT = HK.frontT, chairT = HK.chairT, tableT = HK.tableT, lampT = HK.lampT, onT = HK.onT;
-  to(Rm, wallT - 0.25, 0.6, { wall: 1 }, "bounce.out");
-  to(Rm, floorT, 0.6, { floor: 1 }, "power1.inOut");
-  to(Rm, frontT - 0.28, 0.62, { front: 1 }, "bounce.out");
-  SHAKES.push([wallT - 0.02, 9], [frontT - 0.04, 8], [chairT + 0.1, 2.5]);
-  to(Rm, chairT, 0.3, { chair: 1 }, "back.out(2.2)");
-  to(Rm, tableT, 0.28, { table: 1 }, "back.out(2.2)");
-  to(Rm, lampT, 0.45, { lamp: 1 }, "back.out(1.5)");
-  [[0, 1], [0.07, 0.15], [0.16, 1], [0.22, 0.3], [0.3, 1]].forEach(([dt, v]) => set(Rm, onT + dt, { on: v }));
-  to(Wd, onT, 0.3, { lit: 0 }, "none");
+  /* concrete does not bounce: the wall and the front come down and stay */
+  to(Rm, wallT - 0.2, 0.2, { wall: 1 }, "power2.in");
+  to(Rm, floorT, 0.3, { floor: 1 }, "power1.inOut");
+  to(Rm, frontT - 0.2, 0.2, { front: 1 }, "power2.in");
+  SHAKES.push([wallT, 9], [frontT, 8], [chairT + 0.08, 2.5]);
+  to(Rm, chairT, 0.2, { chair: 1 }, "back.out(2.2)");
+  to(Rm, tableT, 0.2, { table: 1 }, "back.out(2.2)");
+  to(Rm, lampT, 0.28, { lamp: 1 }, "back.out(1.5)");
+  [[0, 1], [0.05, 0.15], [0.1, 1], [0.14, 0.3], [0.19, 1]].forEach(([dt, v]) => set(Rm, onT + dt, { on: v }));
+  to(Wd, onT, 0.2, { lit: 0 }, "none");
   /* the human: a start when the wall lands where the others were, and then it finds itself on a chair */
-  hop(hs, wallT, 0.18, 6);
-  face(hs, wallT, 0.1, "shock", { px: -3, py: -1, mouth: -0.45, open: 0.3 });
-  to(hs, wallT, 0.14, { turn: -0.9, headR: -8, Lu: -18, Lf: -52, breath: 1 }, "power2.out");      /* it looks round at where the little one was */
-  to(hs, wallT + 0.5, 0.25, { turn: 0.8, headR: -4 }, "sine.inOut");                             /* and at where the fire was */
-  face(hs, wallT + 0.5, 0.25, "puzzled", { px: 3, py: -1 });
-  to(hs, floorT + 0.32, 0.2, { py: 3, headR: 6 }, "sine.inOut");
-  hop(hs, frontT, 0.16, 4);
-  face(hs, frontT, 0.1, "shock", { px: 2, py: -3, mouth: -0.45, open: 0.3 });
-  to(hs, frontT, 0.14, { headR: -8 }, "power2.out");
+  hop(hs, wallT, 0.14, 6);
+  face(hs, wallT, 0.08, "shock", { px: -3, py: -1, mouth: -0.45, open: 0.3 });
+  to(hs, wallT, 0.12, { turn: -0.9, headR: -8, Lu: -18, Lf: -52, breath: 1 }, "power2.out");       /* it looks round at where the little one was */
+  to(hs, wallT + 0.2, 0.15, { turn: 0.8, headR: -4 }, "sine.inOut");                             /* and at where the fire was */
+  face(hs, wallT + 0.2, 0.15, "puzzled", { px: 3, py: -1 });
+  hop(hs, frontT, 0.12, 4);
+  face(hs, frontT, 0.08, "shock", { px: 2, py: -3, mouth: -0.45, open: 0.3 });
+  to(hs, frontT, 0.1, { headR: -8 }, "power2.out");
   const lowNow = hero.low(HP.cross, 0);
   set(hs, chairT - 0.002, { gnd: 0, h: lowNow });
-  to(hs, chairT, 0.3, Object.assign({}, HP.chair, { h: SEAT, r: 0, x: EP.chair, Lu: -6, Lf: -40, Ru: -4, Rf: -44, headR: 0 }), "back.out(1.8)");
-  face(hs, chairT, 0.15, "shock", { px: 0, py: 3, mouth: -0.45, open: 0.3 });
-  to(hs, tableT, 0.2, { turn: -0.8 }, "sine.inOut");
-  face(hs, tableT, 0.3, "puzzled", { px: -3, py: 1 });
-  to(hs, lampT + 0.15, 0.25, { turn: -0.5, headR: -9 }, "sine.inOut");
-  face(hs, lampT + 0.15, 0.25, "puzzled", { px: -2.5, py: -3 });
+  to(hs, chairT, 0.2, Object.assign({}, HP.chair, { h: SEAT, r: 0, x: EP.chair, Lu: -6, Lf: -40, Ru: -4, Rf: -44, headR: 0 }), "back.out(1.8)");
+  face(hs, chairT, 0.12, "shock", { px: 0, py: 3, mouth: -0.45, open: 0.3 });
+  to(hs, chairT + 0.2, 0.15, { turn: -0.8 }, "sine.inOut");                                      /* the table laid for one */
+  face(hs, chairT + 0.2, 0.2, "puzzled", { px: -3, py: 1 });
+  to(hs, chairT + 0.41, 0.15, { turn: -0.5, headR: -9 }, "sine.inOut");                          /* the lamp */
+  face(hs, chairT + 0.41, 0.18, "puzzled", { px: -2.5, py: -3 });
   hero.lx = EP.chair;
 
   /* ================================================================= X1: it still needs the others.
-     It looks at the door, at the window, at the table laid for one. */
+     It looks at the door, at the window, and down. */
   const h6 = H[6], h7 = H[7], h8 = H[8], h9 = H[9], h10 = H[10], h11 = H[11];
-  to(hs, h6, 0.35, { turn: 0.8, headR: 0 }, "sine.inOut");
-  face(hs, h6, 0.35, "puzzled", { px: 3, py: 0 });
-  to(hs, h6 + 0.85, 0.4, { turn: -0.8, headR: -3 }, "sine.inOut");
-  face(hs, h6 + 0.85, 0.4, "restless", { px: -3, py: 0, mouth: -0.2 });
-  to(hs, h6 + 1.7, 0.45, { turn: 0.3, headR: 7 }, "sine.inOut");
-  face(hs, h6 + 1.7, 0.5, "sad", { px: 1, py: 2.5, mouth: -0.45, brow: -0.6, lid: 0.2 });
+  to(hs, h6, 0.2, { turn: 0.8, headR: 0 }, "sine.inOut");
+  face(hs, h6, 0.2, "puzzled", { px: 3, py: 0 });
+  to(hs, h6 + 0.45, 0.22, { turn: -0.8, headR: -3 }, "sine.inOut");
+  face(hs, h6 + 0.45, 0.22, "restless", { px: -3, py: 0, mouth: -0.2 });
+  to(hs, h6 + 0.9, 0.3, { turn: 0.3, headR: 7 }, "sine.inOut");
+  face(hs, h6 + 0.9, 0.3, "sad", { px: 1, py: 2.5, mouth: -0.45, brow: -0.6, lid: 0.2 });
   /* ================================================================= X2: being alone still feels bad */
-  to(hs, h7 + 0.1, 0.5, { Lu: -25, Lf: -118, Lz: 2, Ru: 12, Rf: 118, Rz: 1, headR: 11, r: 5 }, "sine.inOut");   /* its arms come across its body, as in the meadow */
-  face(hs, h7 + 0.1, 0.5, "sad", { px: 1, py: 3 });
-  to(hs, h7 + 0.7, 0.5, { shiver: 0.35 }, "none");
-  to(hs, h7 + 1.5, 0.3, { turn: 0.8, headR: 3 }, "sine.inOut");                                  /* the door */
-  face(hs, h7 + 1.5, 0.3, "restless", { px: 3, py: -0.5, brow: -0.8, mouth: -0.5 });
+  to(hs, h7 + 0.02, 0.3, { Lu: -25, Lf: -118, Lz: 2, Ru: 12, Rf: 118, Rz: 1, headR: 11, r: 5 }, "sine.inOut");   /* its arms come across its body, as in the meadow */
+  face(hs, h7 + 0.02, 0.3, "sad", { px: 1, py: 3 });
+  to(hs, h7 + 0.3, 0.3, { shiver: 0.35 }, "none");
+  to(hs, h7 + 0.8, 0.2, { turn: 0.8, headR: 3 }, "sine.inOut");                                  /* the door */
+  face(hs, h7 + 0.8, 0.2, "restless", { px: 3, py: -0.5, brow: -0.8, mouth: -0.5 });
   /* ================================================================= X3: it still looks for the others */
   const up2 = HK.up2T, winT = HK.winT, toDoorT = HK.toDoorT, doorT = HK.doorT, openT = HK.openT;
-  to(hs, up2 - 0.12, 0.14, { shiver: 0 }, "none");
-  pz(hero, up2, 0.22, "stand", { h: standK + 7, r: 0, Lu: 6, Lf: -6, Ru: -4, Rf: -6, Lz: 1, Rz: 0, headR: 0 }, "power2.out");
-  to(hs, up2 + 0.22, 0.08, { h: standK }, "power2.in");
-  set(hs, up2 + 0.3, { gnd: 1, h: 0 });
-  face(hs, up2, 0.2, "restless", { px: -3, py: -1, brow: -0.4, mouth: -0.2 });
-  go(hero, HK.toWinT, winT - HK.toWinT - 0.05, 1722, { amp: 0.45 });
-  to(hs, winT - 0.12, 0.26, { Lu: -35, Lf: -25, Ru: -31, Rf: -27, Rz: 1, headR: -5, turn: 0.85 }, "back.out(1.5)");   /* hands on the sill */
-  face(hs, winT, 0.3, "restless", { px: 3, py: -1.5, brow: -0.4, mouth: -0.15, pup: 1.1 });
-  to(hs, winT + 0.4, 0.22, { py: 1.5, headR: 0 }, "sine.inOut");                                /* the windows across, one by one */
-  to(hs, winT + 0.66, 0.2, { py: -2.5, headR: -7 }, "sine.inOut");
-  face(hs, winT + 0.76, 0.3, "sad", { mouth: -0.5 });
-  to(hs, toDoorT - 0.2, 0.19, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0, headR: 0 }, "sine.inOut");
-  go(hero, toDoorT, doorT - toDoorT - 0.05, 1846, { amp: 0.5 });
-  to(hs, toDoorT, 0.2, { turn: 0.7 }, "none");
-  face(hs, toDoorT, 0.3, "restless", { px: 3, py: 0, brow: -0.3, mouth: -0.1 });
-  to(hs, doorT, 0.25, { Ru: -66, Rf: -14, Rz: 2 }, "power2.out");                                /* its hand on the door */
-  to(Rm, openT, 0.4, { door: 1 }, "power2.inOut");
-  to(hs, openT, 0.4, { Ru: -40, Rf: -30 }, "power2.inOut");
-  face(hs, openT, 0.3, "awe", { px: 3, py: 0, mouth: 0.15, open: 0.2 });
+  to(hs, up2 - 0.1, 0.1, { shiver: 0 }, "none");
+  pz(hero, up2, 0.14, "stand", { h: standK + 7, r: 0, Lu: 6, Lf: -6, Ru: -4, Rf: -6, Lz: 1, Rz: 0, headR: 0 }, "power2.out");
+  to(hs, up2 + 0.14, 0.06, { h: standK }, "power2.in");
+  set(hs, up2 + 0.21, { gnd: 1, h: 0 });
+  face(hs, up2, 0.15, "restless", { px: -3, py: -1, brow: -0.4, mouth: -0.2 });
+  go(hero, HK.toWinT, winT - HK.toWinT - 0.04, 1722, { amp: 0.45 });
+  to(hs, winT - 0.08, 0.18, { Lu: -35, Lf: -25, Ru: -31, Rf: -27, Rz: 1, headR: -5, turn: 0.85 }, "back.out(1.5)");   /* hands on the sill */
+  face(hs, winT - 0.08, 0.16, "restless", { px: 3, py: -1.5, brow: -0.4, mouth: -0.15, pup: 1.1 });
+  to(hs, winT + 0.11, 0.12, { py: -2.5, headR: -7 }, "sine.inOut");                              /* the windows across */
+  face(hs, winT + 0.24, 0.12, "sad", { mouth: -0.5 });
+  to(hs, toDoorT - 0.12, 0.11, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0, headR: 0 }, "sine.inOut");
+  go(hero, toDoorT, doorT - toDoorT - 0.04, 1846, { amp: 0.5 });
+  to(hs, toDoorT, 0.12, { turn: 0.7 }, "none");
+  face(hs, toDoorT, 0.2, "restless", { px: 3, py: 0, brow: -0.3, mouth: -0.1 });
+  to(hs, doorT, 0.1, { Ru: -66, Rf: -14, Rz: 2 }, "power2.out");                                 /* its hand on the door */
+  to(Rm, openT, 0.24, { door: 1 }, "power2.inOut");
+  to(hs, openT, 0.24, { Ru: -40, Rf: -30 }, "power2.inOut");
+  face(hs, openT, 0.2, "awe", { px: 3, py: 0, mouth: 0.15, open: 0.2 });
   /* ================================================================= X4: nobody is there */
-  to(hs, h9 + 0.1, 0.3, { Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
-  to(hs, h9 + 0.42, 0.3, { turn: 0.9, r: 8 }, "sine.inOut");                                       /* it leans into the doorway */
-  face(hs, h9 + 0.45, 0.35, "puzzled", { px: 3, py: -2.5, mouth: -0.25 });                       /* up the stairs */
-  to(hs, h9 + 0.95, 0.25, { py: 2.5 }, "sine.inOut");                                            /* and down */
-  face(hs, h9 + 1.3, 0.5, "sad", { px: 2.5, py: 1, mouth: -0.75, lid: 0.2 });
-  to(hs, h9 + 1.4, 0.45, { r: 0, headR: 10, turn: 0.5 }, "sine.inOut");
+  to(hs, h9 - 0.04, 0.12, { Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
+  to(hs, h9 + 0.02, 0.18, { turn: 0.9, r: 8 }, "sine.inOut");                                      /* it leans into the doorway */
+  face(hs, h9 + 0.02, 0.2, "puzzled", { px: 3, py: -2.5, mouth: -0.25 });                        /* up the stairs */
+  face(hs, h9 + 0.3, 0.25, "sad", { px: 2.5, py: 1, mouth: -0.75, lid: 0.2 });
+  to(hs, h9 + 0.3, 0.25, { r: 0, headR: 10, turn: 0.5 }, "sine.inOut");
   const closeT = HK.closeT, back2T = HK.back2T, sit2T = HK.sit2T, slumpT = HK.slumpT;
-  to(hs, closeT - 0.22, 0.2, { Ru: -66, Rf: -14, Rz: 2 }, "power2.out");
-  to(Rm, closeT, 0.4, { door: 0 }, "power2.inOut");
-  to(hs, closeT, 0.4, { Ru: -74, Rf: -8 }, "power2.inOut");
-  to(hs, closeT + 0.42, 0.2, { Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
+  to(hs, closeT - 0.12, 0.11, { Ru: -66, Rf: -14, Rz: 2 }, "power2.out");
+  to(Rm, closeT, 0.2, { door: 0 }, "power2.inOut");
+  to(hs, closeT, 0.2, { Ru: -74, Rf: -8 }, "power2.inOut");
+  to(hs, closeT + 0.21, 0.11, { Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
   /* ================================================================= X5: the bad feeling never stops.
-     It goes back to the chair and sits. A night, a day and a night pass in the window. */
-  go(hero, back2T, sit2T - back2T - 0.1, EP.chair, { amp: 0.4 });
-  to(hs, back2T, 0.3, { headR: 13, turn: 0.4, px: 1, py: 3 }, "sine.inOut");
+     It goes back to the chair and sits. A day passes in the window. */
+  go(hero, back2T, sit2T - back2T - 0.06, EP.chair, { amp: 0.45 });
+  to(hs, back2T, 0.2, { headR: 13, turn: 0.4, px: 1, py: 3 }, "sine.inOut");
   set(hs, sit2T, { flip: 1, gnd: 0, h: standK });
-  to(hs, sit2T + 0.02, 0.34, Object.assign({}, HP.chair, { h: SEAT, Lu: -6, Lf: -40, Ru: -4, Rf: -44 }), "power2.inOut");
-  to(hs, slumpT, 0.7, { r: 13, headR: 15, Lu: -34, Lf: -52, Ru: -30, Rf: -56, Lz: 2, Rz: 1 }, "sine.inOut");   /* elbows on its knees */
-  face(hs, slumpT, 0.7, "sad", { px: 1, py: 3, lid: 0.42, mouth: -0.7 });
-  to(Wd, HK.dayT, 1.0, { night: 0 }, "sine.inOut");
-  to(Wd, HK.nightT, 1.0, { night: 0.62 }, "sine.inOut");
-  to(hs, HK.dayT + 0.9, 0.4, { turn: -0.6, headR: 9 }, "sine.inOut");                            /* a look at the window in the morning. Eyes only, nearly */
-  face(hs, HK.dayT + 0.9, 0.4, "sad", { px: -3, py: -0.5, lid: 0.3, mouth: -0.7 });
-  to(hs, HK.nightT + 0.2, 0.5, { turn: 0.35, headR: 15 }, "sine.inOut");
-  face(hs, HK.nightT + 0.2, 0.5, "sad", { px: 1, py: 3, lid: 0.46, mouth: -0.75 });
+  to(hs, sit2T + 0.02, 0.22, Object.assign({}, HP.chair, { h: SEAT, Lu: -6, Lf: -40, Ru: -4, Rf: -44 }), "power2.inOut");
+  to(hs, slumpT, 0.3, { r: 13, headR: 15, Lu: -34, Lf: -52, Ru: -30, Rf: -56, Lz: 2, Rz: 1 }, "sine.inOut");   /* elbows on its knees */
+  face(hs, slumpT, 0.3, "sad", { px: 1, py: 3, lid: 0.42, mouth: -0.7 });
+  to(Wd, HK.dayT, 0.4, { night: 0 }, "sine.inOut");
+  to(Wd, HK.nightT, 0.45, { night: 0.62 }, "sine.inOut");
   /* ================================================================= its own words */
-  to(hs, h11 - 0.15, 0.4, { headR: 9, turn: 0.4 }, "sine.inOut");
-  face(hs, h11 - 0.3, 0.3, "sad", { px: 1.5, py: 2, lid: 0.3, mouth: -0.7 });
-  [0, 1, 2].forEach((k) => { to(hs, HK.sayT + k * 0.22, 0.1, { open: 0.42 }, "sine.inOut"); to(hs, HK.sayT + 0.1 + k * 0.22, 0.1, { open: 0.04 }, "sine.inOut"); });
+  to(hs, h11 - 0.08, 0.2, { headR: 9, turn: 0.4 }, "sine.inOut");
+  face(hs, h11 - 0.08, 0.15, "sad", { px: 1.5, py: 2, lid: 0.3, mouth: -0.7 });
+  [0, 1, 2].forEach((k) => { to(hs, HK.sayT + k * 0.16, 0.07, { open: 0.42 }, "sine.inOut"); to(hs, HK.sayT + 0.08 + k * 0.16, 0.07, { open: 0.04 }, "sine.inOut"); });
 
   /* ================================================================= draw */
   const flames = qa(E.fire, ".fl"), fpool = $("fpool"), fhalo = $("fhalo"), fwood = $("fwood");
@@ -379,7 +365,7 @@
       OP(basket, 1); place(basket, es.x - 46, GO + 3, 0, 1);
     }
     /* the little one is in front of the human while it holds on to it, and with the others before and after */
-    const kpar = t >= kidT && t < moveT + 0.56 ? E.near : E.people;
+    const kpar = t >= kidT && t < moveT + 0.46 ? E.near : E.people;
     if (kid.g._w.parentNode !== kpar) kpar.appendChild(kid.g._w);
     /* people: phase from distance, and the small loops that ride on the poses */
     PEOPLE.forEach((p, i) => { p.st.ph = Bake.at("hu" + i + ".ph", t); });
@@ -404,34 +390,33 @@
      Checked against the five rules in finale.js. Green = feels right, red = feels wrong.
      It turns good when the answer comes (it is held). In the flat no answer comes, and it never turns. */
   const GLOW = [
-    [0.05, "green", 0.4, 0.5],                 /* with the others */
-    [giveT + 0.1, "green", 0.55, 0.4],         /* it is fed */
-    [walkT + 0.1, "green", 0.25, 0.5],         /* it walks off: nothing wrong yet, only less of what was right */
-    [h1 - 0.15, "red", 0.3, 1.0],              /* further from them with every step, and the light going */
-    [aT, "red", 0.45, 0.5],                    /* out of their sight and hearing */
-    [lookT - 0.1, "red", 0.65, 0.8],           /* alone */
-    [backT, "red", 0.5, 0.5],                  /* it has turned back: moving */
-    [backT + 0.8, "red", 0.35, 0.6],           /* and they are close */
-    [hugT, "green", 0.55, 0.45],               /* held: the answer */
-    [woodT, "green", 0.75, 0.5],                /* the fire comes up, and they are all round it */
-    [sitT + 0.05, "green", 0, 0.4],            /* among them. From here the light is drawn round the two of them: GLOW2 */
+    [0.02, "green", 0.4, 0.12],                /* with the others */
+    [giveT + 0.1, "green", 0.55, 0.2],         /* it is fed */
+    [walkT + 0.1, "green", 0.25, 0.25],        /* it runs off: nothing wrong yet, only less of what was right */
+    [h1 - 0.3, "red", 0.4, 0.3],               /* further from them with every step, and the light going */
+    [aT, "red", 0.55, 0.2],                    /* out of their sight and hearing */
+    [lookT, "red", 0.72, 0.25],                /* alone */
+    [backT, "red", 0.5, 0.25],                 /* it has turned back: moving */
+    [backT + 0.45, "red", 0.35, 0.3],          /* and they are close */
+    [hugT, "red", 0, 0.1],                     /* held: the answer. From here the light is drawn round the two of them: GLOW2 */
     [wallT - 0.02, "red", 0.4, 0.08],          /* the thud, and the one on its arm is gone: a start */
-    [wallT + 0.4, "red", 0.2, 0.5],            /* nothing in a wall says danger */
-    [frontT - 0.04, "red", 0.35, 0.08],
-    [frontT + 0.4, "red", 0.2, 0.5],
-    [h6 + 0.3, "red", 0.4, 1.6],               /* nobody in the room */
-    [h7 + 0.1, "red", 0.68, 1.6],              /* alone, as in the meadow */
-    [up2 + 0.1, "red", 0.5, 0.5],              /* on its feet, looking: moving */
-    [doorT, "red", 0.35, 0.5],                 /* the door: they may be behind it */
-    [h9 + 0.6, "red", 0.8, 0.6],               /* nobody: now it lands */
-    [h10 + 0.6, "red", 0.9, 1.0],
-    [h10 + 2.0, "red", 0.96, 2.0],             /* and nothing ends it */
+    [wallT + 0.2, "red", 0.25, 0.2],           /* nothing in a wall says danger */
+    [frontT - 0.03, "red", 0.38, 0.08],
+    [frontT + 0.2, "red", 0.25, 0.2],
+    [h6 + 0.1, "red", 0.45, 0.3],              /* nobody in the room */
+    [h7 + 0.05, "red", 0.72, 0.3],             /* alone, as in the meadow */
+    [up2 + 0.05, "red", 0.55, 0.2],            /* on its feet, looking: moving */
+    [doorT, "red", 0.4, 0.2],                  /* the door: they may be behind it */
+    [h9 + 0.1, "red", 0.85, 0.25],             /* nobody: now it lands */
+    [h10 + 0.15, "red", 1, 0.3],               /* and nothing ends it */
   ];
-  /* While the little one sits against it the two are one outline (as the monkeys were in v9), so the
-     little one is not washed out by the light next to it. The feeling is still the human's. */
+  /* While the little one holds on to it and then sits against it the two are one outline (as the
+     monkeys were in v9), so the little one is not washed out by the light next to it. The feeling is
+     still the human's. */
   const GLOW2 = [
-    [sitT - 0.05, "green", 0.85, 0.6],         /* among them */
-    [h4 + 2.2, "green", 0.76, 0.8],
+    [hugT + 0.06, "green", 0.6, 0.2],          /* held: the answer */
+    [woodT, "green", 0.78, 0.25],              /* the fire comes up, and they are all round it */
+    [sitT, "green", 0.85, 0.3],                /* among them */
     [wallT - 0.08, "green", 0, 0.08],          /* the wall comes down between them */
   ];
   Object.assign(S.A, { hero, hs, kid, HGLOW: GLOW, HGLOW2: GLOW2, Rm, W, state: { hero: hs, fed: ys, old: es, big: ts, little: ks, W, Rm, Wd } });
