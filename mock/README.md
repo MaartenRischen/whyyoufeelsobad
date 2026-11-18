@@ -11,8 +11,8 @@ Not linked from the homepage. Every page carries `noindex,nofollow`.
   (`finale.js`), a page can ask for a fixed camera view (`stage.js`), and the film reports the
   strongest feeling in the frame and keeps labels inside a cropped picture (`finale.js`).
 - `shared.js` puts the film on a page and decides which moment is drawn
-- `films/` the two films for the opening (Open Brain thoughts 4823 and 4839, 18 Nov 2026; version 2,
-  about 12 and 15 seconds), each drawn live:
+- `films/` the two films for the opening (Open Brain thoughts 4823, 4839 and 4840, 18 Nov 2026; version 3,
+  about 11 and 14 seconds), each drawn live:
   - `films/orca/` the orca, in the sea and then in a tank (workspace `mismatch-series/coded-orca/js`)
   - `films/alone/` the human, with the others and then alone in a flat (workspace `mismatch-series/coded-lonely/js`)
   Each has `js/` (a plain copy of the film's code, nothing patched), `embed.html` (the stage for a

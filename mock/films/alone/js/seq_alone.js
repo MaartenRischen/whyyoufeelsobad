@@ -192,20 +192,17 @@
   face(ks, hugT, 0.2, "bliss", { px: 2, py: 0 });
   /* the two across the fire */
   to(es, hugT - 0.08, 0.16, { Lu: -152, Lf: 8 }, "back.out(1.6)");
-  [0, 1].forEach((k) => { to(es, hugT + 0.1 + k * 0.2, 0.1, { Lf: 34 }, "sine.inOut"); to(es, hugT + 0.2 + k * 0.2, 0.1, { Lf: -8 }, "sine.inOut"); });
-  to(es, hugT + 0.52, 0.25, { Lu: -42, Lf: -62 }, "sine.inOut");
-  pz(teen, seeT + 0.3, 0.12, "crouch", { r: 10 }, "power2.out");
-  pz(teen, seeT + 0.42, 0.16, "stand", { r: 0, Lu: -160, Lf: 6, Ru: 160, Rf: -6, Lz: 2, Rz: 2 }, "back.out(1.8)");
-  hop(ts, hugT, 0.24, 9);
-  to(ts, hugT + 0.3, 0.2, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, Lz: 1, Rz: 0 }, "sine.inOut");
-  pz(teen, hugT + 0.52, 0.25, "cross", { Lu: -20, Lf: -50, Ru: -14, Rf: -56, Rz: 1, turn: 0.5 }, "power2.inOut");
-  face(ts, hugT + 0.52, 0.25, "happy", { px: 2, py: 2 });
+  /* one arm up, once, and down again. (v2: it waved twice, and the big one got up and hopped. Cut:
+     the beat is 0.8 s now.) */
+  to(es, hugT + 0.3, 0.22, { Lu: -42, Lf: -62 }, "sine.inOut");
+  to(ts, moveT + 0.25, 0.25, { turn: 0.5 }, "sine.inOut");
+  face(ts, moveT + 0.25, 0.25, "happy", { px: 2, py: 2 });
   /* the human: the feeling changes when it is held */
   to(hs, hugT, 0.1, { r: -4 }, "power2.out"); to(hs, hugT + 0.1, 0.2, { r: 0 }, "sine.inOut");
   to(hs, hugT + 0.02, 0.22, { Lu: -26, Lf: -34, Lz: 1, Ru: -20, Rf: -50, Rz: 1, headR: 12, turn: 0.5 }, "power2.out");   /* its arms come down round the little one */
   face(hs, hugT + 0.04, 0.25, "happy", { px: 2, py: 3, lid: 0.25, lidL: 0.3 });
-  to(hs, hugT + 0.34, 0.15, { headR: 3, turn: 0.85 }, "sine.inOut");                             /* and it looks up at the others, at the fire */
-  face(hs, hugT + 0.34, 0.15, "happy", { px: 3, py: -0.5, lid: 0.15, lidL: 0.4, open: 0.3 });
+  to(hs, hugT + 0.3, 0.14, { headR: 3, turn: 0.85 }, "sine.inOut");                              /* and it looks up at the others, at the fire */
+  face(hs, hugT + 0.3, 0.14, "happy", { px: 3, py: -0.5, lid: 0.15, lidL: 0.4, open: 0.3 });
   /* they go to the fire together */
   to(hs, moveT - 0.02, 0.15, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0, headR: 0, turn: 0.6 }, "sine.inOut");
   to(ks, moveT - 0.08, 0.12, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, r: 0, headR: 0, Lz: 1, Rz: 0 }, "sine.inOut");
@@ -221,16 +218,15 @@
   /* ================================================================= 5. with the others.
      It sits down among them and the little one leans on it. */
   const h4 = H[4], sitT = HK.sitT, leanT = HK.leanT;
-  pz(hero, sitT, 0.25, "cross", { r: 0, Lu: -18, Lf: -52, Ru: -12, Rf: -58, Lz: 1, Rz: 1, turn: 0.5, headR: 0 }, "power2.inOut");
-  face(hs, sitT, 0.25, "happy", { px: 2.5, py: 1.5 });
-  to(hs, sitT + 0.2, 0.4, { breath: 1.4 }, "none");
-  to(ks, leanT, 0.3, { r: 12, headR: 8 }, "sine.inOut");
-  face(ks, leanT, 0.3, "bliss", { px: 2, py: 1 });
-  to(hs, leanT + 0.08, 0.25, { turn: -0.5, headR: -7 }, "sine.inOut");                           /* a look down at it */
-  face(hs, leanT + 0.08, 0.25, "happy", { px: -2.5, py: 2.5, lid: 0.3, lidL: 0.3 });
-  to(hs, leanT + 0.5, 0.3, { turn: 0.5, headR: 3 }, "sine.inOut");                               /* and into the fire */
-  face(hs, leanT + 0.5, 0.35, "bliss", { px: 2, py: 1.5, mouth: 0.8, lid: 0.4, lidL: 0.3 });
-  face(ys, leanT + 0.2, 0.35, "bliss", { px: 2, py: 1.5, lid: 0.4 });
+  pz(hero, sitT, 0.22, "cross", { r: 0, Lu: -18, Lf: -52, Ru: -12, Rf: -58, Lz: 1, Rz: 1, turn: 0.5, headR: 0 }, "power2.inOut");
+  face(hs, sitT, 0.22, "happy", { px: 2.5, py: 1.5 });
+  to(hs, sitT + 0.24, 0.34, { breath: 1.4 }, "none");
+  to(ks, leanT, 0.24, { r: 12, headR: 8 }, "sine.inOut");
+  face(ks, leanT, 0.24, "bliss", { px: 2, py: 1 });
+  /* (v2 had a look down at the little one first: cut.) It looks into the fire. */
+  to(hs, leanT + 0.04, 0.24, { headR: 3 }, "sine.inOut");
+  face(hs, leanT + 0.04, 0.26, "bliss", { px: 2, py: 1.5, mouth: 0.8, lid: 0.4, lidL: 0.3 });
+  face(ys, leanT + 0.06, 0.26, "bliss", { px: 2, py: 1.5, lid: 0.4 });
 
   /* ================================================================= the change: a flat is put down here */
   const C0 = H[5], wallT = HK.wallT, floorT = HK.floorT, frontT = HK.frontT, chairT = HK.chairT, tableT = HK.tableT, lampT = HK.lampT, onT = HK.onT;
@@ -266,18 +262,18 @@
   /* ================================================================= X1: it still needs the others.
      It looks at the door, at the window, and down. */
   const h6 = H[6], h7 = H[7], h8 = H[8], h9 = H[9], h10 = H[10], h11 = H[11];
-  to(hs, h6, 0.2, { turn: 0.8, headR: 0 }, "sine.inOut");
-  face(hs, h6, 0.2, "puzzled", { px: 3, py: 0 });
-  to(hs, h6 + 0.45, 0.22, { turn: -0.8, headR: -3 }, "sine.inOut");
-  face(hs, h6 + 0.45, 0.22, "restless", { px: -3, py: 0, mouth: -0.2 });
-  to(hs, h6 + 0.9, 0.3, { turn: 0.3, headR: 7 }, "sine.inOut");
-  face(hs, h6 + 0.9, 0.3, "sad", { px: 1, py: 2.5, mouth: -0.45, brow: -0.6, lid: 0.2 });
+  to(hs, h6, 0.18, { turn: 0.8, headR: 0 }, "sine.inOut");
+  face(hs, h6, 0.18, "puzzled", { px: 3, py: 0 });
+  to(hs, h6 + 0.38, 0.2, { turn: -0.8, headR: -3 }, "sine.inOut");
+  face(hs, h6 + 0.38, 0.2, "restless", { px: -3, py: 0, mouth: -0.2 });
+  to(hs, h6 + 0.76, 0.28, { turn: 0.3, headR: 7 }, "sine.inOut");
+  face(hs, h6 + 0.76, 0.28, "sad", { px: 1, py: 2.5, mouth: -0.45, brow: -0.6, lid: 0.2 });
   /* ================================================================= X2: being alone still feels bad */
   to(hs, h7 + 0.02, 0.3, { Lu: -25, Lf: -118, Lz: 2, Ru: 12, Rf: 118, Rz: 1, headR: 11, r: 5 }, "sine.inOut");   /* its arms come across its body, as in the meadow */
   face(hs, h7 + 0.02, 0.3, "sad", { px: 1, py: 3 });
   to(hs, h7 + 0.3, 0.3, { shiver: 0.35 }, "none");
-  to(hs, h7 + 0.8, 0.2, { turn: 0.8, headR: 3 }, "sine.inOut");                                  /* the door */
-  face(hs, h7 + 0.8, 0.2, "restless", { px: 3, py: -0.5, brow: -0.8, mouth: -0.5 });
+  to(hs, h7 + 0.74, 0.2, { turn: 0.8, headR: 3 }, "sine.inOut");                                 /* the door */
+  face(hs, h7 + 0.74, 0.2, "restless", { px: 3, py: -0.5, brow: -0.8, mouth: -0.5 });
   /* ================================================================= X3: it still looks for the others */
   const up2 = HK.up2T, winT = HK.winT, toDoorT = HK.toDoorT, doorT = HK.doorT, openT = HK.openT;
   to(hs, up2 - 0.1, 0.1, { shiver: 0 }, "none");
@@ -286,20 +282,20 @@
   set(hs, up2 + 0.21, { gnd: 1, h: 0 });
   face(hs, up2, 0.15, "restless", { px: -3, py: -1, brow: -0.4, mouth: -0.2 });
   go(hero, HK.toWinT, winT - HK.toWinT - 0.04, 1722, { amp: 0.45 });
-  to(hs, winT - 0.08, 0.18, { Lu: -35, Lf: -25, Ru: -31, Rf: -27, Rz: 1, headR: -5, turn: 0.85 }, "back.out(1.5)");   /* hands on the sill */
-  face(hs, winT - 0.08, 0.16, "restless", { px: 3, py: -1.5, brow: -0.4, mouth: -0.15, pup: 1.1 });
-  to(hs, winT + 0.11, 0.12, { py: -2.5, headR: -7 }, "sine.inOut");                              /* the windows across */
-  face(hs, winT + 0.24, 0.12, "sad", { mouth: -0.5 });
+  to(hs, winT - 0.08, 0.14, { Lu: -35, Lf: -25, Ru: -31, Rf: -27, Rz: 1, headR: -5, turn: 0.85 }, "back.out(1.5)");   /* hands on the sill */
+  face(hs, winT - 0.08, 0.14, "restless", { px: 3, py: -1.5, brow: -0.4, mouth: -0.15, pup: 1.1 });
+  to(hs, winT + 0.07, 0.1, { py: -2.5, headR: -7 }, "sine.inOut");                               /* the windows across */
+  face(hs, winT + 0.18, 0.1, "sad", { mouth: -0.5 });
   to(hs, toDoorT - 0.12, 0.11, { Lu: 6, Lf: -6, Ru: -4, Rf: -6, Rz: 0, headR: 0 }, "sine.inOut");
   go(hero, toDoorT, doorT - toDoorT - 0.04, 1846, { amp: 0.5 });
   to(hs, toDoorT, 0.12, { turn: 0.7 }, "none");
   face(hs, toDoorT, 0.2, "restless", { px: 3, py: 0, brow: -0.3, mouth: -0.1 });
   to(hs, doorT, 0.1, { Ru: -66, Rf: -14, Rz: 2 }, "power2.out");                                 /* its hand on the door */
-  to(Rm, openT, 0.24, { door: 1 }, "power2.inOut");
-  to(hs, openT, 0.24, { Ru: -40, Rf: -30 }, "power2.inOut");
+  to(Rm, openT, 0.22, { door: 1 }, "power2.inOut");
+  to(hs, openT, 0.22, { Ru: -40, Rf: -30 }, "power2.inOut");
   face(hs, openT, 0.2, "awe", { px: 3, py: 0, mouth: 0.15, open: 0.2 });
   /* ================================================================= X4: nobody is there */
-  to(hs, h9 - 0.04, 0.12, { Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
+  to(hs, h9, 0.12, { Ru: -4, Rf: -6, Rz: 0 }, "sine.inOut");
   to(hs, h9 + 0.02, 0.18, { turn: 0.9, r: 8 }, "sine.inOut");                                      /* it leans into the doorway */
   face(hs, h9 + 0.02, 0.2, "puzzled", { px: 3, py: -2.5, mouth: -0.25 });                        /* up the stairs */
   face(hs, h9 + 0.3, 0.25, "sad", { px: 2.5, py: 1, mouth: -0.75, lid: 0.2 });
@@ -392,7 +388,7 @@
   const GLOW = [
     [0.02, "green", 0.4, 0.12],                /* with the others */
     [giveT + 0.1, "green", 0.55, 0.2],         /* it is fed */
-    [walkT + 0.1, "green", 0.25, 0.25],        /* it runs off: nothing wrong yet, only less of what was right */
+    [walkT + 0.05, "green", 0.25, 0.2],         /* it runs off: nothing wrong yet, only less of what was right */
     [h1 - 0.3, "red", 0.4, 0.3],               /* further from them with every step, and the light going */
     [aT, "red", 0.55, 0.2],                    /* out of their sight and hearing */
     [lookT, "red", 0.72, 0.25],                /* alone */

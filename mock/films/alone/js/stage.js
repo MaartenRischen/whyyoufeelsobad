@@ -76,7 +76,8 @@ const ST = (function () {
     place(moonE, Wd.mx - par.sx, Wd.my - par.sy, -12, 1);
     const so = ss(n * 2.2 - 0.5);
     OP(starsE, so);
-    if (so > 0.05) twk.forEach((s) => OP(s.e, s.o * (0.55 + 0.45 * sin(t * 3.1 + s.p))));
+    /* every frame, also while the stars are nearly out: a skipped star keeps the twinkle of another moment */
+    twk.forEach((s) => OP(s.e, s.o * (0.55 + 0.45 * sin(t * 3.1 + s.p))));
     clouds.forEach((c, i) => { place(c, +c.dataset.x + t * (3 + i * 1.6), +c.dataset.y, 0, +c.dataset.s); });
     wplants.forEach((r) => place(r, +r.dataset.x, 1322, sin(t * 0.9 + +r.dataset.p) * 5, +r.dataset.s));
     /* wind in the grass, only where the camera looks */
