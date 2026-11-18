@@ -11,12 +11,14 @@ Not linked from the homepage. Every page carries `noindex,nofollow`.
   (`finale.js`), a page can ask for a fixed camera view (`stage.js`), and the film reports the
   strongest feeling in the frame and keeps labels inside a cropped picture (`finale.js`).
 - `shared.js` puts the film on a page and decides which moment is drawn
-- `films/` the two films for the opening (Open Brain thought 4823, 18 Nov 2026), each drawn live:
+- `films/` the two films for the opening (Open Brain thoughts 4823 and 4839, 18 Nov 2026; version 2,
+  about 12 and 15 seconds), each drawn live:
   - `films/orca/` the orca, in the sea and then in a tank (workspace `mismatch-series/coded-orca/js`)
   - `films/alone/` the human, with the others and then alone in a flat (workspace `mismatch-series/coded-lonely/js`)
   Each has `js/` (a plain copy of the film's code, nothing patched), `embed.html` (the stage for a
-  frame: `frame.contentWindow.__film.draw(seconds)`), `index.html` (a test player with sound) and
-  `assets/sfx.m4a`. `films/film.css` is shared. `__film` gives `KEY`, `NAME`, `END`, `BEATS`,
+  frame: `frame.contentWindow.__film.draw(seconds)`), `index.html` (a test player: it starts by itself, loops, and can
+  play the film at two other lengths). No sound anywhere (Maarten, 18 Nov 2026: no sound in any
+  film, ever). `films/film.css` is shared. `__film` gives `KEY`, `NAME`, `END`, `BEATS`,
   `TEXT`, `NUM`, `draw`, `cam`. A page that already holds the lines as HTML marks them
   `data-lab="orca-0"`, `data-lab="alone-0"` and so on inside `#labels`, and the film uses those
   elements. `window.__view = [x, y, width]` fixes the camera, `window.__inset` keeps labels inside

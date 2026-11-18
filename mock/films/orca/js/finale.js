@@ -137,9 +137,9 @@
   /* [side of the subject the box sits on, gap in px, where in the beat the place is taken (0..1), what it points at,
      optional: a fixed world point for the box] */
   const LCFG = [
-    ["below", 40, 0.3, bot, [444, 1076]], ["below", 40, 0.03, bot, [350, 1076]], ["above", 40, 0.5, top], ["above", 40, 0.3, top], ["below", 40, 0.3, bot, [1700, 810]],
-    ["below", 50, 0.85, bot],
-    ["below", 44, 0.7, bot], ["below", 40, 0.95, bot, [1440, 900]], ["above", 46, 0.5, top], ["below", 44, 0.5, bot], ["below", 40, 0.5, bot, [1440, 880]]];
+    ["below", 40, 0.3, bot, [444, 1076]], ["below", 40, 0.03, bot, [350, 1076]], ["above", 40, 0.6, top], ["above", 40, 0.62, top], ["below", 40, 0.3, bot, [1700, 810]],
+    ["below", 40, 0.85, bot, [1640, 800]],
+    ["below", 40, 0.7, bot, [1700, 800]], ["below", 40, 0.95, bot, [1440, 900]], ["above", 46, 0.5, top], ["below", 62, 0.98, bot], ["below", 40, 0.5, bot, [1440, 880]]];
   const LAB = TEXT.map((txt, i) => {
     const have = labelsEl.querySelector('[data-lab="' + KEY + "-" + i + '"]');
     const d = have || document.createElement("div");
@@ -159,9 +159,10 @@
     LAB.forEach((el, i) => {
       const b0 = BEATS[i][0], b1 = i < n - 1 ? BEATS[i + 1][0] : lastEnd;
       let a = 0;
-      if (t >= b0 && t < b1 + 0.12) {
-        const ain = sat((t - b0) / 0.14);
-        a = ain * sat((b1 + 0.12 - t) / 0.12);
+      if (t >= b0 && t < b1) {
+        /* in over two frames, out on the cut: two labels are never up at once */
+        const ain = sat((t - b0) / 0.06);
+        a = ain;
         const cfg = LCFG[i], A_ = ANCH[i];
         const w = el.offsetWidth, h = el.offsetHeight;
         const x = clamp(A_[0] - w / 2, 34 + IN, Math.max(34 + IN, 1080 - 34 - IN - w));
@@ -173,13 +174,13 @@
       }
       el.style.opacity = Math.round(a * 1000) / 1000;
     });
-    tab.style.opacity = Math.round(ss((t - (BEATS[0][0] - 0.3)) / 0.3) * 1000) / 1000;
+    tab.style.opacity = 1;
     /* the short line from the label to what it is about */
     if (!cur) { OP(lineG, 0); return; }
     const p = scr(cur.cfg[3]());
     const above = cur.cfg[0] === "above";
     const sy = above ? cur.y + cur.h + 2 : cur.y - 2;
-    const grow = ss((t - cur.b0 - 0.08) / 0.2);
+    const grow = ss((t - cur.b0 - 0.03) / 0.1);
     if (grow <= 0 || (above ? p[1] < sy + 14 : p[1] > sy - 14)) { OP(lineG, 0); return; }
     const sx = clamp(p[0], cur.x + 30, cur.x + cur.w - 30);
     const ex = lerp(sx, p[0], grow), ey = lerp(sy, p[1], grow);

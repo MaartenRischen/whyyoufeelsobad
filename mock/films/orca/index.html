@@ -13,48 +13,56 @@ h1{font-size:18px;margin:0 0 2px}
 p{margin:0 0 10px;opacity:.75}
 #box{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:10px;background:#000}
 #box iframe{position:absolute;left:0;top:0;width:1080px;height:1350px;border:0;transform-origin:0 0}
-.bar{display:flex;gap:10px;align-items:center;margin-top:10px}
+.bar{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
 button{font:inherit;font-weight:700;color:#22202e;background:#f7f0de;border:0;border-radius:8px;padding:10px 16px;min-width:92px}
+.len button{min-width:0;background:transparent;color:#f7f0de;border:2px solid rgba(247,240,222,.45)}
+.len button[aria-pressed=true]{background:#f7f0de;color:#22202e;border-color:#f7f0de}
 input[type=range]{flex:1;min-width:0}
-#tm{font-variant-numeric:tabular-nums;min-width:86px;text-align:right}
-label{display:flex;gap:6px;align-items:center}
+#tm{font-variant-numeric:tabular-nums;min-width:64px;text-align:right}
 </style>
 </head>
 <body>
 <main>
 <h1>The orca: sea, then tank</h1>
-<p>Test page, not part of the site. The picture is drawn live from the film's code, one moment at a time; there is no video file. Version 1, 18 November 2026.</p>
+<p>Test page, not part of the site. The picture is drawn live from the film's code; there is no video file and no sound. It plays in a loop. Version 2, 18 November 2026.</p>
 <div id="box"><iframe id="fr" src="embed.html" title="The orca: sea, then tank" scrolling="no"></iframe></div>
-<div class="bar"><button id="pp" type="button">Play</button><input id="sc" type="range" min="0" max="1" step="0.001" value="0" aria-label="Position in the film"><span id="tm">0.0 s</span></div>
-<div class="bar"><label><input id="snd" type="checkbox" checked> Sound</label></div>
-<audio id="au" src="assets/sfx.m4a" preload="auto"></audio>
+<div class="bar"><button id="pp" type="button">Pause</button><input id="sc" type="range" min="0" max="1" step="0.001" value="0" aria-label="Position in the film"><span id="tm">0.0 s</span></div>
+<div class="bar len" id="len" role="group" aria-label="Length of the film"><span>Length:</span></div>
+<p style="margin-top:10px">The film is built at the middle length. The other lengths play the same film faster or slower, to test what still reads.</p>
 </main>
 <script>
 (function () {
-  var fr = document.getElementById("fr"), box = document.getElementById("box"), pp = document.getElementById("pp"), sc = document.getElementById("sc"), tm = document.getElementById("tm"), au = document.getElementById("au"), snd = document.getElementById("snd");
-  var film = null, t = 0, playing = false, last = 0;
+  var LENS = [10, 15];
+  var fr = document.getElementById("fr"), box = document.getElementById("box"), pp = document.getElementById("pp"), sc = document.getElementById("sc"), tm = document.getElementById("tm"), len = document.getElementById("len");
+  var film = null, t = 0, playing = false, last = 0, rate = 1, hold = 0;
   function fit() { fr.style.transform = "scale(" + box.clientWidth / 1080 + ")"; }
   window.addEventListener("resize", fit); fit();
-  function show() { if (film) film.draw(t); sc.value = film ? t / film.END : 0; tm.textContent = t.toFixed(1) + " s"; }
-  function stop() { playing = false; pp.textContent = "Play"; au.pause(); }
+  function show() { if (film) film.draw(Math.min(t, film.END)); sc.value = film ? Math.min(t, film.END) / film.END : 0; tm.textContent = (Math.min(t, film ? film.END : 0) / rate).toFixed(1) + " s"; }
+  function stop() { playing = false; pp.textContent = "Play"; }
+  function go() { playing = true; pp.textContent = "Pause"; last = performance.now(); requestAnimationFrame(tick); }
   function tick(now) {
     if (!playing) return;
-    t += Math.min(0.1, (now - last) / 1000); last = now;
-    if (snd.checked && !au.paused && Math.abs(au.currentTime - t) > 0.25) t = au.currentTime;
-    if (t >= film.END) { t = film.END; show(); stop(); return; }
+    t += Math.min(0.1, (now - last) / 1000) * rate; last = now;
+    /* at the end: the last picture stays for half a second, then the film starts again */
+    if (t >= film.END + 0.5 * rate) t = 0;
     show(); requestAnimationFrame(tick);
   }
-  pp.addEventListener("click", function () {
-    if (!film) return;
-    if (playing) { stop(); return; }
-    if (t >= film.END - 0.05) t = 0;
-    playing = true; pp.textContent = "Pause"; last = performance.now();
-    if (snd.checked) { au.currentTime = t; au.play().catch(function () {}); }
-    requestAnimationFrame(tick);
-  });
+  pp.addEventListener("click", function () { if (!film) return; if (playing) stop(); else go(); });
   sc.addEventListener("input", function () { if (!film) return; stop(); t = sc.value * film.END; show(); });
-  snd.addEventListener("change", function () { if (!snd.checked) au.pause(); else if (playing) { au.currentTime = t; au.play().catch(function () {}); } });
-  (function wait() { var w = fr.contentWindow; if (w && w.__film) { film = w.__film; show(); } else setTimeout(wait, 60); })();
+  function lengths() {
+    var all = LENS.concat([film.END]).sort(function (a, b) { return a - b; });
+    all.forEach(function (L) {
+      var b = document.createElement("button"); b.type = "button";
+      b.textContent = L.toFixed(1).replace(/\.0$/, "") + " s"; b.setAttribute("aria-pressed", L === film.END ? "true" : "false");
+      b.addEventListener("click", function () { rate = film.END / L; Array.prototype.forEach.call(len.querySelectorAll("button"), function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); }); t = 0; show(); if (!playing) go(); });
+      len.appendChild(b);
+    });
+  }
+  (function wait() {
+    var w = fr.contentWindow;
+    if (w && w.__film) { film = w.__film; lengths(); show(); if (!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) go(); else stop(); }
+    else setTimeout(wait, 60);
+  })();
 })();
 </script>
 </body>
