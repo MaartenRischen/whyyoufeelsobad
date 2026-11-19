@@ -1,0 +1,103 @@
+/* diagrams.css - the pair as a small diagram drawn in the page (Open Brain thought 4943). Phone first, 390 px.
+   Written by hand, except the block of beat rules at the end, which wyfsb/diagrams/build.py does not touch. */
+@font-face{font-family:"Montserrat";font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:800;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Archivo Black";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/archivo-black-latin-400-normal.woff2) format("woff2")}
+
+:root{--paper:#f7f0de;--ink:#22202e;--red:#e4472d;--green:#2fae68;--sun:#f2b632;--gut:20px;
+  --head:"Archivo Black","Arial Black",sans-serif;--body:"Montserrat",-apple-system,"Helvetica Neue",Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{overflow-x:hidden;font:700 20px/1.32 var(--body);letter-spacing:-.008em}
+h1,h2,p,ol,ul,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+a{color:inherit;text-underline-offset:.16em;text-decoration-thickness:.09em}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+
+/* ---- which option this is ---- */
+.opt{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--sun);color:var(--ink);font:800 14px/1.15 var(--body)}
+.opt b{flex:none;font:400 22px/1 var(--head)}
+.opt span{flex:1;min-width:0}
+.opt a{flex:none;padding:7px 10px 6px;background:var(--ink);color:var(--paper);border-radius:5px;text-decoration:none}
+.what{padding:14px var(--gut) 16px;background:var(--ink);color:var(--paper);font:500 15.5px/1.42 var(--body);letter-spacing:0}
+.what > *{max-width:760px;margin-left:auto;margin-right:auto}
+
+/* ---- text ---- */
+.sec{padding:40px var(--gut) 42px}
+.sec > *{max-width:760px;margin-left:auto;margin-right:auto}
+.sec > * + *{margin-top:16px}
+.ink{background:var(--ink);color:var(--paper)}
+.redb{background:var(--red);color:var(--paper)}
+.big{font:400 clamp(30px,8.2vw,58px)/1.04 var(--head);letter-spacing:-.022em;text-wrap:balance}
+.mid{font:800 clamp(24px,6.4vw,38px)/1.14 var(--body);letter-spacing:-.022em;text-wrap:balance}
+.term{display:inline;padding:.02em .22em .06em;border-radius:.16em;background:var(--ink);color:var(--paper);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.term.g{background:var(--green);color:var(--ink)}
+.term.r{background:var(--red);color:var(--paper)}
+
+/* ---- a diagram ---- */
+:root{--faint:rgba(34,32,46,.2)}
+.sec.flow > * + *{margin-top:22px}
+.note{font:500 14px/1.42 var(--body);letter-spacing:0;opacity:.82}
+.dpair{display:grid;gap:26px 12px}
+.dpair.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.dpair.one{grid-template-columns:minmax(0,1fr)}
+.dg{margin:0;min-width:0}
+.dg svg{display:block;width:100%;height:auto;overflow:visible}
+.dh{font:800 17px/1.2 var(--body);letter-spacing:-.02em;margin:0 0 8px}
+.two .dh{min-height:3.6em;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:3px}
+.chg{background:var(--ink);color:var(--paper);padding:.06em .34em .1em;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cap{display:grid;margin:8px 0 0;font:800 16px/1.2 var(--body);letter-spacing:-.02em}
+.cap li{padding:1px 0}
+.t{font:800 13.5px var(--body);letter-spacing:-.01em}
+.words .dh{margin-bottom:2px}
+
+/* the parts of a drawing: v is shown or not, d is drawn along its length, m moves, f takes a colour */
+.d{stroke-dasharray:1 1}
+.f{color:var(--cr,var(--ink))}
+.m{transform:var(--tr,none)}
+.v,.d,.m,.f,.lb,.cap li{transition-property:opacity,stroke-dashoffset,transform,color;transition-duration:.28s,.55s,.6s,.3s;transition-timing-function:ease,ease,cubic-bezier(.4,0,.2,1),ease}
+/* at rest (no data-b): the complete still. Only what is marked r is shown. */
+.dg:not([data-b]) .v:not(.r){opacity:0}
+.dg:not([data-b]) .d:not(.r){stroke-dashoffset:1}
+/* one caption line at a time when the page moves; all of them listed when it does not */
+.moving .cap li{grid-area:1/1;opacity:0}
+.moving .dg:not([data-b]) .cap li.r{opacity:1}
+.dg.snap .m{transition:none!important}
+@media (prefers-reduced-motion:reduce){.v,.d,.m,.f,.lb,.cap li{transition:none!important}}
+
+/* the beats */
+.dg[data-b] .v{opacity:0}
+.dg[data-b="0"] .v.b0,.dg[data-b="1"] .v.b1,.dg[data-b="2"] .v.b2,.dg[data-b="3"] .v.b3,.dg[data-b="4"] .v.b4,.dg[data-b="5"] .v.b5,.dg[data-b="6"] .v.b6,.dg[data-b="7"] .v.b7{opacity:1}
+.dg[data-b] .d{stroke-dashoffset:1}
+.dg[data-b="0"] .d.b0,.dg[data-b="1"] .d.b1,.dg[data-b="2"] .d.b2,.dg[data-b="3"] .d.b3,.dg[data-b="4"] .d.b4,.dg[data-b="5"] .d.b5,.dg[data-b="6"] .d.b6,.dg[data-b="7"] .d.b7{stroke-dashoffset:0}
+.dg[data-b="0"] .m{transform:var(--t0)}.dg[data-b="0"] .f{color:var(--c0)}
+.dg[data-b="1"] .m{transform:var(--t1)}.dg[data-b="1"] .f{color:var(--c1)}
+.dg[data-b="2"] .m{transform:var(--t2)}.dg[data-b="2"] .f{color:var(--c2)}
+.dg[data-b="3"] .m{transform:var(--t3)}.dg[data-b="3"] .f{color:var(--c3)}
+.dg[data-b="4"] .m{transform:var(--t4)}.dg[data-b="4"] .f{color:var(--c4)}
+.dg[data-b="5"] .m{transform:var(--t5)}.dg[data-b="5"] .f{color:var(--c5)}
+.dg[data-b="6"] .m{transform:var(--t6)}.dg[data-b="6"] .f{color:var(--c6)}
+.dg[data-b="7"] .m{transform:var(--t7)}.dg[data-b="7"] .f{color:var(--c7)}
+.moving .dg[data-b] .lb{opacity:.34}
+.moving .dg[data-b="0"] .lb.b0,.moving .dg[data-b="1"] .lb.b1,.moving .dg[data-b="2"] .lb.b2,.moving .dg[data-b="3"] .lb.b3,.moving .dg[data-b="4"] .lb.b4,.moving .dg[data-b="5"] .lb.b5,.moving .dg[data-b="6"] .lb.b6,.moving .dg[data-b="7"] .lb.b7{opacity:1}
+.moving .dg[data-b="0"] .cap li.b0,.moving .dg[data-b="1"] .cap li.b1,.moving .dg[data-b="2"] .cap li.b2,.moving .dg[data-b="3"] .cap li.b3,.moving .dg[data-b="4"] .cap li.b4,.moving .dg[data-b="5"] .cap li.b5,.moving .dg[data-b="6"] .cap li.b6,.moving .dg[data-b="7"] .cap li.b7{opacity:1}
+
+/* ---- the list of options ---- */
+.list{padding:22px 16px 60px;background:var(--ink);color:var(--paper);min-height:100vh}
+.list > *{max-width:760px;margin-left:auto;margin-right:auto}
+.list h1{font:400 40px/1 var(--head);letter-spacing:-.03em}
+.list p{font:500 16px/1.45 var(--body);letter-spacing:0;margin-top:12px}
+.list a.o{display:block;margin-top:12px;padding:15px 16px 14px;background:var(--paper);color:var(--ink);border-radius:8px;text-decoration:none;font:500 15.5px/1.42 var(--body);letter-spacing:0}
+.list a.o b{display:block;font:400 25px/1.05 var(--head);letter-spacing:-.02em;margin-bottom:6px}
+.foot{padding:24px var(--gut) 60px;background:var(--ink);color:var(--paper);font:800 17px/1.3 var(--body)}
+.foot > *{max-width:760px;margin-left:auto;margin-right:auto}
+.foot a{display:inline-block;margin:0 8px 8px 0;padding:11px 14px 10px;background:var(--paper);color:var(--ink);border-radius:6px;text-decoration:none}
+
+@media (min-width:820px){
+  body{font-size:24px}
+  .sec{padding:64px 32px 66px}
+  .dpair.one{grid-template-columns:minmax(0,560px)}
+  .dpair.two{grid-template-columns:minmax(0,260px) minmax(0,260px);gap:26px 40px}
+}

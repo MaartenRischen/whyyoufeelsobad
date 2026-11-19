@@ -59,5 +59,22 @@ loop is a still with one readable line.
   `wyfsb/pairs/stills.sh`. The videos themselves are the ones in `page/loops/`.
 - `page/` is not changed by this.
 
+## diagrams/ - the pair as a small diagram drawn in the page (Open Brain thought 4943, 19 Nov 2026)
+
+Maarten, after the pair options: "something that looks like simplified gifs, maybe even without
+background, that loop. More a diagram/illustration than a 'video' with a frame". `diagrams/` holds six
+directions to choose from. Address: /mock/diagrams/ (chooser), `1/` to `6/`. No video, no image file,
+no frame: every picture is SVG in the page, in ink, with red for the bad feeling and green for the
+good one.
+
+- The pages are built by `wyfsb/diagrams/build.py` in the workspace repo, which also holds the
+  drawings and the words. Do not edit the pages by hand.
+- `diagrams/diagrams.css` shows, draws, moves and colours the parts of a drawing according to
+  `data-b` on the diagram (the beat). With no `data-b` a diagram is at rest: a complete still.
+- `diagrams/diagrams.js` only counts beats. One diagram on the whole page moves at a time: the pair
+  nearest the middle of the screen, part 1, then part 2, and round again. Without JavaScript and with
+  reduced motion nothing runs and every diagram is its still.
+- `page/` and `pairs/` are not changed by this.
+
 The pictures are drawn live from code: `film.draw(seconds)`. There are no video files.
 Work log: `wyfsb/design-log.md` in the workspace repo.
