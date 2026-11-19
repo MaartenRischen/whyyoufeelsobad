@@ -1,0 +1,100 @@
+/* page.css - preview page for whyyoufeelsobad.com (Open Brain thought 4892). Phone first, 390 px.
+   The look is taken from the coded films: paper, ink, the red and the green of the feeling. */
+@font-face{font-family:"Montserrat";font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:800;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Archivo Black";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/archivo-black-latin-400-normal.woff2) format("woff2")}
+
+:root{--paper:#f7f0de;--ink:#22202e;--red:#e4472d;--green:#2fae68;--sun:#f2b632;--gut:20px;
+  --head:"Archivo Black","Arial Black",sans-serif;--body:"Montserrat",-apple-system,"Helvetica Neue",Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{overflow-x:hidden;font:700 20px/1.32 var(--body);letter-spacing:-.008em}
+h1,h2,p,ol,ul,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+a{color:inherit;text-underline-offset:.16em;text-decoration-thickness:.09em}
+
+/* ---- text between the loops ---- */
+.sec{padding:40px var(--gut) 42px}
+.sec > *{max-width:760px;margin-left:auto;margin-right:auto}
+.sec > * + *{margin-top:16px}
+.sec.tight{padding-top:26px;padding-bottom:28px}
+.ink{background:var(--ink);color:var(--paper)}
+.redb{background:var(--red);color:var(--paper)}
+.greenb{background:var(--green);color:var(--ink)}
+.sunb{background:var(--sun);color:var(--ink)}
+h1{font:400 clamp(60px,17.6vw,150px)/.9 var(--head);letter-spacing:-.035em;text-wrap:balance}
+.top{padding-top:34px;padding-bottom:36px}
+.big{font:400 clamp(30px,8.2vw,58px)/1.04 var(--head);letter-spacing:-.022em;text-wrap:balance}
+.mid{font:800 clamp(24px,6.4vw,38px)/1.14 var(--body);letter-spacing:-.022em;text-wrap:balance}
+.red{color:var(--red)}
+.term{display:inline;padding:.02em .22em .06em;border-radius:.16em;background:var(--ink);color:var(--paper);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.term.g{background:var(--green);color:var(--ink)}
+.term.r{background:var(--red);color:var(--paper)}
+.ink .term{background:var(--paper);color:var(--ink)}
+.say-link{font:800 22px/1.2 var(--body)}
+.note{font:500 14px/1.42 var(--body);letter-spacing:0;opacity:.82}
+.sec.notes{padding-top:12px;padding-bottom:26px}
+.plain{font:500 18px/1.46 var(--body);letter-spacing:-.004em}
+.plain b{font-weight:800}
+
+/* ---- a loop: picture on top, the line under it ---- */
+.loops{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;background:var(--ink);padding:6px 0}
+.loop{position:relative;background:var(--ink)}
+.pic{position:relative;overflow:hidden;width:100%;aspect-ratio:1080/700;background:var(--bg,#2a7f8c);color:var(--fg,var(--paper))}
+.pic video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.pic iframe{position:absolute;left:0;top:0;width:1080px;height:1350px;border:0;transform-origin:0 0;pointer-events:none}
+.lines{position:relative;height:60px;background:var(--paper);color:var(--ink);overflow:hidden}
+.lines li{position:absolute;inset:0;display:flex;align-items:center;gap:10px;padding:0 14px 1px;font:800 21px/1.12 var(--body);letter-spacing:-.02em}
+.moving .lines li{visibility:hidden}
+.moving .lines li.on{visibility:visible}
+.lines.long li{font-size:17.5px;line-height:1.14}
+.lines li.chg{background:var(--ink);color:var(--paper)}
+.lines li.say{font:400 24px/1.1 var(--head);letter-spacing:-.02em}
+/* the five steps of the chain carry their number, as in the films */
+.lines.chain{counter-reset:step}
+.lines.chain li:not(.chg):not(.say){counter-increment:step}
+.lines.chain li:not(.chg):not(.say)::before{content:counter(step);flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);font:400 16px/30px var(--head);text-align:center;letter-spacing:0}
+
+/* a film that is not made yet */
+.ph .pic{display:flex;flex-direction:column;justify-content:flex-end;padding:14px 16px 13px}
+.ph .pic b{font:400 clamp(34px,10.4vw,64px)/.92 var(--head);letter-spacing:-.03em;text-transform:uppercase}
+.ph .pic b.lng{font-size:clamp(27px,8.1vw,58px)}
+.ph .pic span{font:800 17px/1.2 var(--body);margin-top:7px}
+.ph .pic i{position:absolute;right:12px;top:11px;font:800 11.5px/1 var(--body);font-style:normal;letter-spacing:.02em;padding:6px 8px 5px;background:var(--ink);color:var(--paper);border-radius:4px}
+
+/* without movement, or without script: every line is shown */
+html:not(.moving) .lines{height:auto;padding:8px 0}
+html:not(.moving) .lines li{position:static;padding:5px 14px;min-height:0}
+
+/* ---- the wall of complaints ---- */
+.wall li + li{margin-top:9px}
+.wall a{font:800 clamp(23px,6.3vw,34px)/1.12 var(--body);letter-spacing:-.024em;text-decoration-color:rgba(247,240,222,.45)}
+.wall a:hover{text-decoration-color:var(--red)}
+.todo li{position:relative;padding:13px 0 13px 46px;border-top:3px solid var(--ink)}
+.todo{counter-reset:todo}
+.todo li::before{counter-increment:todo;content:counter(todo);position:absolute;left:0;top:11px;font:400 30px/1 var(--head)}
+.out{display:grid;gap:8px}
+.out a{display:block;text-decoration:none;background:var(--paper);color:var(--ink);padding:16px 16px 15px;border-radius:6px}
+.out b{display:block;font:400 28px/1 var(--head);letter-spacing:-.02em;margin-bottom:6px}
+.out span{font:700 17px/1.3 var(--body)}
+.foot{font:500 14px/1.4 var(--body);opacity:.8}
+
+/* ---- wider screens: two loops side by side ---- */
+@media (min-width:820px){
+  body{font-size:24px}
+  .sec{padding:64px 32px 66px}
+  .sec.tight{padding-top:38px;padding-bottom:40px}
+  .sec.notes{padding-top:16px;padding-bottom:34px}
+  .loops{gap:8px;padding:8px}
+  .loops.two{grid-template-columns:1fr 1fr}
+  .loops.one{grid-template-columns:minmax(0,760px);justify-content:center}
+  .lines{height:72px}
+  .lines li{font-size:26px;padding:0 20px 1px}
+  .lines.long li{font-size:21px}
+  .lines li.say{font-size:30px}
+  .plain{font-size:20px}
+  .note{font-size:15.5px}
+  .out{grid-template-columns:repeat(3,1fr)}
+}

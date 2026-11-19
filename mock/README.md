@@ -25,5 +25,23 @@ Not linked from the homepage. Every page carries `noindex,nofollow`.
   a cropped picture, `window.__feel` reports the strongest feeling in the frame.
 - `fonts/` Montserrat, Archivo Black, Space Mono (SIL Open Font License, texts alongside)
 
+## page/ - the whole page as one preview (Open Brain thought 4892, 19 Nov 2026)
+
+`page/` is the full page in the order of `wyfsb/page-script.md`, with self-playing loops. It replaces
+directions a, b and c, which stay here only as a record. Address: /mock/page/ (unlinked, noindex).
+
+- `page/index.html` is built by `wyfsb/page1/build.py` in the workspace repo. Do not edit it by hand:
+  change the words in `build.py` and run it.
+- `page/page.js` runs the loops: one line at a time, 0.15 s + 1 s per 28 characters, never under
+  0.8 s; a loop starts when it comes on screen and repeats. No sound, no controls, nothing reads
+  the scroll position.
+- `page/loops/*.mp4` are the four loops cut from the two films (orca in the sea, orca in a tank, human
+  with the others, human alone in a flat), rendered from the films' own code by
+  `wyfsb/page1/render-loops.mjs`. They have no sound track. Render them again when a film or one of
+  those lines changes. Drawing the films live was too slow with two or three on one screen (the
+  feeling glow is an SVG blur), so the live drawing is now the fallback: it is used when the browser
+  refuses to start a video, with reduced motion (one still), and with `?live=1`.
+- Films that are not made yet are flat colour blocks with the subject's name and their lines.
+
 The pictures are drawn live from code: `film.draw(seconds)`. There are no video files.
 Work log: `wyfsb/design-log.md` in the workspace repo.
