@@ -43,5 +43,21 @@ directions a, b and c, which stay here only as a record. Address: /mock/page/ (u
   refuses to start a video, with reduced motion (one still), and with `?live=1`.
 - Films that are not made yet are flat colour blocks with the subject's name and their lines.
 
+## pairs/ - six ways to get from part 1 of a pair to part 2 (Open Brain thought 4915, 19 Nov 2026)
+
+Maarten, after seeing two loops of one story run at the same time on `page/`: "Can't be at the same
+time." `pairs/` is one reusable part with six behaviours to choose from. Address: /mock/pairs/
+(chooser), `a/` to `f/`. Rule in all of them: one loop on the whole page moves at a time; every other
+loop is a still with one readable line.
+
+- `pairs/index.html` and `a/` to `f/` are built by `wyfsb/pairs/build.py` in the workspace repo. The
+  loop lines come from `wyfsb/page1/build.py`. Do not edit the pages by hand.
+- `pairs/pairs.js` is the part: `<section class="pair" data-mode="a..f">` with two `<figure class="loop">`.
+  a, b: the loop nearest the middle of the screen plays. c: one frame, part 1, cut card, part 2, with a
+  two-bar marker and tap to jump. d: taking turns. e: line by line in turns. f: the change line is a button.
+- `pairs/stills/` are the pictures a loop shows while it stands still, cut from `page/loops/*.mp4` by
+  `wyfsb/pairs/stills.sh`. The videos themselves are the ones in `page/loops/`.
+- `page/` is not changed by this.
+
 The pictures are drawn live from code: `film.draw(seconds)`. There are no video files.
 Work log: `wyfsb/design-log.md` in the workspace repo.

@@ -1,0 +1,109 @@
+/* pairs.css - the pair as one reusable part, six ways (Open Brain thought 4915). Phone first, 390 px.
+   Same look as /mock/page/: the films' paper, ink, red and green. */
+@font-face{font-family:"Montserrat";font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:800;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Archivo Black";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/archivo-black-latin-400-normal.woff2) format("woff2")}
+
+:root{--paper:#f7f0de;--ink:#22202e;--red:#e4472d;--green:#2fae68;--sun:#f2b632;--gut:20px;
+  --head:"Archivo Black","Arial Black",sans-serif;--body:"Montserrat",-apple-system,"Helvetica Neue",Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{overflow-x:hidden;font:700 20px/1.32 var(--body);letter-spacing:-.008em}
+h1,h2,p,ol,ul,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+a{color:inherit;text-underline-offset:.16em;text-decoration-thickness:.09em}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+
+/* ---- which option this is ---- */
+.opt{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--sun);color:var(--ink);font:800 14px/1.15 var(--body)}
+.opt b{flex:none;font:400 22px/1 var(--head)}
+.opt span{flex:1;min-width:0}
+.opt a{flex:none;padding:7px 10px 6px;background:var(--ink);color:var(--paper);border-radius:5px;text-decoration:none}
+.what{padding:14px var(--gut) 16px;background:var(--ink);color:var(--paper);font:500 15.5px/1.42 var(--body);letter-spacing:0}
+.what > *{max-width:760px;margin-left:auto;margin-right:auto}
+
+/* ---- text ---- */
+.sec{padding:40px var(--gut) 42px}
+.sec > *{max-width:760px;margin-left:auto;margin-right:auto}
+.sec > * + *{margin-top:16px}
+.ink{background:var(--ink);color:var(--paper)}
+.redb{background:var(--red);color:var(--paper)}
+.big{font:400 clamp(30px,8.2vw,58px)/1.04 var(--head);letter-spacing:-.022em;text-wrap:balance}
+.mid{font:800 clamp(24px,6.4vw,38px)/1.14 var(--body);letter-spacing:-.022em;text-wrap:balance}
+.term{display:inline;padding:.02em .22em .06em;border-radius:.16em;background:var(--ink);color:var(--paper);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.term.g{background:var(--green);color:var(--ink)}
+.term.r{background:var(--red);color:var(--paper)}
+
+/* ---- the pair ---- */
+.pair{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:6px;background:var(--ink);padding:6px 0}
+.loop{position:relative;background:var(--ink)}
+.pic{position:relative;overflow:hidden;width:100%;aspect-ratio:1080/700;background:var(--bg,#2a7f8c)}
+.pic video,.pic .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.pic iframe{position:absolute;left:0;top:0;width:1080px;height:1350px;border:0;transform-origin:0 0;pointer-events:none}
+.lines{position:relative;height:60px;background:var(--paper);color:var(--ink);overflow:hidden}
+.lines li{position:absolute;inset:0;display:flex;align-items:center;gap:10px;padding:0 14px 1px;font:800 21px/1.12 var(--body);letter-spacing:-.02em}
+.lines li.chg{background:var(--ink);color:var(--paper)}
+.lines li.say{font:400 24px/1.1 var(--head);letter-spacing:-.02em}
+.lines{counter-reset:step}
+.lines li:not(.chg):not(.say){counter-increment:step}
+.lines li:not(.chg):not(.say)::before{content:counter(step);flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);font:400 16px/30px var(--head);text-align:center;letter-spacing:0}
+
+/* moving: one line at a time; a loop that stands still shows its still, a little darker */
+.moving .lines li{visibility:hidden}
+.moving .lines li.on{visibility:visible}
+.moving .still{visibility:hidden}
+.moving .s-wait .still.wait,.moving .s-end .still.end{visibility:visible}
+.moving .loop:not(.live) .pic::after{content:"";position:absolute;inset:0;background:rgba(34,32,46,.36)}
+.moving .loop:not(.live) .lines{color:rgba(34,32,46,.72)}
+/* e: the line of the part that waits its turn stays at full strength, so the two lines can be compared */
+.moving [data-mode="e"] .loop.s-hold .lines{color:var(--ink)}
+.prog{position:absolute;left:0;top:0;width:100%;height:6px;background:var(--sun);transform:scaleX(0);transform-origin:0 50%;z-index:3;visibility:hidden}
+.moving .loop.live .prog{visibility:visible}
+[data-mode="a"] .prog,[data-mode="b"] .prog,[data-mode="c"] .prog,[data-mode="f"] .prog{display:none}
+
+/* without movement, or without script: every line is listed, the still is the end of the loop */
+html:not(.moving) .lines{height:auto;padding:8px 0}
+html:not(.moving) .lines li{position:static;padding:5px 14px}
+
+/* a: text between the two parts */
+.between{background:var(--paper);color:var(--ink);padding:26px var(--gut) 28px}
+.between > *{max-width:760px;margin-left:auto;margin-right:auto}
+.between .turn{margin-top:22px;padding-top:22px;border-top:6px solid var(--ink)}
+
+/* c, f: both parts in one frame */
+.pair.one .loop{display:none}
+.pair.one .loop.shown{display:block}
+.pair.one{gap:0}
+.marker{display:grid;grid-template-columns:1fr 1fr;gap:6px;height:40px;padding:2px 8px 0}
+.marker button{position:relative;border:0;background:none;padding:12px 0 0;text-align:left;font:800 13px/1.1 var(--body);color:rgba(247,240,222,.5);cursor:pointer}
+.marker button::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;border-radius:3px;background:rgba(247,240,222,.28)}
+.marker button i{position:absolute;left:0;top:0;width:100%;height:6px;border-radius:3px;background:var(--paper);transform:scaleX(0);transform-origin:0 50%}
+.marker button.on{color:var(--paper)}
+.card{position:absolute;left:0;right:0;top:46px;bottom:6px;display:none;align-items:center;justify-content:center;padding:0 20px;background:var(--ink);color:var(--paper);font:400 clamp(40px,12vw,84px)/1 var(--head);letter-spacing:-.03em;text-align:center;z-index:5}
+.card.on{display:flex}
+[data-mode="c"]{cursor:pointer}
+.change{display:block;width:calc(100% - 24px);margin:10px 12px 8px;padding:15px 16px 14px;border:3px solid var(--paper);border-radius:9px;background:var(--ink);color:var(--paper);font:400 24px/1 var(--head);letter-spacing:-.02em;text-align:left;box-shadow:5px 6px 0 var(--red);cursor:pointer}
+.change::after{content:"";float:right;width:0;height:0;margin-top:3px;border-left:16px solid var(--paper);border-top:10px solid transparent;border-bottom:10px solid transparent}
+.change:active{transform:translate(3px,4px);box-shadow:2px 2px 0 var(--red)}
+.change.nudge{animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,70%,100%{transform:none}78%{transform:translateX(7px)}86%{transform:translateX(-3px)}}
+
+/* ---- the list of options ---- */
+.list{padding:22px 16px 60px;background:var(--ink);color:var(--paper);min-height:100vh}
+.list > *{max-width:760px;margin-left:auto;margin-right:auto}
+.list h1{font:400 40px/1 var(--head);letter-spacing:-.03em}
+.list p{font:500 16px/1.45 var(--body);letter-spacing:0;margin-top:12px}
+.list a.o{display:block;margin-top:12px;padding:15px 16px 14px;background:var(--paper);color:var(--ink);border-radius:8px;text-decoration:none;font:500 15.5px/1.42 var(--body);letter-spacing:0}
+.list a.o b{display:block;font:400 25px/1.05 var(--head);letter-spacing:-.02em;margin-bottom:6px}
+.foot{padding:24px var(--gut) 60px;background:var(--ink);color:var(--paper);font:800 17px/1.3 var(--body)}
+.foot > *{max-width:760px;margin-left:auto;margin-right:auto}
+.foot a{display:inline-block;margin:0 8px 8px 0;padding:11px 14px 10px;background:var(--paper);color:var(--ink);border-radius:6px;text-decoration:none}
+
+@media (min-width:820px){
+  body{font-size:24px}
+  .sec{padding:64px 32px 66px}
+  .pair{max-width:760px;margin:0 auto;padding:8px}
+  .between{padding:34px 32px 36px}
+}
