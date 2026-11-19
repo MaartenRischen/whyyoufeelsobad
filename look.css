@@ -1,0 +1,101 @@
+/* look.css - the one look for every Demismatch site. Version 2026-11-19.1
+   The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
+   Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
+   Every public site loads this file before its own stylesheet. A site's own stylesheet
+   uses the names below and sets no colour, typeface or text size of its own.
+   Master copy: project doc claude/look/look.css. Change the master, then copy it out.
+   Fonts sit next to this file in fonts/. */
+
+@font-face{font-family:"Spectral";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Spectral";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/spectral-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Spectral";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Spectral";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
+
+:root{
+  /* colours, Cor's own */
+  --oxblood:#3a1218;--oxblood-deep:#2a0c11;--oxblood-warm:#5a2a32;--oxblood-ink:#4a1e26;
+  --parchment:#ece0c4;--parchment-soft:#f2e8cf;--parchment-dark:#ddd0b0;
+  --teal:#2d6b6b;--teal-deep:#1f4f4f;--gold:#c4962c;--gold-dim:#a5801f;
+  /* what each colour is for */
+  --bg:var(--parchment);            /* every page */
+  --ink:var(--oxblood);             /* all text */
+  --dim:rgba(58,18,24,.68);         /* quiet text and quiet labels */
+  --rule:rgba(58,18,24,.2);         /* hairlines */
+  --card:var(--parchment-soft);     /* cards; no white anywhere */
+  --card-line:rgba(58,18,24,.18);
+  --band:var(--parchment-dark);     /* a band across the page, such as the Cor banner */
+  --link:var(--teal);
+  --accent:var(--gold);             /* a side rule or a small mark */
+  --good:#2d6b6b;                   /* a need that gets its answer: Cor's "resolves" */
+  --bad:#8a2f2a;                    /* a need that gets none: Cor's "fires, no resolution" */
+
+  /* typefaces: Spectral for all text and headlines, JetBrains Mono for small labels */
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  /* one type scale, Cor's */
+  --t-label:.72rem;                             /* small uppercase label, mono */
+  --t-meta:.78rem;                              /* source lines, footers, mono */
+  --t-body:1.02rem;                             /* text */
+  --t-lead:clamp(1.12rem,1.6vw,1.34rem);        /* the opening paragraph of a page */
+  --t-h3:clamp(1.18rem,2vw,1.5rem);             /* a small title */
+  --t-card:clamp(1.32rem,3vw,1.72rem);          /* the title of a card, Cor's door title */
+  --t-h2:clamp(1.7rem,3.4vw,2.5rem);            /* a section title */
+  --t-h1:clamp(2.3rem,5.4vw,4.1rem);            /* the page title */
+  --w-head:500;                                 /* headline weight */
+
+  /* one page width */
+  --max:1240px;                                 /* the page */
+  --read:760px;                                 /* a column of reading text */
+  --gut:clamp(16px,3.2vw,46px);                 /* space at the page edge */
+  --radius:6px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{overflow-x:hidden;font:400 var(--t-body)/1.5 var(--serif);letter-spacing:.005em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:var(--w-head);letter-spacing:-.012em;text-wrap:balance}
+h1{font-size:var(--t-h1);line-height:1.04}
+h2{font-size:var(--t-h2);line-height:1.1}
+h3{font-size:var(--t-h3);line-height:1.2}
+::selection{background:var(--oxblood);color:var(--parchment-soft)}
+a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+/* parts for any page */
+.lk-label{font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.lk-meta{font:400 var(--t-meta)/1.5 var(--mono);letter-spacing:.01em}
+.lk-card{background:var(--card);border:1px solid var(--card-line);border-radius:var(--radius)}
+
+/* the bar at the top of every site */
+.doors{border-bottom:1px solid var(--rule)}
+.d-in{max-width:var(--max);margin:0 auto;padding:12px var(--gut) 11px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.doors a{color:var(--dim);text-decoration:none;padding:3px 0 2px;border-bottom:2px solid transparent}
+.doors a:hover{color:var(--ink);border-color:var(--gold)}
+.doors .dm{margin-right:auto;color:var(--ink)}
+.doors a[aria-current]{color:var(--ink);border-color:var(--teal)}
+
+/* the Cor banner */
+.cor-ban{background:var(--band);color:var(--ink);border-bottom:1px solid var(--rule)}
+.cb-in{max-width:var(--max);margin:0 auto;padding:18px var(--gut) 20px}
+.cb-h{display:flex;align-items:flex-start;gap:10px;margin:0;font:var(--w-head) var(--t-card)/1.15 var(--serif);letter-spacing:-.012em;text-wrap:balance}
+.rings{flex:none;width:24px;height:24px;margin-top:1px;color:var(--ink);fill:none;stroke:currentColor;stroke-width:1.6}
+.rings .dot{fill:var(--teal);stroke:none}
+.cb-t{margin:10px 0 0;max-width:86ch;font:400 var(--t-body)/1.5 var(--serif)}
+.cb-t a{color:var(--ink);font-weight:500;text-decoration-thickness:1px;text-underline-offset:3px}
+.cb-go{margin:14px 0 0}
+.cb-btn{display:inline-block;background:var(--oxblood);color:var(--parchment-soft);font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:11px 16px 10px;border-radius:4px}
+.cb-btn:hover{background:var(--teal-deep)}
+
+/* the foot of every page */
+.ft{width:calc(100% - 2*var(--gut));max-width:calc(var(--max) - 2*var(--gut));margin:44px auto 0;padding:18px 0 44px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;font:400 var(--t-meta)/1.6 var(--mono);letter-spacing:.01em;color:var(--dim)}
+.ft a{color:var(--ink)}
+.ft .nmd{font-weight:500;color:var(--ink)}
+
+@media (min-width:720px){
+  .cb-in{padding:22px var(--gut) 24px}
+  .rings{width:28px;height:28px}
+}
