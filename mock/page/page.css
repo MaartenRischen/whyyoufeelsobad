@@ -40,6 +40,8 @@ ol,ul{padding:0;list-style:none}
 .cap{display:grid;margin:4px 0 0;font:500 var(--t-lead)/1.3 var(--serif)}
 .cap li{padding:1px 0}
 .cap li.say{font-style:italic;color:var(--teal-deep)}
+/* voice B (Open Brain 5044): one caption per drawing; the human's own words are its last line */
+.fsay{display:block;font-style:italic;color:var(--teal-deep);margin-top:2px}
 .cap li:empty{display:none}
 /* the state at the figure (Open Brain 5027): a short label right under the drawing, in the colour of the glow
    (--bad, --good, ink for desire). Its words change with the beats as the glow does; the still shows the state
