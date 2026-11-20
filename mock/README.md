@@ -78,3 +78,14 @@ good one.
 
 The pictures are drawn live from code: `film.draw(seconds)`. There are no video files.
 Work log: `wyfsb/design-log.md` in the workspace repo.
+
+## loop/ - three pairs as one loop each (20 Nov 2026, a sample for the diagram library)
+
+Address: /mock/loop/ (unlinked, noindex). The orca, the hatchling and "thirty and millions" from `page/`, each
+as ONE loop: the world the figure is shaped for, then the change, then the mismatched world, with the figure in
+the same place. The still is the mismatched world with the lost answer drawn faintly.
+
+- `loop/index.html` and `loop/loop.css` are written by `wyfsb/page2/loops.py` in the workspace repo. Do not edit
+  them by hand.
+- The page loads `page/page.css` and `page/page.js` unchanged. The loops are rows of one `.dgrid`, so the runner
+  gives them turns: one loop moves at a time.
