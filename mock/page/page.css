@@ -115,3 +115,11 @@ ol,ul{padding:0;list-style:none}
   .dpair:has(.dg + .dg) .dh{display:block;align-self:end}
   .next .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* ---- the A/B pages (mock/ab/glow/, mock/ab/circle/): the bar on top ---- */
+.ab{position:sticky;top:0;z-index:30;background:var(--oxblood);color:var(--parchment-soft)}
+.ab-in{max-width:var(--max);margin:0 auto;padding:9px var(--gut) 10px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}
+.ab p{margin:0;flex:1 1 200px;font:400 var(--t-meta)/1.35 var(--mono);letter-spacing:.01em}
+.ab nav{display:flex;gap:6px}
+.ab a{display:inline-block;padding:7px 12px 6px;border-radius:4px;border:1px solid var(--parchment-soft);color:var(--parchment-soft);text-decoration:none;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.ab a[aria-current]{background:var(--parchment-soft);color:var(--oxblood)}
