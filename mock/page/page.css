@@ -41,6 +41,16 @@ ol,ul{padding:0;list-style:none}
 .cap li{padding:1px 0}
 .cap li.say{font-style:italic;color:var(--teal-deep)}
 
+/* the grid of five animals (Open Brain 5009): its world on the left, the mismatched world on the right, at
+   every width. A row is a pair. Heading, drawing and caption sit on shared rows, so the two drawings of a
+   row line up whatever the length of their headings. Text one step smaller than in a full-width diagram. */
+.dgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.dgrid .dpair{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto auto;gap:0 14px}
+.dgrid .dg{display:grid;grid-template-rows:subgrid;grid-row:span 3;max-width:none;padding-top:12px}
+.dgrid .dh{display:block;align-self:end;font:var(--w-head) var(--t-lead)/1.18 var(--serif);text-wrap:balance}
+.dgrid .chg{margin-bottom:6px}
+.dgrid .cap{font:500 var(--t-body)/1.28 var(--serif);align-content:start}
+
 /* the parts of a drawing: v is shown or not, d is drawn along its length, m moves, f takes a colour */
 .d{stroke-dasharray:1 1}
 .f{color:var(--cr,var(--ink))}
@@ -106,13 +116,22 @@ ol,ul{padding:0;list-style:none}
 .t-go{margin-top:5px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
 
 @media (min-width:720px){
-  .sec{padding:40px var(--gut) 42px}
+  .sec{padding-top:40px;padding-bottom:42px}
   .sec.top{padding-top:48px}
   .sec.band{padding-top:34px;padding-bottom:36px}
+  /* wide screens (Open Brain 5013): one left edge for the top bar, the Cor banner, the text and the
+     drawings. The text keeps its reading width; pairs, the grid, the wall and the tiles use the page width. */
+  .sec{padding-left:max(var(--gut),calc((100% - var(--max))/2 + var(--gut)));padding-right:max(var(--gut),calc((100% - var(--max))/2 + var(--gut)))}
+  .sec > *{margin-left:0;margin-right:0}
+  .sec > .dpair,.sec > .dgrid,.sec > .tiles,.sec > .wall{max-width:none}
   /* the two parts of a pair side by side, with heading, drawing and captions on shared rows */
   .dpair:has(.dg + .dg){grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto auto;gap:0 40px}
   .dpair:has(.dg + .dg) .dg{display:grid;grid-template-rows:subgrid;grid-row:span 3;max-width:none}
   .dpair:has(.dg + .dg) .dh{display:block;align-self:end}
+  .dgrid{gap:28px}
+  .dgrid .dpair{gap:0 40px}
+  .wall{columns:2;column-gap:40px}
+  .wall li{break-inside:avoid}
   .next .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
@@ -123,3 +142,13 @@ ol,ul{padding:0;list-style:none}
 .ab nav{display:flex;gap:6px}
 .ab a{display:inline-block;padding:7px 12px 6px;border-radius:4px;border:1px solid var(--parchment-soft);color:var(--parchment-soft);text-decoration:none;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
 .ab a[aria-current]{background:var(--parchment-soft);color:var(--oxblood)}
+
+/* ---- desktop: in the grid of five animals the words stand beside the drawing, so a row stays low
+   enough to see several animals at once ---- */
+@media (min-width:1000px){
+  .dgrid .dpair{grid-template-rows:auto}
+  .dgrid .dg{grid-row:auto;grid-template-columns:minmax(0,9fr) minmax(0,10fr);grid-template-rows:auto 1fr;column-gap:26px;padding-top:18px}
+  .dgrid .dg svg{grid-column:1;grid-row:1/3;align-self:center}
+  .dgrid .dh{grid-column:2;grid-row:1;align-self:start;font:var(--w-head) var(--t-h3)/1.2 var(--serif);margin-top:6px}
+  .dgrid .cap{grid-column:2;grid-row:2;font:500 var(--t-lead)/1.3 var(--serif);margin-top:8px}
+}
