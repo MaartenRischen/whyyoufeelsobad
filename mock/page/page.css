@@ -41,12 +41,11 @@ ol,ul{padding:0;list-style:none}
 .cap li{padding:1px 0}
 .cap li.say{font-style:italic;color:var(--teal-deep)}
 
-/* the parts of a drawing: v is shown or not, d is drawn along its length, m moves, f takes a colour, w a width */
+/* the parts of a drawing: v is shown or not, d is drawn along its length, m moves, f takes a colour */
 .d{stroke-dasharray:1 1}
 .f{color:var(--cr,var(--ink))}
 .m{transform:var(--tr,none)}
-.w{stroke-width:var(--wr)}
-.v,.d,.m,.f,.w,.cap li{transition-property:opacity,stroke-dashoffset,transform,color,stroke-width;transition-duration:.28s,.55s,.6s,.3s,.4s;transition-timing-function:ease,ease,cubic-bezier(.4,0,.2,1),ease,ease}
+.v,.d,.m,.f,.cap li{transition-property:opacity,stroke-dashoffset,transform,color;transition-duration:.28s,.55s,.6s,.3s;transition-timing-function:ease,ease,cubic-bezier(.4,0,.2,1),ease}
 /* at rest (no data-b): the complete still. Only what is marked r is shown. */
 .dg:not([data-b]) .v:not(.r){opacity:0}
 .dg:not([data-b]) .d:not(.r){stroke-dashoffset:1}
@@ -54,24 +53,42 @@ ol,ul{padding:0;list-style:none}
 .moving .cap li{grid-area:1/1;opacity:0}
 .moving .dg:not([data-b]) .cap li.r{opacity:1}
 .dg.snap .m{transition:none!important}
-/* a fake answer: the ring turns for a moment, then it is back */
-@keyframes fl{0%{color:var(--bad)}16%,50%{color:var(--good)}100%{color:var(--bad)}}
-@media (prefers-reduced-motion:reduce){.v,.d,.m,.f,.w,.cap li{transition:none!important}.fl{animation:none!important}}
+
+/* a feeling: a glow behind the figure. .g0 is the patch of one colour, .gc its core, .gp the wave that
+   runs outward. At rest the glow stands still. In the one diagram that plays, a patch spreads out from
+   the figure when its feeling starts, the core pulses and a wave runs outward: fast for a feeling with
+   no answer, slow for one that got its answer. */
+.g0,.gc,.gp{transform-box:fill-box;transform-origin:center}
+.g0{transition-property:opacity,transform;transition-duration:.5s,.8s;transition-timing-function:ease,cubic-bezier(.2,.8,.3,1)}
+.gp,.fl{opacity:0}
+.dg[data-b] .g0{transform:scale(.3)}
+.dg[data-b] .gc{animation:pulse 1.15s ease-in-out infinite}
+.dg[data-b] .gp{animation:wave 1.15s ease-out infinite}
+.dg[data-b] .gc.ink,.dg[data-b] .gp.ink{animation-duration:1.7s}
+.dg[data-b] .gc.good,.dg[data-b] .gp.good{animation-duration:2.6s}
+@keyframes pulse{0%,100%{transform:scale(.9);opacity:.78}45%{transform:scale(1.06);opacity:1}}
+@keyframes wave{0%{transform:scale(.35);opacity:0}30%{opacity:.9}100%{transform:scale(1.42);opacity:0}}
+/* a fake answer: the good glow shows for a moment over the bad one, then it is gone */
+@keyframes flash{0%{opacity:0}18%,52%{opacity:1}100%{opacity:0}}
+@keyframes dip{0%{opacity:1}18%,52%{opacity:0}100%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.v,.d,.m,.f,.g0,.cap li{transition:none!important}.gc,.gp,.fl,.fd{animation:none!important}}
 
 /* the beats. A part that comes in late (--dl) waits only on its way in, never on its way out. */
 .dg[data-b] .v{opacity:0}
 .dg[data-b="0"] .v.b0,.dg[data-b="1"] .v.b1,.dg[data-b="2"] .v.b2,.dg[data-b="3"] .v.b3,.dg[data-b="4"] .v.b4,.dg[data-b="5"] .v.b5,.dg[data-b="6"] .v.b6,.dg[data-b="7"] .v.b7{opacity:1;transition-delay:var(--dl,0s)}
 .dg[data-b] .d{stroke-dashoffset:1}
 .dg[data-b="0"] .d.b0,.dg[data-b="1"] .d.b1,.dg[data-b="2"] .d.b2,.dg[data-b="3"] .d.b3,.dg[data-b="4"] .d.b4,.dg[data-b="5"] .d.b5,.dg[data-b="6"] .d.b6,.dg[data-b="7"] .d.b7{stroke-dashoffset:0;transition-delay:var(--dl,0s)}
-.dg[data-b="0"] .m{transform:var(--t0)}.dg[data-b="0"] .f{color:var(--c0)}.dg[data-b="0"] .w{stroke-width:var(--w0)}
-.dg[data-b="1"] .m{transform:var(--t1)}.dg[data-b="1"] .f{color:var(--c1)}.dg[data-b="1"] .w{stroke-width:var(--w1)}
-.dg[data-b="2"] .m{transform:var(--t2)}.dg[data-b="2"] .f{color:var(--c2)}.dg[data-b="2"] .w{stroke-width:var(--w2)}
-.dg[data-b="3"] .m{transform:var(--t3)}.dg[data-b="3"] .f{color:var(--c3)}.dg[data-b="3"] .w{stroke-width:var(--w3)}
-.dg[data-b="4"] .m{transform:var(--t4)}.dg[data-b="4"] .f{color:var(--c4)}.dg[data-b="4"] .w{stroke-width:var(--w4)}
-.dg[data-b="5"] .m{transform:var(--t5)}.dg[data-b="5"] .f{color:var(--c5)}.dg[data-b="5"] .w{stroke-width:var(--w5)}
-.dg[data-b="6"] .m{transform:var(--t6)}.dg[data-b="6"] .f{color:var(--c6)}.dg[data-b="6"] .w{stroke-width:var(--w6)}
-.dg[data-b="7"] .m{transform:var(--t7)}.dg[data-b="7"] .f{color:var(--c7)}.dg[data-b="7"] .w{stroke-width:var(--w7)}
-.dg[data-b="1"] .fl.b1,.dg[data-b="2"] .fl.b2,.dg[data-b="3"] .fl.b3,.dg[data-b="4"] .fl.b4,.dg[data-b="5"] .fl.b5,.dg[data-b="6"] .fl.b6,.dg[data-b="7"] .fl.b7{animation:fl 1.5s ease both}
+.dg[data-b="0"] .m{transform:var(--t0)}.dg[data-b="0"] .f{color:var(--c0)}
+.dg[data-b="1"] .m{transform:var(--t1)}.dg[data-b="1"] .f{color:var(--c1)}
+.dg[data-b="2"] .m{transform:var(--t2)}.dg[data-b="2"] .f{color:var(--c2)}
+.dg[data-b="3"] .m{transform:var(--t3)}.dg[data-b="3"] .f{color:var(--c3)}
+.dg[data-b="4"] .m{transform:var(--t4)}.dg[data-b="4"] .f{color:var(--c4)}
+.dg[data-b="5"] .m{transform:var(--t5)}.dg[data-b="5"] .f{color:var(--c5)}
+.dg[data-b="6"] .m{transform:var(--t6)}.dg[data-b="6"] .f{color:var(--c6)}
+.dg[data-b="7"] .m{transform:var(--t7)}.dg[data-b="7"] .f{color:var(--c7)}
+.dg[data-b="1"] .g0.b1,.dg[data-b="2"] .g0.b2,.dg[data-b="3"] .g0.b3,.dg[data-b="4"] .g0.b4,.dg[data-b="5"] .g0.b5,.dg[data-b="6"] .g0.b6,.dg[data-b="7"] .g0.b7{transform:none}
+.dg[data-b="1"] .fl.fb1,.dg[data-b="2"] .fl.fb2,.dg[data-b="3"] .fl.fb3,.dg[data-b="4"] .fl.fb4,.dg[data-b="5"] .fl.fb5,.dg[data-b="6"] .fl.fb6,.dg[data-b="7"] .fl.fb7{animation:flash 1.6s ease both}
+.dg[data-b="1"] .fd.fb1,.dg[data-b="2"] .fd.fb2,.dg[data-b="3"] .fd.fb3,.dg[data-b="4"] .fd.fb4,.dg[data-b="5"] .fd.fb5,.dg[data-b="6"] .fd.fb6,.dg[data-b="7"] .fd.fb7{animation:dip 1.6s ease both}
 .moving .dg[data-b="0"] .cap li.b0,.moving .dg[data-b="1"] .cap li.b1,.moving .dg[data-b="2"] .cap li.b2,.moving .dg[data-b="3"] .cap li.b3,.moving .dg[data-b="4"] .cap li.b4,.moving .dg[data-b="5"] .cap li.b5,.moving .dg[data-b="6"] .cap li.b6,.moving .dg[data-b="7"] .cap li.b7{opacity:1}
 
 /* ---- the wall of complaints, what to do, where next ---- */
