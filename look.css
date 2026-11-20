@@ -1,4 +1,4 @@
-/* look.css - the one look for every Demismatch site. Version 2026-11-20.1
+/* look.css - the one look for every Demismatch site. Version 2026-11-20.2
    The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
    Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
    Every public site loads this file before its own stylesheet. A site's own stylesheet
@@ -25,7 +25,7 @@
   --rule:rgba(58,18,24,.2);         /* hairlines */
   --card:var(--parchment-soft);     /* cards; no white anywhere */
   --card-line:rgba(58,18,24,.18);
-  --band:var(--parchment-dark);     /* a band across the page, such as the Cor banner */
+  --band:var(--parchment-dark);     /* a light band across the page */
   --link:var(--teal);
   --accent:var(--gold);             /* a side rule or a small mark */
   --good:#2d6b6b;                   /* a need that gets its answer: Cor's "resolves" */
@@ -78,28 +78,33 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .doors .dm{margin-right:auto;color:var(--ink)}
 .doors a[aria-current]{color:var(--ink);border-color:var(--teal)}
 
-/* the Cor banner. It is a <details>: shut it shows the headline and a "See how" button,
+/* the Cor banner. A dark strip across the page, so it reads as a notice and never as the page's
+   headline. It is a <details>: shut it shows one line and a "See how +" button at the right,
    open it shows the text and the link to Cor (Maarten, 20 Nov 2026). */
-.cor-ban{background:var(--band);color:var(--ink);border-bottom:1px solid var(--rule)}
-.cb-in{max-width:var(--max);margin:0 auto;padding:18px var(--gut) 20px}
-details.cb-in:not([open]){padding-top:13px;padding-bottom:14px}
+.cor-ban{background:var(--oxblood);color:var(--parchment-soft)}
+.cb-in{max-width:var(--max);margin:0 auto;padding:11px var(--gut) 12px}
+.cb-in[open]{padding-bottom:22px}
+.cb-in[open]>summary{margin-bottom:14px}
 .cb-in>summary{display:block;list-style:none;cursor:pointer}
 .cb-in>summary::-webkit-details-marker{display:none}
-.cb-in>summary:focus-visible{outline:2.5px solid var(--teal);outline-offset:4px;border-radius:2px}
-.cb-h{display:flex;align-items:flex-start;gap:10px;margin:0;font:var(--w-head) var(--t-card)/1.15 var(--serif);letter-spacing:-.012em;text-wrap:balance}
-.cb-more{display:inline-block;vertical-align:middle;margin:-4px 0 0 6px;background:var(--oxblood);color:var(--parchment-soft);border:1px solid var(--oxblood);border-radius:4px;padding:7px 11px 6px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
-.cb-in>summary:hover .cb-more{background:var(--teal-deep);border-color:var(--teal-deep)}
-.cb-in[open] .cb-more{background:none;color:var(--ink)}
-.cb-in[open]>summary:hover .cb-more{background:var(--oxblood);border-color:var(--oxblood);color:var(--parchment-soft)}
+.cb-in>summary:focus-visible{outline:2.5px solid var(--gold);outline-offset:4px;border-radius:2px}
+.cb-h{display:flex;align-items:center;gap:10px;margin:0;font:500 clamp(1.02rem,1.5vw,1.2rem)/1.25 var(--serif);letter-spacing:0}
+.cb-h>span{flex:1;display:flex;align-items:center;justify-content:space-between;gap:8px 14px}
+.cb-more{flex:none;background:var(--parchment-soft);color:var(--oxblood);border:1px solid var(--parchment-soft);border-radius:4px;padding:9px 12px 8px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.cb-more::after{content:" +"}
+.cb-in[open] .cb-more::after{content:" \2212"}
+.cb-in>summary:hover .cb-more{background:var(--gold);border-color:var(--gold)}
+.cb-in[open] .cb-more{background:none;color:var(--parchment-soft);border-color:rgba(242,232,207,.55)}
+.cb-in[open]>summary:hover .cb-more{background:var(--parchment-soft);border-color:var(--parchment-soft);color:var(--oxblood)}
 .cb-o,.cb-in[open] .cb-c{display:none}
 .cb-in[open] .cb-o{display:inline}
-.rings{flex:none;width:24px;height:24px;margin-top:1px;color:var(--ink);fill:none;stroke:currentColor;stroke-width:1.6}
-.rings .dot{fill:var(--teal);stroke:none}
-.cb-t{margin:10px 0 0;max-width:86ch;font:400 var(--t-body)/1.5 var(--serif)}
-.cb-t a{color:var(--ink);font-weight:500;text-decoration-thickness:1px;text-underline-offset:3px}
-.cb-go{margin:14px 0 0}
-.cb-btn{display:inline-block;background:var(--oxblood);color:var(--parchment-soft);font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:11px 16px 10px;border-radius:4px}
-.cb-btn:hover{background:var(--teal-deep)}
+.rings{flex:none;width:22px;height:22px;color:currentColor;fill:none;stroke:currentColor;stroke-width:1.6}
+.rings .dot{fill:var(--gold);stroke:none}
+.cb-t{margin:0;max-width:86ch;font:400 var(--t-body)/1.5 var(--serif)}
+.cb-t a{color:inherit;font-weight:500;text-decoration-thickness:1px;text-underline-offset:3px}
+.cb-go{margin:0}
+.cb-btn{display:inline-block;background:var(--parchment-soft);color:var(--oxblood);font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;margin-top:16px;padding:11px 16px 10px;border-radius:4px}
+.cb-btn:hover{background:var(--gold)}
 
 /* the foot of every page */
 .ft{width:calc(100% - 2*var(--gut));max-width:calc(var(--max) - 2*var(--gut));margin:44px auto 0;padding:18px 0 44px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;font:400 var(--t-meta)/1.6 var(--mono);letter-spacing:.01em;color:var(--dim)}
@@ -107,7 +112,7 @@ details.cb-in:not([open]){padding-top:13px;padding-bottom:14px}
 .ft .nmd{font-weight:500;color:var(--ink)}
 
 @media (min-width:720px){
-  .cb-in{padding:22px var(--gut) 24px}
-  details.cb-in:not([open]){padding-top:15px;padding-bottom:16px}
-  .rings{width:28px;height:28px}
+  .cb-in{padding:12px var(--gut) 13px}
+  .cb-in[open]{padding-bottom:26px}
+  .rings{width:24px;height:24px}
 }
