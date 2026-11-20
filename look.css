@@ -1,4 +1,4 @@
-/* look.css - the one look for every Demismatch site. Version 2026-11-19.1
+/* look.css - the one look for every Demismatch site. Version 2026-11-20.1
    The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
    Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
    Every public site loads this file before its own stylesheet. A site's own stylesheet
@@ -78,10 +78,21 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .doors .dm{margin-right:auto;color:var(--ink)}
 .doors a[aria-current]{color:var(--ink);border-color:var(--teal)}
 
-/* the Cor banner */
+/* the Cor banner. It is a <details>: shut it shows the headline and a "See how" button,
+   open it shows the text and the link to Cor (Maarten, 20 Nov 2026). */
 .cor-ban{background:var(--band);color:var(--ink);border-bottom:1px solid var(--rule)}
 .cb-in{max-width:var(--max);margin:0 auto;padding:18px var(--gut) 20px}
+details.cb-in:not([open]){padding-top:13px;padding-bottom:14px}
+.cb-in>summary{display:block;list-style:none;cursor:pointer}
+.cb-in>summary::-webkit-details-marker{display:none}
+.cb-in>summary:focus-visible{outline:2.5px solid var(--teal);outline-offset:4px;border-radius:2px}
 .cb-h{display:flex;align-items:flex-start;gap:10px;margin:0;font:var(--w-head) var(--t-card)/1.15 var(--serif);letter-spacing:-.012em;text-wrap:balance}
+.cb-more{display:inline-block;vertical-align:middle;margin:-4px 0 0 6px;background:var(--oxblood);color:var(--parchment-soft);border:1px solid var(--oxblood);border-radius:4px;padding:7px 11px 6px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.cb-in>summary:hover .cb-more{background:var(--teal-deep);border-color:var(--teal-deep)}
+.cb-in[open] .cb-more{background:none;color:var(--ink)}
+.cb-in[open]>summary:hover .cb-more{background:var(--oxblood);border-color:var(--oxblood);color:var(--parchment-soft)}
+.cb-o,.cb-in[open] .cb-c{display:none}
+.cb-in[open] .cb-o{display:inline}
 .rings{flex:none;width:24px;height:24px;margin-top:1px;color:var(--ink);fill:none;stroke:currentColor;stroke-width:1.6}
 .rings .dot{fill:var(--teal);stroke:none}
 .cb-t{margin:10px 0 0;max-width:86ch;font:400 var(--t-body)/1.5 var(--serif)}
@@ -97,5 +108,6 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 
 @media (min-width:720px){
   .cb-in{padding:22px var(--gut) 24px}
+  details.cb-in:not([open]){padding-top:15px;padding-bottom:16px}
   .rings{width:28px;height:28px}
 }
