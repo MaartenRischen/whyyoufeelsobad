@@ -117,6 +117,54 @@ ol,ul{padding:0;list-style:none}
 .dg[data-b="1"] .lf.fb1,.dg[data-b="2"] .lf.fb2,.dg[data-b="3"] .lf.fb3,.dg[data-b="4"] .lf.fb4,.dg[data-b="5"] .lf.fb5,.dg[data-b="6"] .lf.fb6,.dg[data-b="7"] .lf.fb7{animation:lflash 1.6s ease both}
 .moving .dg[data-b="0"] .cap li.b0,.moving .dg[data-b="1"] .cap li.b1,.moving .dg[data-b="2"] .cap li.b2,.moving .dg[data-b="3"] .cap li.b3,.moving .dg[data-b="4"] .cap li.b4,.moving .dg[data-b="5"] .cap li.b5,.moving .dg[data-b="6"] .cap li.b6,.moving .dg[data-b="7"] .cap li.b7{opacity:1}
 
+/* ---- a single loop (Open Brain 5059): one drawing per case in place of a pair. Its world, one change step,
+   the mismatched world. Over the drawing a name and the world line, which gives way to the dark chip at the
+   change. Under it the readout (need, state, signal, answer), one caption, and the human's words from the
+   change on. The five animals are rows (.lp) of one .dgrid.loops, so page.js gives them turns; every other
+   loop is a .dpair.lone, a group of one. */
+.dgrid.loops{grid-template-columns:minmax(0,1fr);gap:34px 40px}
+.dgrid.loops .dg{display:block;max-width:520px;padding-top:14px}
+.dgrid.loops .dg .dw{align-self:auto}
+.sec .lt{font:var(--w-head) var(--t-h3)/1.2 var(--serif);letter-spacing:-.012em;margin:0}
+.sec .lw{display:grid;justify-items:start;align-items:center;margin:6px 0 4px}
+.lw span{grid-area:1/1}
+.lw .chg{margin:0}
+.wa{padding:4px 8px 3px;border:1px solid var(--card-line);border-radius:4px;color:var(--dim);font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.sec .lc{font:500 var(--t-lead)/1.3 var(--serif);margin:10px 0 0}
+.sec .ls{font:400 var(--t-meta)/1.5 var(--mono);letter-spacing:.01em;color:var(--dim);margin:8px 0 0}
+.lone .cap{margin-top:10px}
+/* the readout: need, state, signal, answer. A value takes the colour of the glow; "not yet" is dim. */
+.ro{display:grid;gap:1px;width:fit-content;min-width:min(100%,12.5em);max-width:100%;margin:2px 0 0;padding:6px 9px 5px;border:1px solid var(--card-line);border-left:3px solid var(--oxblood);border-radius:3px;background:var(--card)}
+.ro div{display:grid;grid-template-columns:4.1em minmax(0,1fr);column-gap:8px;align-items:baseline}
+.ro dt{font:500 var(--t-label)/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.ro dd{margin:0;display:grid;font:600 var(--t-body)/1.3 var(--serif)}
+.ro dd span{grid-area:1/1;white-space:nowrap}
+.ro-d{color:var(--dim);font-weight:500}
+/* the parts the change needs. o: full, then faint (the lost answer). drop: falls in from above. pop: grows
+   from a point. roll: comes in from the right. rise: stands up from the ground. */
+.o{opacity:var(--or,1);transition:opacity .45s ease}
+.drop{transition-property:opacity,transform;transition-duration:.1s,.26s;transition-timing-function:ease,cubic-bezier(.6,0,1,.5)}
+.pop{transition-property:opacity,transform;transition-duration:.22s,.55s;transition-timing-function:ease,cubic-bezier(.2,.9,.3,1.15)}
+.roll{transition-property:opacity,transform;transition-duration:.12s,.6s;transition-timing-function:ease,cubic-bezier(.2,.7,.3,1)}
+.rise{transition-property:opacity,transform;transition-duration:.1s,.3s;transition-timing-function:ease,cubic-bezier(.3,0,.3,1)}
+.dg[data-b] .drop{transform:translateY(-150px)}
+.dg[data-b] .pop{transform:scale(.3)}
+.dg[data-b] .roll{transform:translateX(120px)}
+.dg[data-b] .rise{transform:scaleY(0)}
+.dg[data-b="0"] .o{opacity:var(--o0,1)}
+.dg[data-b="1"] .o{opacity:var(--o1,1)}
+.dg[data-b="2"] .o{opacity:var(--o2,1)}
+.dg[data-b="3"] .o{opacity:var(--o3,1)}
+.dg[data-b="4"] .o{opacity:var(--o4,1)}
+.dg[data-b="5"] .o{opacity:var(--o5,1)}
+.dg[data-b="6"] .o{opacity:var(--o6,1)}
+.dg[data-b="7"] .o{opacity:var(--o7,1)}
+.dg[data-b="0"] .drop.b0,.dg[data-b="1"] .drop.b1,.dg[data-b="2"] .drop.b2,.dg[data-b="3"] .drop.b3,.dg[data-b="4"] .drop.b4,.dg[data-b="5"] .drop.b5,.dg[data-b="6"] .drop.b6,.dg[data-b="7"] .drop.b7{transform:none}
+.dg[data-b="0"] .pop.b0,.dg[data-b="1"] .pop.b1,.dg[data-b="2"] .pop.b2,.dg[data-b="3"] .pop.b3,.dg[data-b="4"] .pop.b4,.dg[data-b="5"] .pop.b5,.dg[data-b="6"] .pop.b6,.dg[data-b="7"] .pop.b7{transform:none}
+.dg[data-b="0"] .roll.b0,.dg[data-b="1"] .roll.b1,.dg[data-b="2"] .roll.b2,.dg[data-b="3"] .roll.b3,.dg[data-b="4"] .roll.b4,.dg[data-b="5"] .roll.b5,.dg[data-b="6"] .roll.b6,.dg[data-b="7"] .roll.b7{transform:none}
+.dg[data-b="0"] .rise.b0,.dg[data-b="1"] .rise.b1,.dg[data-b="2"] .rise.b2,.dg[data-b="3"] .rise.b3,.dg[data-b="4"] .rise.b4,.dg[data-b="5"] .rise.b5,.dg[data-b="6"] .rise.b6,.dg[data-b="7"] .rise.b7{transform:none}
+@media (prefers-reduced-motion:reduce){.o,.drop,.pop,.roll,.rise{transition:none!important}}
+
 /* ---- the wall of complaints, what to do, where next ---- */
 .wall{margin-top:18px}
 .wall li + li{margin-top:9px}
@@ -146,6 +194,7 @@ ol,ul{padding:0;list-style:none}
   .dpair:has(.dg + .dg) .dh{display:block;align-self:end}
   .dgrid{gap:28px}
   .dgrid .dpair{gap:0 40px}
+  .dgrid.loops{grid-template-columns:repeat(2,minmax(0,1fr))}
   .wall{columns:2;column-gap:40px}
   .wall li{break-inside:avoid}
   .next .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -168,4 +217,18 @@ ol,ul{padding:0;list-style:none}
   .dgrid .dh{grid-column:2;grid-row:1;align-self:start;font:var(--w-head) var(--t-h3)/1.2 var(--serif);margin-top:6px}
   .dgrid .cap{grid-column:2;grid-row:2;font:500 var(--t-lead)/1.3 var(--serif);margin-top:8px}
   .sec .dgrid .lb{font-size:var(--t-lead)}
+}
+
+/* ---- desktop, the loops (Open Brain 5059): the five animals three to a row; a loop on its own with the drawing
+   on the left and its name, readout, caption and quote on the right, so it does not fill the screen ---- */
+@media (min-width:1000px){
+  .dgrid.loops{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .dgrid.loops .dg{display:block;max-width:none;padding-top:14px}
+  .dgrid.loops .lc{font-size:var(--t-body)}
+  .sec > .dpair.lone{max-width:1060px}
+  .lone .dg{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);grid-template-rows:auto auto 1fr;column-gap:44px;max-width:none;padding-top:20px}
+  .lone .dg .dw{grid-column:1;grid-row:1/4;align-self:start}
+  .lone .dg > :not(.dw){grid-column:2}
+  .lone .lh{margin-top:4px}
+  .lone .ro{margin-top:10px}
 }
