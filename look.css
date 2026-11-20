@@ -1,4 +1,4 @@
-/* look.css - the one look for every Demismatch site. Version 2026-11-20.2
+/* look.css - the one look for every Demismatch site. Version 2026-11-20.3
    The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
    Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
    Every public site loads this file before its own stylesheet. A site's own stylesheet
@@ -79,18 +79,20 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .doors a[aria-current]{color:var(--ink);border-color:var(--teal)}
 
 /* the Cor banner. A dark strip across the page, so it reads as a notice and never as the page's
-   headline. It is a <details>: shut it shows one line and a "See how +" button at the right,
-   open it shows the text and the link to Cor (Maarten, 20 Nov 2026). */
+   headline. It is a <details>: shut it shows the headline, the text under it and a "See details +"
+   button under the text, open it shows the three checks, the paragraph and the link to Cor
+   (Maarten, 20 Nov 2026, 11:09, 11:19 and 12:51). whatreally.is resets margins of p and ol in a layer
+   above this file, so the spacing inside the strip is padding, or margin on elements that are not p or ol. */
 .cor-ban{background:var(--oxblood);color:var(--parchment-soft)}
-.cb-in{max-width:var(--max);margin:0 auto;padding:11px var(--gut) 12px}
-.cb-in[open]{padding-bottom:22px}
-.cb-in[open]>summary{margin-bottom:14px}
+.cb-in{max-width:var(--max);margin:0 auto;padding:16px var(--gut) 18px}
+.cb-in[open]{padding-bottom:24px}
 .cb-in>summary{display:block;list-style:none;cursor:pointer}
 .cb-in>summary::-webkit-details-marker{display:none}
 .cb-in>summary:focus-visible{outline:2.5px solid var(--gold);outline-offset:4px;border-radius:2px}
-.cb-h{display:flex;align-items:center;gap:10px;margin:0;font:500 clamp(1.02rem,1.5vw,1.2rem)/1.25 var(--serif);letter-spacing:0}
-.cb-h>span{flex:1;display:flex;align-items:center;justify-content:space-between;gap:8px 14px}
-.cb-more{flex:none;background:var(--parchment-soft);color:var(--oxblood);border:1px solid var(--parchment-soft);border-radius:4px;padding:9px 12px 8px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.cb-h{display:flex;align-items:flex-start;gap:10px;margin:0;font:600 clamp(1.15rem,2.3vw,1.6rem)/1.2 var(--serif);letter-spacing:.01em}
+.cb-h .rings{margin-top:.1em}
+.cb-lead{display:block;max-width:var(--read);margin-top:10px;font:400 var(--t-body)/1.5 var(--serif)}
+.cb-more{display:inline-block;margin-top:14px;background:var(--parchment-soft);color:var(--oxblood);border:1px solid var(--parchment-soft);border-radius:4px;padding:10px 13px 9px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
 .cb-more::after{content:" +"}
 .cb-in[open] .cb-more::after{content:" \2212"}
 .cb-in>summary:hover .cb-more{background:var(--gold);border-color:var(--gold)}
@@ -100,10 +102,13 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .cb-in[open] .cb-o{display:inline}
 .rings{flex:none;width:22px;height:22px;color:currentColor;fill:none;stroke:currentColor;stroke-width:1.6}
 .rings .dot{fill:var(--gold);stroke:none}
-.cb-t{margin:0;max-width:86ch;font:400 var(--t-body)/1.5 var(--serif)}
+.cb-t{margin:0;padding-top:18px;max-width:var(--read);font:400 var(--t-body)/1.5 var(--serif)}
 .cb-t a{color:inherit;font-weight:500;text-decoration-thickness:1px;text-underline-offset:3px}
+.cb-3{margin:0;padding:10px 0 0 1.7em;max-width:var(--read);list-style:decimal;font:400 var(--t-body)/1.5 var(--serif)}
+.cb-3 li{padding:4px 0 4px .3em}
+.cb-3 li::marker{font-weight:600;color:var(--gold)}
 .cb-go{margin:0}
-.cb-btn{display:inline-block;background:var(--parchment-soft);color:var(--oxblood);font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;margin-top:16px;padding:11px 16px 10px;border-radius:4px}
+.cb-btn{display:inline-block;background:var(--parchment-soft);color:var(--oxblood);font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;margin-top:18px;padding:11px 16px 10px;border-radius:4px}
 .cb-btn:hover{background:var(--gold)}
 
 /* the foot of every page */
@@ -112,7 +117,7 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .ft .nmd{font-weight:500;color:var(--ink)}
 
 @media (min-width:720px){
-  .cb-in{padding:12px var(--gut) 13px}
-  .cb-in[open]{padding-bottom:26px}
+  .cb-in{padding:20px var(--gut) 22px}
+  .cb-in[open]{padding-bottom:28px}
   .rings{width:24px;height:24px}
 }
