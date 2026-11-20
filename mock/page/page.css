@@ -1,100 +1,100 @@
-/* page.css - preview page for whyyoufeelsobad.com (Open Brain thought 4892). Phone first, 390 px.
-   The look is taken from the coded films: paper, ink, the red and the green of the feeling. */
-@font-face{font-family:"Montserrat";font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-500-normal.woff2) format("woff2")}
-@font-face{font-family:"Montserrat";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-700-normal.woff2) format("woff2")}
-@font-face{font-family:"Montserrat";font-weight:800;font-style:normal;font-display:swap;src:url(../fonts/montserrat-latin-800-normal.woff2) format("woff2")}
-@font-face{font-family:"Archivo Black";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/archivo-black-latin-400-normal.woff2) format("woff2")}
-
-:root{--paper:#f7f0de;--ink:#22202e;--red:#e4472d;--green:#2fae68;--sun:#f2b632;--gut:20px;
-  --head:"Archivo Black","Arial Black",sans-serif;--body:"Montserrat",-apple-system,"Helvetica Neue",Arial,sans-serif}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-html,body{margin:0;background:var(--paper);color:var(--ink)}
-body{overflow-x:hidden;font:700 20px/1.32 var(--body);letter-spacing:-.008em}
+/* page.css - the layout of whyyoufeelsobad.com/mock/page/ (Open Brain thought 4987). Phone first, 390 px.
+   Colours, typefaces, text sizes, the top bar, the Cor banner and the foot come from look.css, the one
+   look for every Demismatch site. This file sets no colour, typeface or text size of its own: it only
+   uses look.css names. Written by hand; wyfsb/page2/build.py writes index.html. */
 h1,h2,p,ol,ul,figure{margin:0}
 ol,ul{padding:0;list-style:none}
-a{color:inherit;text-underline-offset:.16em;text-decoration-thickness:.09em}
 
-/* ---- text between the loops ---- */
-.sec{padding:40px var(--gut) 42px}
-.sec > *{max-width:760px;margin-left:auto;margin-right:auto}
+/* ---- text ---- */
+.sec{padding:30px var(--gut) 32px}
+.sec > *{max-width:var(--read);margin-left:auto;margin-right:auto}
 .sec > * + *{margin-top:16px}
-.sec.tight{padding-top:26px;padding-bottom:28px}
-.ink{background:var(--ink);color:var(--paper)}
-.redb{background:var(--red);color:var(--paper)}
-.greenb{background:var(--green);color:var(--ink)}
-.sunb{background:var(--sun);color:var(--ink)}
-h1{font:400 clamp(60px,17.6vw,150px)/.9 var(--head);letter-spacing:-.035em;text-wrap:balance}
-.top{padding-top:34px;padding-bottom:36px}
-.big{font:400 clamp(30px,8.2vw,58px)/1.04 var(--head);letter-spacing:-.022em;text-wrap:balance}
-.mid{font:800 clamp(24px,6.4vw,38px)/1.14 var(--body);letter-spacing:-.022em;text-wrap:balance}
-.red{color:var(--red)}
-.term{display:inline;padding:.02em .22em .06em;border-radius:.16em;background:var(--ink);color:var(--paper);-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.term.g{background:var(--green);color:var(--ink)}
-.term.r{background:var(--red);color:var(--paper)}
-.ink .term{background:var(--paper);color:var(--ink)}
-.say-link{font:800 22px/1.2 var(--body)}
-.note{font:500 14px/1.42 var(--body);letter-spacing:0;opacity:.82}
-.sec.notes{padding-top:12px;padding-bottom:26px}
-.plain{font:500 18px/1.46 var(--body);letter-spacing:-.004em}
-.plain b{font-weight:800}
+.sec.top{padding-top:34px;padding-bottom:10px}
+.sec.tight{padding-top:20px;padding-bottom:14px}
+.sec.band{background:var(--band);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:22px;padding-top:26px;padding-bottom:28px}
+.sec.band + .sec.band{margin-top:0;border-top:0}
+.sec.strong{box-shadow:inset 5px 0 0 var(--accent)}
+.sec p{font:400 var(--t-lead)/1.5 var(--serif)}
+.sec .big{font:var(--w-head) var(--t-h2)/1.12 var(--serif);letter-spacing:-.012em;text-wrap:balance}
+.sec .mid{font:400 var(--t-card)/1.26 var(--serif);letter-spacing:-.008em;text-wrap:balance}
+.sec .plain{font:400 var(--t-lead)/1.5 var(--serif)}
+.sec a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
+.term{font-weight:600}
+.term.g{color:var(--good)}
+.term.r{color:var(--bad)}
+.sec .note{font:400 var(--t-meta)/1.5 var(--mono);letter-spacing:.01em;color:var(--dim)}
+.sec .say-link{font:italic 400 var(--t-card)/1.3 var(--serif)}
+.sec .say-link a{color:var(--teal-deep)}
 
-/* ---- a loop: picture on top, the line under it ---- */
-.loops{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;background:var(--ink);padding:6px 0}
-.loop{position:relative;background:var(--ink)}
-.pic{position:relative;overflow:hidden;width:100%;aspect-ratio:1080/700;background:var(--bg,#2a7f8c);color:var(--fg,var(--paper))}
-.pic video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
-.pic iframe{position:absolute;left:0;top:0;width:1080px;height:1350px;border:0;transform-origin:0 0;pointer-events:none}
-.lines{position:relative;height:60px;background:var(--paper);color:var(--ink);overflow:hidden}
-.lines li{position:absolute;inset:0;display:flex;align-items:center;gap:10px;padding:0 14px 1px;font:800 21px/1.12 var(--body);letter-spacing:-.02em}
-.moving .lines li{visibility:hidden}
-.moving .lines li.on{visibility:visible}
-.lines.long li{font-size:17.5px;line-height:1.14}
-.lines li.chg{background:var(--ink);color:var(--paper)}
-.lines li.say{font:400 24px/1.1 var(--head);letter-spacing:-.02em}
-/* the five steps of the chain carry their number, as in the films */
-.lines.chain{counter-reset:step}
-.lines.chain li:not(.chg):not(.say){counter-increment:step}
-.lines.chain li:not(.chg):not(.say)::before{content:counter(step);flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);font:400 16px/30px var(--head);text-align:center;letter-spacing:0}
+/* ---- a diagram ---- */
+.sec.flow{padding-top:6px;padding-bottom:10px}
+.sec.flow > * + *{margin-top:18px}
+.dpair{display:grid;grid-template-columns:minmax(0,1fr);gap:26px 16px}
+.dpair.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}   /* directions 1 and 3, when build.py is switched to them */
+.dg{min-width:0;max-width:520px;padding-top:14px;border-top:1px solid var(--rule)}
+.dg svg{display:block;width:100%;height:auto;overflow:visible}
+.dg svg svg{overflow:hidden}
+.sec .dh{font:var(--w-head) var(--t-h3)/1.2 var(--serif);letter-spacing:-.012em;margin:0 0 4px}
+.dh:empty{display:none}
+.chg{display:block;width:fit-content;margin:0 0 8px;padding:5px 8px 4px;border-radius:4px;background:var(--oxblood);color:var(--parchment-soft);font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.cap{display:grid;margin:4px 0 0;font:500 var(--t-lead)/1.3 var(--serif)}
+.cap li{padding:1px 0}
+.cap li.say{font-style:italic;color:var(--teal-deep)}
 
-/* a film that is not made yet */
-.ph .pic{display:flex;flex-direction:column;justify-content:flex-end;padding:14px 16px 13px}
-.ph .pic b{font:400 clamp(34px,10.4vw,64px)/.92 var(--head);letter-spacing:-.03em;text-transform:uppercase}
-.ph .pic b.lng{font-size:clamp(27px,8.1vw,58px)}
-.ph .pic span{font:800 17px/1.2 var(--body);margin-top:7px}
-.ph .pic i{position:absolute;right:12px;top:11px;font:800 11.5px/1 var(--body);font-style:normal;letter-spacing:.02em;padding:6px 8px 5px;background:var(--ink);color:var(--paper);border-radius:4px}
+/* the parts of a drawing: v is shown or not, d is drawn along its length, m moves, f takes a colour, w a width */
+.d{stroke-dasharray:1 1}
+.f{color:var(--cr,var(--ink))}
+.m{transform:var(--tr,none)}
+.w{stroke-width:var(--wr)}
+.v,.d,.m,.f,.w,.cap li{transition-property:opacity,stroke-dashoffset,transform,color,stroke-width;transition-duration:.28s,.55s,.6s,.3s,.4s;transition-timing-function:ease,ease,cubic-bezier(.4,0,.2,1),ease,ease}
+/* at rest (no data-b): the complete still. Only what is marked r is shown. */
+.dg:not([data-b]) .v:not(.r){opacity:0}
+.dg:not([data-b]) .d:not(.r){stroke-dashoffset:1}
+/* one caption line at a time when the page moves; all of them listed when it does not */
+.moving .cap li{grid-area:1/1;opacity:0}
+.moving .dg:not([data-b]) .cap li.r{opacity:1}
+.dg.snap .m{transition:none!important}
+/* a fake answer: the ring turns for a moment, then it is back */
+@keyframes fl{0%{color:var(--bad)}16%,50%{color:var(--good)}100%{color:var(--bad)}}
+@media (prefers-reduced-motion:reduce){.v,.d,.m,.f,.w,.cap li{transition:none!important}.fl{animation:none!important}}
 
-/* without movement, or without script: every line is shown */
-html:not(.moving) .lines{height:auto;padding:8px 0}
-html:not(.moving) .lines li{position:static;padding:5px 14px;min-height:0}
+/* the beats. A part that comes in late (--dl) waits only on its way in, never on its way out. */
+.dg[data-b] .v{opacity:0}
+.dg[data-b="0"] .v.b0,.dg[data-b="1"] .v.b1,.dg[data-b="2"] .v.b2,.dg[data-b="3"] .v.b3,.dg[data-b="4"] .v.b4,.dg[data-b="5"] .v.b5,.dg[data-b="6"] .v.b6,.dg[data-b="7"] .v.b7{opacity:1;transition-delay:var(--dl,0s)}
+.dg[data-b] .d{stroke-dashoffset:1}
+.dg[data-b="0"] .d.b0,.dg[data-b="1"] .d.b1,.dg[data-b="2"] .d.b2,.dg[data-b="3"] .d.b3,.dg[data-b="4"] .d.b4,.dg[data-b="5"] .d.b5,.dg[data-b="6"] .d.b6,.dg[data-b="7"] .d.b7{stroke-dashoffset:0;transition-delay:var(--dl,0s)}
+.dg[data-b="0"] .m{transform:var(--t0)}.dg[data-b="0"] .f{color:var(--c0)}.dg[data-b="0"] .w{stroke-width:var(--w0)}
+.dg[data-b="1"] .m{transform:var(--t1)}.dg[data-b="1"] .f{color:var(--c1)}.dg[data-b="1"] .w{stroke-width:var(--w1)}
+.dg[data-b="2"] .m{transform:var(--t2)}.dg[data-b="2"] .f{color:var(--c2)}.dg[data-b="2"] .w{stroke-width:var(--w2)}
+.dg[data-b="3"] .m{transform:var(--t3)}.dg[data-b="3"] .f{color:var(--c3)}.dg[data-b="3"] .w{stroke-width:var(--w3)}
+.dg[data-b="4"] .m{transform:var(--t4)}.dg[data-b="4"] .f{color:var(--c4)}.dg[data-b="4"] .w{stroke-width:var(--w4)}
+.dg[data-b="5"] .m{transform:var(--t5)}.dg[data-b="5"] .f{color:var(--c5)}.dg[data-b="5"] .w{stroke-width:var(--w5)}
+.dg[data-b="6"] .m{transform:var(--t6)}.dg[data-b="6"] .f{color:var(--c6)}.dg[data-b="6"] .w{stroke-width:var(--w6)}
+.dg[data-b="7"] .m{transform:var(--t7)}.dg[data-b="7"] .f{color:var(--c7)}.dg[data-b="7"] .w{stroke-width:var(--w7)}
+.dg[data-b="1"] .fl.b1,.dg[data-b="2"] .fl.b2,.dg[data-b="3"] .fl.b3,.dg[data-b="4"] .fl.b4,.dg[data-b="5"] .fl.b5,.dg[data-b="6"] .fl.b6,.dg[data-b="7"] .fl.b7{animation:fl 1.5s ease both}
+.moving .dg[data-b="0"] .cap li.b0,.moving .dg[data-b="1"] .cap li.b1,.moving .dg[data-b="2"] .cap li.b2,.moving .dg[data-b="3"] .cap li.b3,.moving .dg[data-b="4"] .cap li.b4,.moving .dg[data-b="5"] .cap li.b5,.moving .dg[data-b="6"] .cap li.b6,.moving .dg[data-b="7"] .cap li.b7{opacity:1}
 
-/* ---- the wall of complaints ---- */
+/* ---- the wall of complaints, what to do, where next ---- */
+.wall{margin-top:18px}
 .wall li + li{margin-top:9px}
-.wall a{font:800 clamp(23px,6.3vw,34px)/1.12 var(--body);letter-spacing:-.024em;text-decoration-color:rgba(247,240,222,.45)}
-.wall a:hover{text-decoration-color:var(--red)}
-.todo li{position:relative;padding:13px 0 13px 46px;border-top:3px solid var(--ink)}
-.todo{counter-reset:todo}
-.todo li::before{counter-increment:todo;content:counter(todo);position:absolute;left:0;top:11px;font:400 30px/1 var(--head)}
-.out{display:grid;gap:8px}
-.out a{display:block;text-decoration:none;background:var(--paper);color:var(--ink);padding:16px 16px 15px;border-radius:6px}
-.out b{display:block;font:400 28px/1 var(--head);letter-spacing:-.02em;margin-bottom:6px}
-.out span{font:700 17px/1.3 var(--body)}
-.foot{font:500 14px/1.4 var(--body);opacity:.8}
+.sec .wall a{font:italic 400 var(--t-card)/1.24 var(--serif);color:var(--teal-deep)}
+.snw,.next{padding-top:44px}
+.todo{margin-top:12px}
+.todo li{font:400 var(--t-lead)/1.45 var(--serif);padding:12px 0 11px;border-bottom:1px solid var(--rule)}
+.tiles{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:18px}
+.sec .tile{display:flex;flex-direction:column;gap:7px;background:var(--card);border:1px solid var(--card-line);border-radius:var(--radius);padding:16px 16px 15px;text-decoration:none;color:var(--ink)}
+.tile:hover{border-color:var(--teal)}
+.t-n{font:var(--w-head) var(--t-card)/1.12 var(--serif);letter-spacing:-.012em}
+.t-a{flex:1;font:400 var(--t-body)/1.45 var(--serif)}
+.t-go{margin-top:5px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
 
-/* ---- wider screens: two loops side by side ---- */
-@media (min-width:820px){
-  body{font-size:24px}
-  .sec{padding:64px 32px 66px}
-  .sec.tight{padding-top:38px;padding-bottom:40px}
-  .sec.notes{padding-top:16px;padding-bottom:34px}
-  .loops{gap:8px;padding:8px}
-  .loops.two{grid-template-columns:1fr 1fr}
-  .loops.one{grid-template-columns:minmax(0,760px);justify-content:center}
-  .lines{height:72px}
-  .lines li{font-size:26px;padding:0 20px 1px}
-  .lines.long li{font-size:21px}
-  .lines li.say{font-size:30px}
-  .plain{font-size:20px}
-  .note{font-size:15.5px}
-  .out{grid-template-columns:repeat(3,1fr)}
+@media (min-width:720px){
+  .sec{padding:40px var(--gut) 42px}
+  .sec.top{padding-top:48px}
+  .sec.band{padding-top:34px;padding-bottom:36px}
+  /* the two parts of a pair side by side, with heading, drawing and captions on shared rows */
+  .dpair:has(.dg + .dg){grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto auto;gap:0 40px}
+  .dpair:has(.dg + .dg) .dg{display:grid;grid-template-rows:subgrid;grid-row:span 3;max-width:none}
+  .dpair:has(.dg + .dg) .dh{display:block;align-self:end}
+  .next .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
