@@ -1,4 +1,4 @@
-/* look.css - the one look for every Demismatch site. Version 2026-11-20.3
+/* look.css - the one look for every Demismatch site. Version 2026-11-21.1
    The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
    Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
    Every public site loads this file before its own stylesheet. A site's own stylesheet
@@ -10,6 +10,7 @@
 @font-face{font-family:"Spectral";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/spectral-latin-400-italic.woff2) format("woff2")}
 @font-face{font-family:"Spectral";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-500-normal.woff2) format("woff2")}
 @font-face{font-family:"Spectral";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Spectral";font-weight:800;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-800-normal.woff2) format("woff2")}
 @font-face{font-family:"JetBrains Mono";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"JetBrains Mono";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
 
@@ -91,6 +92,7 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .cb-in>summary:focus-visible{outline:2.5px solid var(--gold);outline-offset:4px;border-radius:2px}
 .cb-h{display:flex;align-items:flex-start;gap:10px;margin:0;font:600 clamp(1.15rem,2.3vw,1.6rem)/1.2 var(--serif);letter-spacing:.01em}
 .cb-h .rings{margin-top:.1em}
+.cb-h strong{font-weight:800}   /* 21 Nov 2026: "100% HUMAN SCIENCE" in bold, the rest of the headline on the next line */
 .cb-lead{display:block;max-width:var(--read);margin-top:10px;font:400 var(--t-body)/1.5 var(--serif)}
 .cb-more{display:inline-block;margin-top:14px;background:var(--parchment-soft);color:var(--oxblood);border:1px solid var(--parchment-soft);border-radius:4px;padding:10px 13px 9px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
 .cb-more::after{content:" +"}
