@@ -3,14 +3,75 @@
  "entries": [
   {
    "key": "human",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "Cor's record of how many people a human keeps close is at the need below.",
+   "sources": [
+    {
+     "findings": [
+      463,
+      464
+     ],
+     "work": 25,
+     "grade": "tested many times",
+     "authors": "Holt-Lunstad J, Smith TB, Layton JB",
+     "year": 2010,
+     "title": "Social Relationships and Mortality Risk: A Meta-analytic Review",
+     "where": "PLoS Medicine 7",
+     "url": "https://cor.demismatch.com/corpus.html#w=25"
+    },
+    {
+     "findings": [
+      1525
+     ],
+     "work": 804,
+     "grade": "tested",
+     "authors": "Sugiyama LS",
+     "year": 2004,
+     "title": "Illness, injury, and disability among Shiwiar forager-horticulturalists: implications of health-risk buffering for the evolution of human life history",
+     "where": "American Journal of Physical Anthropology 123",
+     "url": "https://cor.demismatch.com/corpus.html#e=1525"
+    },
+    {
+     "findings": [
+      138
+     ],
+     "work": 54,
+     "grade": "",
+     "authors": "Cacioppo JT, Patrick W",
+     "year": 2008,
+     "title": "Loneliness: Human Nature and the Need for Social Connection",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=138"
+    },
+    {
+     "findings": [
+      1603
+     ],
+     "work": 849,
+     "grade": "tested",
+     "authors": "De Neve JE, Dugan A, Kaats M, Prati A",
+     "year": 2025,
+     "title": "Sharing meals with others: How sharing meals supports happiness and social connections",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=1603"
+    },
+    {
+     "findings": [
+      1333
+     ],
+     "work": 307,
+     "grade": "tested",
+     "authors": "Kannan VD, Veazie PJ",
+     "year": 2023,
+     "title": "US trends in social isolation, social engagement, and companionship: nationally and by age, sex, race/ethnicity, family income, and work hours, 2003-2020",
+     "where": "SSM - Population Health 21",
+     "url": "https://cor.demismatch.com/corpus.html#e=1333"
+    }
+   ],
    "complaint": "I'm lonely.",
    "feeling": "loneliness",
    "setting": "a flat",
    "need": [
-    "EEA-SOC-01"
+    "EEA-SOC-03",
+    "EEA-SOC-20"
    ],
    "kind": "no answer",
    "name": "Human",
@@ -92,15 +153,63 @@
   },
   {
    "key": "office",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor tests whether a human treats an office as its own people.",
+   "sources": [
+    {
+     "findings": [
+      1515
+     ],
+     "work": 799,
+     "grade": "",
+     "authors": "Tooby J, Cosmides L",
+     "year": 1996,
+     "title": "Friendship and the Banker's Paradox: Other Pathways to the Evolution of Adaptations for Altruism",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=1515"
+    },
+    {
+     "findings": [
+      654
+     ],
+     "work": 152,
+     "grade": "tested",
+     "authors": "Stieglitz J, Schniter E, von Rueden C, Kaplan H, Gurven M",
+     "year": 2015,
+     "title": "Functional disability and social conflict increase risk of depression in older adulthood among Bolivian forager-farmers",
+     "where": "The Journals of Gerontology Series B: Psychological Sciences and Social Sciences 70",
+     "url": "https://cor.demismatch.com/corpus.html#e=654"
+    },
+    {
+     "findings": [
+      1592
+     ],
+     "work": 269,
+     "grade": "",
+     "authors": "Hawkes K, O'Connell JF, Blurton Jones NG",
+     "year": 2001,
+     "title": "Hadza meat sharing",
+     "where": "Evolution and Human Behavior 22",
+     "url": "https://cor.demismatch.com/corpus.html#e=1592"
+    },
+    {
+     "findings": [
+      1595
+     ],
+     "work": 846,
+     "grade": "tested",
+     "authors": "Stibbard-Hawkes DNE, Attenborough RD, Marlowe FW",
+     "year": 2018,
+     "title": "A noisy signal: To what extent are Hadza hunting reputations predictive of actual hunting skills?",
+     "where": "Evolution and Human Behavior 39",
+     "url": "https://cor.demismatch.com/corpus.html#e=1595"
+    }
+   ],
    "complaint": "I dread going to work.",
    "feeling": "dread",
    "setting": "an office",
    "need": [
     "EEA-SUBS-02",
-    "EEA-SOC-03"
+    "EEA-SOC-20",
+    "EEA-SOC-09"
    ],
    "kind": "a fake",
    "name": "Human",
@@ -181,21 +290,80 @@
   },
   {
    "key": "phone",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor tests it.",
+   "sources": [
+    {
+     "findings": [
+      463
+     ],
+     "work": 25,
+     "grade": "tested many times",
+     "authors": "Holt-Lunstad J, Smith TB, Layton JB",
+     "year": 2010,
+     "title": "Social Relationships and Mortality Risk: A Meta-analytic Review",
+     "where": "PLoS Medicine 7",
+     "url": "https://cor.demismatch.com/corpus.html#e=463"
+    },
+    {
+     "findings": [
+      138
+     ],
+     "work": 54,
+     "grade": "",
+     "authors": "Cacioppo JT, Patrick W",
+     "year": 2008,
+     "title": "Loneliness: Human Nature and the Need for Social Connection",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=138"
+    },
+    {
+     "findings": [
+      508
+     ],
+     "work": 73,
+     "grade": "tested",
+     "authors": "Dunbar RIM",
+     "year": 2016,
+     "title": "Do online social media cut through the constraints that limit the size of offline social networks?",
+     "where": "Royal Society Open Science 3",
+     "url": "https://cor.demismatch.com/corpus.html#e=508"
+    },
+    {
+     "findings": [
+      1371
+     ],
+     "work": 690,
+     "grade": "tested",
+     "authors": "Stein JP, Liebers N, Faiss M",
+     "year": 2024,
+     "title": "Feeling Better...But Also Less Lonely? An Experimental Comparison of How Parasocial and Social Relationships Affect People's Well-Being",
+     "where": "Mass Communication and Society 27",
+     "url": "https://cor.demismatch.com/corpus.html#e=1371"
+    },
+    {
+     "findings": [
+      1373
+     ],
+     "work": 691,
+     "grade": "tested",
+     "authors": "Bond BJ",
+     "year": 2022,
+     "title": "Parasocial relationships as functional social alternatives during pandemic-induced social distancing",
+     "where": "Psychology of Popular Media 11",
+     "url": "https://cor.demismatch.com/corpus.html#e=1373"
+    }
+   ],
    "complaint": "I can't stop scrolling.",
    "feeling": "loneliness",
    "setting": "a phone",
    "need": [
-    "EEA-SOC-01",
-    "EEA-SOC-08"
+    "EEA-SOC-15",
+    "EEA-SOC-03"
    ],
    "kind": "a fake built on purpose",
    "name": "Human",
    "world": "With its people",
    "chip": "With a phone",
-   "caption": "A human needs its people. Alone, it goes to them, and they take it in. With a phone, it picks the phone up. The phone is full of people, and none of them knows this human. The relief lasts a second, so it picks the phone up again.",
+   "caption": "A human needs its people. Alone, it goes to them, and they take it in. With a phone, it picks the phone up. The phone is full of people, and almost none of them knows this human. The relief lasts a second, so it picks the phone up again. In an experiment, thinking about a favourite media figure lifted a bad mood as much as thinking about a friend did, and left the loneliness where it was.",
    "quote": "“I can't stop scrolling.”",
    "readout": {
     "need": "its people",
@@ -275,14 +443,74 @@
   },
   {
    "key": "partner",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "Research on what porn does to people is disputed. Cor lists it as an open gap.",
+   "sources": [
+    {
+     "findings": [
+      1718
+     ],
+     "work": 921,
+     "grade": "tested",
+     "authors": "Fisher HE, Brown LL, Aron A, Strong G, Mashek D",
+     "year": 2010,
+     "title": "Reward, Addiction, and Emotion Regulation Systems Associated With Rejection in Love",
+     "where": "Journal of Neurophysiology 104",
+     "url": "https://cor.demismatch.com/corpus.html#e=1718"
+    },
+    {
+     "findings": [
+      841
+     ],
+     "work": 329,
+     "grade": "tested",
+     "authors": "Hewlett BL",
+     "year": 2005,
+     "title": "Vulnerable Lives: The Experience of Death and Loss among the Aka and Ngandu Adolescents of the Central African Republic",
+     "where": "Hunter-Gatherer Childhoods",
+     "url": "https://cor.demismatch.com/corpus.html#e=841"
+    },
+    {
+     "findings": [
+      1732
+     ],
+     "work": 931,
+     "grade": "tested",
+     "authors": "Winking J, Gurven M, Kaplan H",
+     "year": 2011,
+     "title": "Father death and adult success among the Tsimane: implications for marriage and divorce",
+     "where": "Evolution and Human Behavior 32",
+     "url": "https://cor.demismatch.com/corpus.html#e=1732"
+    },
+    {
+     "findings": [
+      1349
+     ],
+     "work": 676,
+     "grade": "tested",
+     "authors": "Malki K, Rahm C, Öberg KG, Ueda P",
+     "year": 2021,
+     "title": "Frequency of Pornography Use and Sexual Health Outcomes in Sweden: Analysis of a National Probability Survey",
+     "where": "The Journal of Sexual Medicine 18",
+     "url": "https://cor.demismatch.com/corpus.html#e=1349"
+    },
+    {
+     "findings": [
+      1027
+     ],
+     "work": 478,
+     "grade": "tested many times",
+     "authors": "Wright PJ, Tokunaga RS, Kraus A, Klann E",
+     "year": 2017,
+     "title": "Pornography Consumption and Satisfaction: A Meta-Analysis",
+     "where": "Human Communication Research 43",
+     "url": "https://cor.demismatch.com/corpus.html#e=1027"
+    }
+   ],
    "complaint": "I watch too much porn.",
    "feeling": "desire",
    "setting": "a screen",
    "need": [
-    "EEA-MATE-08"
+    "EEA-MATE-08",
+    "EEA-MATE-02"
    ],
    "kind": "a fake that beats the real thing",
    "name": "Human",
@@ -368,14 +596,75 @@
   },
   {
    "key": "thirty",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "Studies that measure the harm of comparing yourself online find a small effect. The drawing shows what the reading predicts.",
+   "sources": [
+    {
+     "findings": [
+      1042
+     ],
+     "work": 489,
+     "grade": "tested",
+     "authors": "Anderson C, Kraus MW, Galinsky AD, Keltner D",
+     "year": 2012,
+     "title": "The local-ladder effect: social status and subjective well-being",
+     "where": "Psychological Science 23",
+     "url": "https://cor.demismatch.com/corpus.html#e=1042"
+    },
+    {
+     "findings": [
+      620
+     ],
+     "work": 126,
+     "grade": "tested many times",
+     "authors": "Leary MR, Tambor ES, Terdal SK, Downs DL",
+     "year": 1995,
+     "title": "Self-Esteem as an Interpersonal Monitor: The Sociometer Hypothesis",
+     "where": "Journal of Personality and Social Psychology 68",
+     "url": "https://cor.demismatch.com/corpus.html#e=620"
+    },
+    {
+     "findings": [
+      754
+     ],
+     "work": 242,
+     "grade": "tested many times",
+     "authors": "Marlowe FW",
+     "year": 2005,
+     "title": "Hunter-gatherers and human evolution",
+     "where": "Evolutionary Anthropology: Issues, News, and Reviews 14",
+     "url": "https://cor.demismatch.com/corpus.html#e=754"
+    },
+    {
+     "findings": [
+      742
+     ],
+     "work": 230,
+     "grade": "tested",
+     "authors": "Smith D, Schlaepfer P, Major K and others",
+     "year": 2017,
+     "title": "Cooperation and the evolution of hunter-gatherer storytelling",
+     "where": "Nature Communications 8",
+     "url": "https://cor.demismatch.com/corpus.html#e=742"
+    },
+    {
+     "findings": [
+      1037
+     ],
+     "work": 484,
+     "grade": "tested",
+     "authors": "von Rueden C, Gurven M, Kaplan H",
+     "year": 2008,
+     "title": "The multiple dimensions of male social status in an Amazonian society",
+     "where": "Evolution and Human Behavior 29",
+     "url": "https://cor.demismatch.com/corpus.html#e=1037"
+    }
+   ],
    "complaint": "Everyone is doing better than me.",
    "feeling": "envy",
    "setting": "social media",
    "need": [
-    "EEA-SOC-11"
+    "EEA-SOC-11",
+    "EEA-SOC-03",
+    "EEA-SOC-12"
    ],
    "kind": "wrong scale",
    "name": "Human",
@@ -457,13 +746,104 @@
   },
   {
    "key": "camp",
-   "shelf": "From Cor",
-   "cor_findings": [
-    603,
-    382,
-    1600
+   "sources": [
+    {
+     "findings": [
+      754
+     ],
+     "work": 242,
+     "grade": "tested many times",
+     "authors": "Marlowe FW",
+     "year": 2005,
+     "title": "Hunter-gatherers and human evolution",
+     "where": "Evolutionary Anthropology: Issues, News, and Reviews 14",
+     "url": "https://cor.demismatch.com/corpus.html#e=754"
+    },
+    {
+     "findings": [
+      702
+     ],
+     "work": 191,
+     "grade": "tested",
+     "authors": "Barr RG, Konner M, Bakeman R, Adamson L",
+     "year": 1991,
+     "title": "Crying in !Kung San infants: a test of the cultural specificity hypothesis",
+     "where": "Developmental Medicine & Child Neurology 33",
+     "url": "https://cor.demismatch.com/corpus.html#e=702"
+    },
+    {
+     "findings": [
+      821
+     ],
+     "work": 309,
+     "grade": "tested",
+     "authors": "Page AE, Emmott EH, Dyble M and others",
+     "year": 2021,
+     "title": "Children are important too: juvenile playgroups and maternal childcare in a foraging population, the Agta",
+     "where": "Philosophical Transactions of the Royal Society B 376",
+     "url": "https://cor.demismatch.com/corpus.html#e=821"
+    },
+    {
+     "findings": [
+      1594
+     ],
+     "work": 269,
+     "grade": "tested",
+     "authors": "Hawkes K, O'Connell JF, Blurton Jones NG",
+     "year": 2001,
+     "title": "Hadza meat sharing",
+     "where": "Evolution and Human Behavior 22",
+     "url": "https://cor.demismatch.com/corpus.html#e=1594"
+    },
+    {
+     "findings": [
+      609
+     ],
+     "work": 118,
+     "grade": "tested",
+     "authors": "Wright KP Jr, McHill AW, Birks BR, Griffin BR, Rusterholz T, Chinoy ED",
+     "year": 2013,
+     "title": "Entrainment of the Human Circadian Clock to the Natural Light-Dark Cycle",
+     "where": "Current Biology 23",
+     "url": "https://cor.demismatch.com/corpus.html#e=609"
+    },
+    {
+     "findings": [
+      1600
+     ],
+     "work": 329,
+     "grade": "tested",
+     "authors": "Hewlett BL",
+     "year": 2005,
+     "title": "Vulnerable Lives: The Experience of Death and Loss among the Aka and Ngandu Adolescents of the Central African Republic",
+     "where": "Hunter-Gatherer Childhoods",
+     "url": "https://cor.demismatch.com/corpus.html#e=1600"
+    },
+    {
+     "findings": [
+      1332
+     ],
+     "work": 664,
+     "grade": "tested",
+     "authors": "McCormick TH, Salganik MJ, Zheng T",
+     "year": 2010,
+     "title": "How Many People Do You Know?: Efficiently Estimating Personal Network Size",
+     "where": "Journal of the American Statistical Association 105",
+     "url": "https://cor.demismatch.com/corpus.html#e=1332"
+    },
+    {
+     "findings": [
+      82
+     ],
+     "work": 37,
+     "grade": "tested",
+     "authors": "Chang AM, Aeschbach D, Duffy JF, Czeisler CA",
+     "year": 2015,
+     "title": "Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness",
+     "where": "Proceedings of the National Academy of Sciences 112",
+     "url": "https://cor.demismatch.com/corpus.html#e=82"
+    }
    ],
-   "source_note": "The city half is Demismatch's reading.",
    "complaint": "Something is missing and I can't say what.",
    "feeling": "unease",
    "setting": "a city",
@@ -534,9 +914,68 @@
   },
   {
    "key": "child",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor tests it.",
+   "sources": [
+    {
+     "findings": [
+      716
+     ],
+     "work": 205,
+     "grade": "",
+     "authors": "Lew-Levy S, Reckin R, Lavi N, Cristobal-Azkarate J, Ellis-Davies K",
+     "year": 2017,
+     "title": "How do hunter-gatherer children learn subsistence skills? A meta-ethnographic review",
+     "where": "Human Nature 28",
+     "url": "https://cor.demismatch.com/corpus.html#e=716"
+    },
+    {
+     "findings": [
+      785
+     ],
+     "work": 273,
+     "grade": "tested",
+     "authors": "Lew-Levy S, Boyette AH, Crittenden AN, Hewlett BS, Lamb ME",
+     "year": 2020,
+     "title": "Gender-typed and gender-segregated play among Tanzanian Hadza and Congolese BaYaka hunter-gatherer children and adolescents",
+     "where": "Child Development 91",
+     "url": "https://cor.demismatch.com/corpus.html#e=785"
+    },
+    {
+     "findings": [
+      847
+     ],
+     "work": 309,
+     "grade": "tested",
+     "authors": "Page AE, Emmott EH, Dyble M and others",
+     "year": 2021,
+     "title": "Children are important too: juvenile playgroups and maternal childcare in a foraging population, the Agta",
+     "where": "Philosophical Transactions of the Royal Society B 376",
+     "url": "https://cor.demismatch.com/corpus.html#e=847"
+    },
+    {
+     "findings": [
+      1277
+     ],
+     "work": 628,
+     "grade": "tested many times",
+     "authors": "Frisira E, Holland J, Sayal K",
+     "year": 2025,
+     "title": "Systematic review and meta-analysis: relative age in attention-deficit/hyperactivity disorder and autism spectrum disorder",
+     "where": "European Child & Adolescent Psychiatry 34",
+     "url": "https://cor.demismatch.com/corpus.html#e=1277"
+    },
+    {
+     "findings": [
+      859
+     ],
+     "work": 345,
+     "grade": "tested",
+     "authors": "Ougrin D, Woodhouse E, Tucker G, Ronaldson A, Bakolis I",
+     "year": 2023,
+     "title": "The Prevalence of Behavioural Symptoms and Psychiatric Disorders in Hadza Children",
+     "where": "Scientific Reports 13",
+     "url": "https://cor.demismatch.com/corpus.html#e=859"
+    }
+   ],
    "complaint": "I can't focus.",
    "feeling": "restlessness",
    "setting": "a school",
@@ -625,21 +1064,94 @@
   },
   {
    "key": "day",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor follows one person through such a day.",
+   "sources": [
+    {
+     "findings": [
+      1585
+     ],
+     "work": 844,
+     "grade": "tested",
+     "authors": "Kraft TS, Venkataraman VV, Tacey I, Dominy NJ, Endicott KM",
+     "year": 2019,
+     "title": "Foraging Performance, Prosociality, and Kin Presence Do Not Predict Lifetime Reproductive Success in Batek Hunter-Gatherers",
+     "where": "Human Nature 30",
+     "url": "https://cor.demismatch.com/corpus.html#e=1585"
+    },
+    {
+     "findings": [
+      1589
+     ],
+     "work": 209,
+     "grade": "tested",
+     "authors": "Wiessner PW",
+     "year": 2014,
+     "title": "Embers of society: Firelight talk among the Ju/'hoansi Bushmen",
+     "where": "Proceedings of the National Academy of Sciences 111",
+     "url": "https://cor.demismatch.com/corpus.html#e=1589"
+    },
+    {
+     "findings": [
+      701
+     ],
+     "work": 190,
+     "grade": "tested",
+     "authors": "Kruger AC, Konner M",
+     "year": 2010,
+     "title": "Who responds to crying? Maternal and allocaregiver responses to infant crying among !Kung",
+     "where": "Human Nature 21",
+     "url": "https://cor.demismatch.com/corpus.html#e=701"
+    },
+    {
+     "findings": [
+      1603
+     ],
+     "work": 849,
+     "grade": "tested",
+     "authors": "De Neve JE, Dugan A, Kaats M, Prati A",
+     "year": 2025,
+     "title": "Sharing meals with others: How sharing meals supports happiness and social connections",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=1603"
+    },
+    {
+     "findings": [
+      1371
+     ],
+     "work": 690,
+     "grade": "tested",
+     "authors": "Stein JP, Liebers N, Faiss M",
+     "year": 2024,
+     "title": "Feeling Better...But Also Less Lonely? An Experimental Comparison of How Parasocial and Social Relationships Affect People's Well-Being",
+     "where": "Mass Communication and Society 27",
+     "url": "https://cor.demismatch.com/corpus.html#e=1371"
+    },
+    {
+     "findings": [
+      66,
+      1181
+     ],
+     "work": 32,
+     "grade": "tested",
+     "authors": "Maier SF, Seligman MEP",
+     "year": 2016,
+     "title": "Learned Helplessness at Fifty: Insights from Neuroscience",
+     "where": "Psychological Review 123",
+     "url": "https://cor.demismatch.com/corpus.html#w=32"
+    }
+   ],
    "complaint": "What's the point?",
    "feeling": "giving up",
    "setting": "a flat",
    "need": [
-    "EEA-SOC-01",
-    "EEA-SUBS-02"
+    "EEA-SOC-03",
+    "EEA-SUBS-02",
+    "EEA-THREAT-02"
    ],
    "kind": "no answer",
    "name": "Human",
    "world": "A day in a camp",
    "chip": "A day now",
-   "caption": "In a camp a day brings several needs, and each gets its answer the same day. Now it wakes alone, nobody needs it at work, and in the evening the phone helps for a second. Nothing got an answer. The next day is the same. After enough of them, it stops trying.",
+   "caption": "In a camp a day brings several needs, and each gets its answer the same day. Now it wakes alone, nobody needs it at work, and in the evening the phone helps for a second. Nothing got an answer. The next day is the same. After enough of them, it stops trying. Giving up is what a mammal does by default, until it learns that trying works.",
    "quote": "“What's the point?”",
    "readout": {
     "need": "several",
@@ -728,20 +1240,68 @@
   },
   {
    "key": "jealousy",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor measures rivals on a phone.",
+   "sources": [
+    {
+     "findings": [
+      778
+     ],
+     "work": 266,
+     "grade": "tested",
+     "authors": "Daly M, Wilson M, Weghorst SJ",
+     "year": 1982,
+     "title": "Male sexual jealousy",
+     "where": "Ethology and Sociobiology 3",
+     "url": "https://cor.demismatch.com/corpus.html#e=778"
+    },
+    {
+     "findings": [
+      777
+     ],
+     "work": 265,
+     "grade": "tested",
+     "authors": "Scelza BA, Prall SP, Blumenfield T and others",
+     "year": 2020,
+     "title": "Patterns of paternal investment predict cross-cultural variation in jealous response",
+     "where": "Nature Human Behaviour 4",
+     "url": "https://cor.demismatch.com/corpus.html#e=777"
+    },
+    {
+     "findings": [
+      1012
+     ],
+     "work": 465,
+     "grade": "tested",
+     "authors": "Rosenfeld MJ, Thomas RJ, Hausen S",
+     "year": 2019,
+     "title": "Disintermediating your friends: How online dating in the United States displaces other ways of meeting",
+     "where": "Proceedings of the National Academy of Sciences 116",
+     "url": "https://cor.demismatch.com/corpus.html#e=1012"
+    },
+    {
+     "findings": [
+      1013
+     ],
+     "work": 466,
+     "grade": "tested",
+     "authors": "Bruch EE, Newman MEJ",
+     "year": 2018,
+     "title": "Aspirational pursuit of mates in online dating markets",
+     "where": "Science Advances 4",
+     "url": "https://cor.demismatch.com/corpus.html#e=1013"
+    }
+   ],
    "complaint": "I keep checking their phone.",
    "feeling": "jealousy",
    "setting": "a phone",
    "need": [
-    "EEA-MATE-07"
+    "EEA-MATE-07",
+    "EEA-MATE-02"
    ],
    "kind": "a fake",
    "name": "Human",
    "world": "With a rival it knows",
    "chip": "With a phone",
-   "caption": "A human guards its bond with a partner. A rival comes near, it moves closer, and the rival backs off. On a phone there are hundreds of possible rivals and nothing settles it, so it checks again.",
+   "caption": "A human guards its bond with a partner. A rival comes near, it moves closer, and the rival backs off. On a phone the possible rivals never run out, and none of them is anyone it knows. Nothing settles it, so it checks again.",
    "quote": "“I keep checking their phone.”",
    "readout": {
     "need": "its partner",
@@ -828,17 +1388,50 @@
   },
   {
    "key": "shame",
-   "shelf": "From Cor",
-   "cor_findings": [
-    722,
-    721
+   "sources": [
+    {
+     "findings": [
+      722
+     ],
+     "work": 211,
+     "grade": "tested many times",
+     "authors": "Sznycer D, Xygalatas D, Agey E and others",
+     "year": 2018,
+     "title": "Cross-cultural invariances in the architecture of shame",
+     "where": "Proceedings of the National Academy of Sciences 115",
+     "url": "https://cor.demismatch.com/corpus.html#e=722"
+    },
+    {
+     "findings": [
+      721
+     ],
+     "work": 210,
+     "grade": "tested many times",
+     "authors": "Sznycer D, Tooby J, Cosmides L and others",
+     "year": 2016,
+     "title": "Shame closely tracks the threat of devaluation by others, even across cultures",
+     "where": "Proceedings of the National Academy of Sciences 113",
+     "url": "https://cor.demismatch.com/corpus.html#e=721"
+    },
+    {
+     "findings": [
+      848
+     ],
+     "work": 334,
+     "grade": "tested",
+     "authors": "Lewis J",
+     "year": 2014,
+     "title": "Egalitarian social organization: the case of the Mbendjele BaYaka",
+     "where": "Hunter-Gathers of the Congo Basin",
+     "url": "https://cor.demismatch.com/corpus.html#e=848"
+    }
    ],
-   "source_note": "The repair and the online half are Demismatch's reading.",
    "complaint": "I can't show my face.",
    "feeling": "shame",
    "setting": "online",
    "need": [
-    "EEA-SOC-09"
+    "EEA-SOC-09",
+    "EEA-SOC-11"
    ],
    "kind": "no answer",
    "name": "Human",
@@ -924,12 +1517,57 @@
   },
   {
    "key": "boss",
-   "shelf": "From Cor",
-   "cor_findings": [
-    848,
-    372
+   "sources": [
+    {
+     "findings": [
+      688
+     ],
+     "work": 177,
+     "grade": "tested many times",
+     "authors": "Boehm C",
+     "year": 1993,
+     "title": "Egalitarian behavior and reverse dominance hierarchy",
+     "where": "Current Anthropology 34",
+     "url": "https://cor.demismatch.com/corpus.html#e=688"
+    },
+    {
+     "findings": [
+      848
+     ],
+     "work": 334,
+     "grade": "tested",
+     "authors": "Lewis J",
+     "year": 2014,
+     "title": "Egalitarian social organization: the case of the Mbendjele BaYaka",
+     "where": "Hunter-Gathers of the Congo Basin",
+     "url": "https://cor.demismatch.com/corpus.html#e=848"
+    },
+    {
+     "findings": [
+      372
+     ],
+     "work": 9,
+     "grade": "tested many times",
+     "authors": "Boehm C",
+     "year": 1999,
+     "title": "Hierarchy in the Forest: The Evolution of Egalitarian Behavior",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=372"
+    },
+    {
+     "findings": [
+      157,
+      162
+     ],
+     "work": 55,
+     "grade": "tested many times",
+     "authors": "Marmot M",
+     "year": 2004,
+     "title": "The Status Syndrome: How Social Standing Affects Our Health and Longevity",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#w=55"
+    }
    ],
-   "source_note": "The office half is Demismatch's reading.",
    "complaint": "I hate my boss.",
    "feeling": "anger",
    "setting": "an office",
@@ -940,7 +1578,7 @@
    "name": "Human",
    "world": "In a camp",
    "chip": "In an office",
-   "caption": "Foragers have no rulers. In camps like those of the Mbendjele, a man who puts himself above the others is teased, then avoided, and exiled if he keeps at it. In an office the one above you stays above you, and you cannot answer back.",
+   "caption": "Foragers who move camp have no rulers. In camps like those of the Mbendjele, a man who puts himself above the others is teased, then avoided, and exiled if he keeps at it. In an office the one above you stays above you, and you cannot answer back. In the British civil service the lowest grade died at four times the rate of the highest.",
    "quote": "“I hate my boss.”",
    "readout": {
     "need": "no one above it",
@@ -1020,11 +1658,33 @@
   },
   {
    "key": "grief",
-   "shelf": "From Cor",
-   "cor_findings": [
-    1600
+   "sources": [
+    {
+     "findings": [
+      1600,
+      1601
+     ],
+     "work": 329,
+     "grade": "tested",
+     "authors": "Hewlett BL",
+     "year": 2005,
+     "title": "Vulnerable Lives: The Experience of Death and Loss among the Aka and Ngandu Adolescents of the Central African Republic",
+     "where": "Hunter-Gatherer Childhoods",
+     "url": "https://cor.demismatch.com/corpus.html#w=329"
+    },
+    {
+     "findings": [
+      755
+     ],
+     "work": 243,
+     "grade": "tested",
+     "authors": "Rosenblatt PC, Walsh RP, Jackson DA",
+     "year": 1976,
+     "title": "Grief and Mourning in Cross-Cultural Perspective",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=755"
+    }
    ],
-   "source_note": "The other half is Demismatch's reading.",
    "complaint": "I should be over it by now.",
    "feeling": "grief",
    "setting": "a job",
@@ -1110,24 +1770,69 @@
   },
   {
    "key": "baby",
-   "shelf": "From Cor",
-   "cor_findings": [
-    699,
-    382
+   "sources": [
+    {
+     "findings": [
+      702
+     ],
+     "work": 191,
+     "grade": "tested",
+     "authors": "Barr RG, Konner M, Bakeman R, Adamson L",
+     "year": 1991,
+     "title": "Crying in !Kung San infants: a test of the cultural specificity hypothesis",
+     "where": "Developmental Medicine & Child Neurology 33",
+     "url": "https://cor.demismatch.com/corpus.html#e=702"
+    },
+    {
+     "findings": [
+      699
+     ],
+     "work": 188,
+     "grade": "tested",
+     "authors": "Hewlett BS, Lamb ME, Shannon D, Leyendecker B, Scholmerich A",
+     "year": 1998,
+     "title": "Culture and early infancy among central African foragers and farmers",
+     "where": "Developmental Psychology 34",
+     "url": "https://cor.demismatch.com/corpus.html#e=699"
+    },
+    {
+     "findings": [
+      382
+     ],
+     "work": 10,
+     "grade": "tested many times",
+     "authors": "Hrdy SB",
+     "year": 2009,
+     "title": "Mothers and Others: The Evolutionary Origins of Mutual Understanding",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=382"
+    },
+    {
+     "findings": [
+      750
+     ],
+     "work": 238,
+     "grade": "tested",
+     "authors": "Crittenden AN, Marlowe FW",
+     "year": 2008,
+     "title": "Allomaternal care among the Hadza of Tanzania",
+     "where": "Human Nature 19",
+     "url": "https://cor.demismatch.com/corpus.html#e=750"
+    }
    ],
-   "source_note": "The night alone is Demismatch's reading.",
    "complaint": "I can't listen to my baby cry.",
    "feeling": "distress",
    "setting": "a home",
    "need": [
     "EEA-CARE-01",
-    "EEA-TOUCH-01"
+    "EEA-TOUCH-01",
+    "EEA-TOUCH-02"
    ],
    "kind": "wrong scale",
    "name": "Baby",
    "world": "In a camp",
    "chip": "With one parent",
-   "caption": "A baby cries to be picked up. Aka infants were held for nearly all of the day. Hadza babies are held by their mothers 69% of the time and by other people the rest. With one parent, alone at night, the same cry gets one tired answer every time.",
+   "caption": "A baby cries to be picked up. !Kung babies started crying as often as Dutch babies and cried about half as long. Aka infants were held for nearly all of the day. Among the Hadza, mothers do 69% of the holding and other people the rest. With one parent, alone at night, the same cry gets one tired answer every time.",
    "quote": "“I can't listen to my baby cry.”",
    "readout": {
     "need": "to be held",
@@ -1203,12 +1908,68 @@
   },
   {
    "key": "new-mother",
-   "shelf": "From Cor",
-   "cor_findings": [
-    382,
-    271
+   "sources": [
+    {
+     "findings": [
+      703
+     ],
+     "work": 192,
+     "grade": "",
+     "authors": "Sear R, Mace R",
+     "year": 2008,
+     "title": "Who keeps children alive? A review of the effects of kin on child survival",
+     "where": "Evolution and Human Behavior 29",
+     "url": "https://cor.demismatch.com/corpus.html#e=703"
+    },
+    {
+     "findings": [
+      271
+     ],
+     "work": 60,
+     "grade": "",
+     "authors": "Hrdy SB",
+     "year": 1999,
+     "title": "Mother Nature: A History of Mothers, Infants, and Natural Selection",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=271"
+    },
+    {
+     "findings": [
+      382
+     ],
+     "work": 10,
+     "grade": "tested many times",
+     "authors": "Hrdy SB",
+     "year": 2009,
+     "title": "Mothers and Others: The Evolutionary Origins of Mutual Understanding",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=382"
+    },
+    {
+     "findings": [
+      700
+     ],
+     "work": 189,
+     "grade": "tested",
+     "authors": "Tronick EZ, Morelli GA, Winn S",
+     "year": 1987,
+     "title": "Multiple caretaking of Efe (Pygmy) infants",
+     "where": "American Anthropologist 89",
+     "url": "https://cor.demismatch.com/corpus.html#e=700"
+    },
+    {
+     "findings": [
+      821
+     ],
+     "work": 309,
+     "grade": "tested",
+     "authors": "Page AE, Emmott EH, Dyble M and others",
+     "year": 2021,
+     "title": "Children are important too: juvenile playgroups and maternal childcare in a foraging population, the Agta",
+     "where": "Philosophical Transactions of the Royal Society B 376",
+     "url": "https://cor.demismatch.com/corpus.html#e=821"
+    }
    ],
-   "source_note": "The home alone is Demismatch's reading.",
    "complaint": "I can't cope with my baby.",
    "feeling": "exhaustion",
    "setting": "a home",
@@ -1219,7 +1980,7 @@
    "name": "Mother",
    "world": "With other people",
    "chip": "At home, alone",
-   "caption": "Humans raise babies together. In foraging camps other people hold and carry a baby from shortly after birth. At home alone all day, a mother has nobody to hand the baby to.",
+   "caption": "Humans raise babies together. In nearly all of 45 studies, a relative besides the mother kept more children alive. In foraging camps other people hold and carry a baby from shortly after birth, and an Agta child has about nine carers who are not kin. At home alone all day, a mother has nobody to hand the baby to.",
    "quote": "“I can't cope with my baby.”",
    "readout": {
     "need": "other hands",
@@ -1296,24 +2057,70 @@
   },
   {
    "key": "sleep",
-   "shelf": "From Cor",
-   "cor_findings": [
-    609,
-    610,
-    82
+   "sources": [
+    {
+     "findings": [
+      631
+     ],
+     "work": 136,
+     "grade": "tested many times",
+     "authors": "Khalsa SBS, Jewett ME, Cajochen C, Czeisler CA",
+     "year": 2003,
+     "title": "A phase response curve to single bright light pulses in human subjects",
+     "where": "The Journal of Physiology 549",
+     "url": "https://cor.demismatch.com/corpus.html#e=631"
+    },
+    {
+     "findings": [
+      610,
+      609
+     ],
+     "work": 118,
+     "grade": "tested",
+     "authors": "Wright KP Jr, McHill AW, Birks BR, Griffin BR, Rusterholz T, Chinoy ED",
+     "year": 2013,
+     "title": "Entrainment of the Human Circadian Clock to the Natural Light-Dark Cycle",
+     "where": "Current Biology 23",
+     "url": "https://cor.demismatch.com/corpus.html#w=118"
+    },
+    {
+     "findings": [
+      613
+     ],
+     "work": 119,
+     "grade": "tested",
+     "authors": "Stothard ER, McHill AW, Depner CM and others",
+     "year": 2017,
+     "title": "Circadian Entrainment to the Natural Light-Dark Cycle across Seasons and the Weekend",
+     "where": "Current Biology 27",
+     "url": "https://cor.demismatch.com/corpus.html#e=613"
+    },
+    {
+     "findings": [
+      82,
+      83
+     ],
+     "work": 37,
+     "grade": "tested",
+     "authors": "Chang AM, Aeschbach D, Duffy JF, Czeisler CA",
+     "year": 2015,
+     "title": "Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness",
+     "where": "Proceedings of the National Academy of Sciences 112",
+     "url": "https://cor.demismatch.com/corpus.html#w=37"
+    }
    ],
-   "source_note": "The eReader study had 12 people.",
    "complaint": "I can't sleep.",
    "feeling": "tiredness",
    "setting": "a bedroom",
    "need": [
-    "EEA-CIRC-01"
+    "EEA-CIRC-01",
+    "EEA-CIRC-02"
    ],
    "kind": "a fake",
    "name": "Human",
    "world": "A dark night",
    "chip": "With a lamp and a screen",
-   "caption": "The body clock sets itself by light. After a week of only natural light, people's clocks ran about two hours earlier and their inner night began at sunset. Four hours on a lit screen before bed pushed melatonin, the body's night signal, back by more than an hour and a half.",
+   "caption": "The body clock sets itself by light. After a week of only natural light, people's clocks ran about two hours earlier and their inner night began at sunset. Four hours on a lit screen before bed pushed melatonin, the body's night signal, back by more than an hour and a half, and people were sleepier the next morning.",
    "quote": "“I can't sleep.”",
    "readout": {
     "need": "a dark night",
@@ -1374,9 +2181,45 @@
   },
   {
    "key": "danger",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "Cor grades this as argued, not yet tested.",
+   "sources": [
+    {
+     "findings": [
+      331,
+      333
+     ],
+     "work": 13,
+     "grade": "tested many times",
+     "authors": "Sapolsky RM",
+     "year": 2017,
+     "title": "Behave: The Biology of Humans at Our Best and Worst",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#w=13"
+    },
+    {
+     "findings": [
+      1704
+     ],
+     "work": 909,
+     "grade": "tested",
+     "authors": "Ball W, Tronick E",
+     "year": 1971,
+     "title": "Infant responses to impending collision: optical and real",
+     "where": "Science 171",
+     "url": "https://cor.demismatch.com/corpus.html#e=1704"
+    },
+    {
+     "findings": [
+      14
+     ],
+     "work": 6,
+     "grade": "tested many times",
+     "authors": "Buss DM (ed.)",
+     "year": 2016,
+     "title": "The Handbook of Evolutionary Psychology, Volume 1: Foundations (2nd ed.)",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=14"
+    }
+   ],
    "complaint": "I'm anxious all the time.",
    "feeling": "fear",
    "setting": "the news",
@@ -1461,12 +2304,56 @@
   },
   {
    "key": "work-result",
-   "shelf": "From Cor",
-   "cor_findings": [
-    1592,
-    159
+   "sources": [
+    {
+     "findings": [
+      1592
+     ],
+     "work": 269,
+     "grade": "",
+     "authors": "Hawkes K, O'Connell JF, Blurton Jones NG",
+     "year": 2001,
+     "title": "Hadza meat sharing",
+     "where": "Evolution and Human Behavior 22",
+     "url": "https://cor.demismatch.com/corpus.html#e=1592"
+    },
+    {
+     "findings": [
+      1577
+     ],
+     "work": 196,
+     "grade": "tested many times",
+     "authors": "Gurven M",
+     "year": 2004,
+     "title": "To give and to give not: The behavioral ecology of human food transfers",
+     "where": "Behavioral and Brain Sciences 27",
+     "url": "https://cor.demismatch.com/corpus.html#e=1577"
+    },
+    {
+     "findings": [
+      817
+     ],
+     "work": 305,
+     "grade": "tested many times",
+     "authors": "Kivimaki M, Nyberg ST, Batty GD and others",
+     "year": 2012,
+     "title": "Job strain as a risk factor for coronary heart disease: a collaborative meta-analysis of individual participant data",
+     "where": "The Lancet 380",
+     "url": "https://cor.demismatch.com/corpus.html#e=817"
+    },
+    {
+     "findings": [
+      160
+     ],
+     "work": 55,
+     "grade": "tested many times",
+     "authors": "Marmot M",
+     "year": 2004,
+     "title": "The Status Syndrome: How Social Standing Affects Our Health and Longevity",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=160"
+    }
    ],
-   "source_note": "That the two belong together is Demismatch's reading.",
    "complaint": "What do I even do all day?",
    "feeling": "emptiness",
    "setting": "an office",
@@ -1478,7 +2365,7 @@
    "name": "Human",
    "world": "Working for its people",
    "chip": "With an inbox",
-   "caption": "Among the Hadza, at least 90% of the meat of a large animal went to other households, in a camp of 35 to 50 people. Now work goes into a system, and nothing you can see comes back. People with little control over their work get more heart disease.",
+   "caption": "Among the Hadza, at least 90% of the meat of a large animal went to other households, in a camp of 35 to 50 people. Now work goes into a system, and nothing you can see comes back. Across 197,473 European employees, those with high demands and little control over their work had 23% more heart disease.",
    "quote": "“What do I even do all day?”",
    "readout": {
     "need": "to see what the work did",
@@ -1554,12 +2441,45 @@
   },
   {
    "key": "esteem",
-   "shelf": "From Cor",
-   "cor_findings": [
-    620,
-    1042
+   "sources": [
+    {
+     "findings": [
+      620,
+      621
+     ],
+     "work": 126,
+     "grade": "tested many times",
+     "authors": "Leary MR, Tambor ES, Terdal SK, Downs DL",
+     "year": 1995,
+     "title": "Self-Esteem as an Interpersonal Monitor: The Sociometer Hypothesis",
+     "where": "Journal of Personality and Social Psychology 68",
+     "url": "https://cor.demismatch.com/corpus.html#w=126"
+    },
+    {
+     "findings": [
+      1042
+     ],
+     "work": 489,
+     "grade": "tested",
+     "authors": "Anderson C, Kraus MW, Galinsky AD, Keltner D",
+     "year": 2012,
+     "title": "The local-ladder effect: social status and subjective well-being",
+     "where": "Psychological Science 23",
+     "url": "https://cor.demismatch.com/corpus.html#e=1042"
+    },
+    {
+     "findings": [
+      732
+     ],
+     "work": 220,
+     "grade": "tested many times",
+     "authors": "Anderson C, Hildreth JAD, Howland L",
+     "year": 2015,
+     "title": "Is the desire for status a fundamental human motive? A review of the empirical literature",
+     "where": "Psychological Bulletin 141",
+     "url": "https://cor.demismatch.com/corpus.html#e=732"
+    }
    ],
-   "source_note": "That esteem worked up alone is a stand-in is Demismatch's reading.",
    "complaint": "I need to work on my self-esteem.",
    "feeling": "worthlessness",
    "setting": "alone",
@@ -1570,7 +2490,7 @@
    "name": "Human",
    "world": "Among people who know it",
    "chip": "Alone",
-   "caption": "Self-esteem is a gauge. In five studies it rose and fell with how much other people valued the person. Respect in the groups you meet face to face goes with well-being more strongly than income does. Esteem worked up alone is a stand-in.",
+   "caption": "Self-esteem is a gauge. In five studies it tracked how much other people valued the person. Respect in the groups you meet face to face goes with well-being more strongly than income or education do. Esteem worked up alone is a stand-in.",
    "quote": "“I need to work on my self-esteem.”",
    "readout": {
     "need": "to be valued",
@@ -1646,11 +2566,56 @@
   },
   {
    "key": "gossip",
-   "shelf": "From Cor",
-   "cor_findings": [
-    373
+   "sources": [
+    {
+     "findings": [
+      373
+     ],
+     "work": 9,
+     "grade": "tested many times",
+     "authors": "Boehm C",
+     "year": 1999,
+     "title": "Hierarchy in the Forest: The Evolution of Egalitarian Behavior",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=373"
+    },
+    {
+     "findings": [
+      1590
+     ],
+     "work": 209,
+     "grade": "tested",
+     "authors": "Wiessner PW",
+     "year": 2014,
+     "title": "Embers of society: Firelight talk among the Ju/'hoansi Bushmen",
+     "where": "Proceedings of the National Academy of Sciences 111",
+     "url": "https://cor.demismatch.com/corpus.html#e=1590"
+    },
+    {
+     "findings": [
+      719
+     ],
+     "work": 208,
+     "grade": "tested",
+     "authors": "Feinberg M, Willer R, Stellar J, Keltner D",
+     "year": 2012,
+     "title": "The virtues of gossip: Reputational information sharing as prosocial behavior",
+     "where": "Journal of Personality and Social Psychology 102",
+     "url": "https://cor.demismatch.com/corpus.html#e=719"
+    },
+    {
+     "findings": [
+      1045
+     ],
+     "work": 492,
+     "grade": "tested",
+     "authors": "De Backer CJS, Nelissen M, Vyncke P, Braeckman J, McAndrew FT",
+     "year": 2007,
+     "title": "Celebrities: from teachers to friends. A test of two hypotheses on the adaptiveness of celebrity gossip",
+     "where": "Human Nature 18",
+     "url": "https://cor.demismatch.com/corpus.html#e=1045"
+    }
    ],
-   "source_note": "The feed half is Demismatch's reading.",
    "complaint": "I can't stop reading about them.",
    "feeling": "curiosity",
    "setting": "a feed",
@@ -1662,7 +2627,7 @@
    "name": "Human",
    "world": "In a camp",
    "chip": "With a feed",
-   "caption": "In a band everyone gossips, and anyone can be the subject. Foragers know it, worry about what their peers think and behave accordingly. Gossip about strangers on a screen feeds the same appetite and changes nobody's behaviour.",
+   "caption": "In a band everyone gossips, and anyone can be the subject. Foragers know it, worry about what their peers think and behave accordingly. Gossip about strangers on a screen feeds the same appetite and never reaches the people it is about.",
    "quote": "“I can't stop reading about them.”",
    "readout": {
     "need": "to know who to trust",
@@ -1742,17 +2707,64 @@
   },
   {
    "key": "reputation",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [
-    606
+   "sources": [
+    {
+     "findings": [
+      606,
+      608
+     ],
+     "work": 117,
+     "grade": "tested",
+     "authors": "Hill KR, Wood BM, Baggio J, Hurtado AM, Boyd RT",
+     "year": 2014,
+     "title": "Hunter-Gatherer Inter-Band Interaction Rates: Implications for Cumulative Culture",
+     "where": "PLoS ONE 9",
+     "url": "https://cor.demismatch.com/corpus.html#w=117"
+    },
+    {
+     "findings": [
+      373
+     ],
+     "work": 9,
+     "grade": "tested many times",
+     "authors": "Boehm C",
+     "year": 1999,
+     "title": "Hierarchy in the Forest: The Evolution of Egalitarian Behavior",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=373"
+    },
+    {
+     "findings": [
+      1595
+     ],
+     "work": 846,
+     "grade": "tested",
+     "authors": "Stibbard-Hawkes DNE, Attenborough RD, Marlowe FW",
+     "year": 2018,
+     "title": "A noisy signal: To what extent are Hadza hunting reputations predictive of actual hunting skills?",
+     "where": "Evolution and Human Behavior 39",
+     "url": "https://cor.demismatch.com/corpus.html#e=1595"
+    },
+    {
+     "findings": [
+      1590
+     ],
+     "work": 209,
+     "grade": "tested",
+     "authors": "Wiessner PW",
+     "year": 2014,
+     "title": "Embers of society: Firelight talk among the Ju/'hoansi Bushmen",
+     "where": "Proceedings of the National Academy of Sciences 111",
+     "url": "https://cor.demismatch.com/corpus.html#e=1590"
+    }
    ],
-   "source_note": "It is the thousand people.",
    "complaint": "Everyone hates me.",
    "feeling": "shame",
    "setting": "online",
    "need": [
     "EEA-SOC-09",
-    "EEA-SOC-02"
+    "EEA-SOC-02",
+    "EEA-SOC-08"
    ],
    "kind": "too much",
    "name": "Human",
@@ -1834,19 +2846,74 @@
   },
   {
    "key": "fairness",
-   "shelf": "From Cor",
-   "cor_findings": [
-    1592,
-    1039,
-    1041
+   "sources": [
+    {
+     "findings": [
+      688
+     ],
+     "work": 177,
+     "grade": "tested many times",
+     "authors": "Boehm C",
+     "year": 1993,
+     "title": "Egalitarian behavior and reverse dominance hierarchy",
+     "where": "Current Anthropology 34",
+     "url": "https://cor.demismatch.com/corpus.html#e=688"
+    },
+    {
+     "findings": [
+      1592
+     ],
+     "work": 269,
+     "grade": "",
+     "authors": "Hawkes K, O'Connell JF, Blurton Jones NG",
+     "year": 2001,
+     "title": "Hadza meat sharing",
+     "where": "Evolution and Human Behavior 22",
+     "url": "https://cor.demismatch.com/corpus.html#e=1592"
+    },
+    {
+     "findings": [
+      1039
+     ],
+     "work": 486,
+     "grade": "tested many times",
+     "authors": "Borgerhoff Mulder M, Bowles S, Hertz T, Bell A, Beise J, Clark G and others",
+     "year": 2009,
+     "title": "Intergenerational wealth transmission and the dynamics of inequality in small-scale societies",
+     "where": "Science 326",
+     "url": "https://cor.demismatch.com/corpus.html#e=1039"
+    },
+    {
+     "findings": [
+      1040
+     ],
+     "work": 487,
+     "grade": "tested many times",
+     "authors": "Smith EA, Hill K, Marlowe FW and others",
+     "year": 2010,
+     "title": "Wealth transmission and inequality among hunter-gatherers",
+     "where": "Current Anthropology 51",
+     "url": "https://cor.demismatch.com/corpus.html#e=1040"
+    },
+    {
+     "findings": [
+      1041
+     ],
+     "work": 488,
+     "grade": "tested",
+     "authors": "Kohler TA, Smith ME, Bogaard A, Feinman GM, Peterson CE, Betzenhauser A and others",
+     "year": 2017,
+     "title": "Greater post-Neolithic wealth disparities in Eurasia than in North America and Mesoamerica",
+     "where": "Nature 551",
+     "url": "https://cor.demismatch.com/corpus.html#e=1041"
+    }
    ],
-   "source_note": "That nobody can shame the top is Demismatch's reading.",
    "complaint": "It's all rigged.",
    "feeling": "anger",
    "setting": "a country",
    "need": [
     "EEA-SOC-14",
-    "EEA-SOC-20"
+    "EEA-SOC-10"
    ],
    "kind": "wrong scale",
    "name": "Human",
@@ -1949,20 +3016,80 @@
   },
   {
    "key": "old-age",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "Cor grades the part old people play in raising children as contested.",
+   "sources": [
+    {
+     "findings": [
+      419
+     ],
+     "work": 50,
+     "grade": "",
+     "authors": "Henrich J",
+     "year": 2016,
+     "title": "The Secret of Our Success: How Culture is Driving Human Evolution, Domesticating Our Species, and Making Us Smarter",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=419"
+    },
+    {
+     "findings": [
+      1035
+     ],
+     "work": 334,
+     "grade": "tested",
+     "authors": "Lewis J",
+     "year": 2014,
+     "title": "Egalitarian social organization: the case of the Mbendjele BaYaka",
+     "where": "Hunter-Gathers of the Congo Basin",
+     "url": "https://cor.demismatch.com/corpus.html#e=1035"
+    },
+    {
+     "findings": [
+      723
+     ],
+     "work": 212,
+     "grade": "tested many times",
+     "authors": "Gurven M, Kaplan H",
+     "year": 2007,
+     "title": "Longevity among hunter-gatherers: A cross-cultural examination",
+     "where": "Population and Development Review 33",
+     "url": "https://cor.demismatch.com/corpus.html#e=723"
+    },
+    {
+     "findings": [
+      1354
+     ],
+     "work": 680,
+     "grade": "tested",
+     "authors": "Gruenewald TL, Tanner EK, Fried LP and others",
+     "year": 2016,
+     "title": "The Baltimore Experience Corps Trial: Enhancing Generativity via Intergenerational Activity Engagement in Later Life",
+     "where": "The Journals of Gerontology Series B: Psychological Sciences and Social Sciences 71",
+     "url": "https://cor.demismatch.com/corpus.html#e=1354"
+    },
+    {
+     "findings": [
+      654
+     ],
+     "work": 152,
+     "grade": "tested",
+     "authors": "Stieglitz J, Schniter E, von Rueden C, Kaplan H, Gurven M",
+     "year": 2015,
+     "title": "Functional disability and social conflict increase risk of depression in older adulthood among Bolivian forager-farmers",
+     "where": "The Journals of Gerontology Series B: Psychological Sciences and Social Sciences 70",
+     "url": "https://cor.demismatch.com/corpus.html#e=654"
+    }
+   ],
    "complaint": "Nobody needs me anymore.",
    "feeling": "uselessness",
    "setting": "a care home",
    "need": [
-    "EEA-CARE-04"
+    "EEA-CARE-04",
+    "EEA-SOC-12"
    ],
    "kind": "no answer",
    "name": "Old human",
    "world": "Among its people",
    "chip": "In a care home",
-   "caption": "An old human knows things the young need. In a camp the young are there to ask, and being asked is what old age is worth. In a care home nobody needs what it knows.",
+   "caption": "An old human knows things the young need. In a camp the young are there to ask, and being asked is what old age is worth. In a trial of 702 older adults, those sent into schools to help children felt more that they made a difference. In a care home nobody needs what it knows.",
    "quote": "“Nobody needs me anymore.”",
    "readout": {
     "need": "to be asked",
@@ -2039,9 +3166,45 @@
   },
   {
    "key": "teen-rank",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "Studies that link social media to low mood in teenagers find a small effect.",
+   "sources": [
+    {
+     "findings": [
+      732
+     ],
+     "work": 220,
+     "grade": "tested many times",
+     "authors": "Anderson C, Hildreth JAD, Howland L",
+     "year": 2015,
+     "title": "Is the desire for status a fundamental human motive? A review of the empirical literature",
+     "where": "Psychological Bulletin 141",
+     "url": "https://cor.demismatch.com/corpus.html#e=732"
+    },
+    {
+     "findings": [
+      1595,
+      1596
+     ],
+     "work": 846,
+     "grade": "tested",
+     "authors": "Stibbard-Hawkes DNE, Attenborough RD, Marlowe FW",
+     "year": 2018,
+     "title": "A noisy signal: To what extent are Hadza hunting reputations predictive of actual hunting skills?",
+     "where": "Evolution and Human Behavior 39",
+     "url": "https://cor.demismatch.com/corpus.html#w=846"
+    },
+    {
+     "findings": [
+      621
+     ],
+     "work": 126,
+     "grade": "",
+     "authors": "Leary MR, Tambor ES, Terdal SK, Downs DL",
+     "year": 1995,
+     "title": "Self-Esteem as an Interpersonal Monitor: The Sociometer Hypothesis",
+     "where": "Journal of Personality and Social Psychology 68",
+     "url": "https://cor.demismatch.com/corpus.html#e=621"
+    }
+   ],
    "complaint": "Nobody likes me.",
    "feeling": "insecurity",
    "setting": "social media",
@@ -2133,13 +3296,57 @@
   },
   {
    "key": "dating",
-   "shelf": "From Cor",
-   "cor_findings": [
-    841,
-    1012,
-    1013
+   "sources": [
+    {
+     "findings": [
+      996
+     ],
+     "work": 180,
+     "grade": "tested",
+     "authors": "Walker RS, Hill KR, Flinn MV, Ellsworth RM",
+     "year": 2011,
+     "title": "Evolutionary history of hunter-gatherer marriage practices",
+     "where": "PLoS ONE 6",
+     "url": "https://cor.demismatch.com/corpus.html#e=996"
+    },
+    {
+     "findings": [
+      841
+     ],
+     "work": 329,
+     "grade": "tested",
+     "authors": "Hewlett BL",
+     "year": 2005,
+     "title": "Vulnerable Lives: The Experience of Death and Loss among the Aka and Ngandu Adolescents of the Central African Republic",
+     "where": "Hunter-Gatherer Childhoods",
+     "url": "https://cor.demismatch.com/corpus.html#e=841"
+    },
+    {
+     "findings": [
+      1012,
+      1011
+     ],
+     "work": 465,
+     "grade": "tested",
+     "authors": "Rosenfeld MJ, Thomas RJ, Hausen S",
+     "year": 2019,
+     "title": "Disintermediating your friends: How online dating in the United States displaces other ways of meeting",
+     "where": "Proceedings of the National Academy of Sciences 116",
+     "url": "https://cor.demismatch.com/corpus.html#w=465"
+    },
+    {
+     "findings": [
+      1013
+     ],
+     "work": 466,
+     "grade": "tested",
+     "authors": "Bruch EE, Newman MEJ",
+     "year": 2018,
+     "title": "Aspirational pursuit of mates in online dating markets",
+     "where": "Science Advances 4",
+     "url": "https://cor.demismatch.com/corpus.html#e=1013"
+    }
    ],
-   "source_note": "The Aka figure is one study.",
    "complaint": "Nobody ever picks me.",
    "feeling": "desire",
    "setting": "a dating app",
@@ -2151,7 +3358,7 @@
    "name": "Human",
    "world": "Among people it knows",
    "chip": "On a dating app",
-   "caption": "A forager chose a partner from people it had known for years. Among the Aka, the range of a lifetime holds about 700 people to get to know. On an app the pool has no end, and everyone in it is a stranger. Of US couples who met online, 89% had no link before. One woman in New York got 1,504 first messages in a month.",
+   "caption": "In 85% of 190 forager societies, parents and close kin picked the partner, from the few hundred people within reach. Among the Aka, the range of a lifetime holds about 700 people to get to know. On an app you pick alone, the pool has no end, and everyone in it is a stranger. Of US couples who met online, 89% had no link before. One woman in New York got 1,504 first messages in a month.",
    "quote": "“Nobody ever picks me.”",
    "readout": {
     "need": "a partner",
@@ -2227,22 +3434,68 @@
   },
   {
    "key": "friendship",
-   "shelf": "From Cor",
-   "cor_findings": [
-    752
+   "sources": [
+    {
+     "findings": [
+      752
+     ],
+     "work": 240,
+     "grade": "tested",
+     "authors": "Wiessner P, Huang C",
+     "year": 2022,
+     "title": "A 44-y perspective on the influence of cash on Ju/'hoansi Bushman networks of sharing and gifting",
+     "where": "Proceedings of the National Academy of Sciences 119",
+     "url": "https://cor.demismatch.com/corpus.html#e=752"
+    },
+    {
+     "findings": [
+      1050
+     ],
+     "work": 117,
+     "grade": "tested",
+     "authors": "Hill KR, Wood BM, Baggio J, Hurtado AM, Boyd RT",
+     "year": 2014,
+     "title": "Hunter-Gatherer Inter-Band Interaction Rates: Implications for Cumulative Culture",
+     "where": "PLoS ONE 9",
+     "url": "https://cor.demismatch.com/corpus.html#e=1050"
+    },
+    {
+     "findings": [
+      1724
+     ],
+     "work": 926,
+     "grade": "tested",
+     "authors": "Finkel EJ, Hui CM, Carswell KL, Larson GM",
+     "year": 2014,
+     "title": "The Suffocation of Marriage: Climbing Mount Maslow Without Enough Oxygen",
+     "where": "Psychological Inquiry 25",
+     "url": "https://cor.demismatch.com/corpus.html#e=1724"
+    },
+    {
+     "findings": [
+      820
+     ],
+     "work": 308,
+     "grade": "tested",
+     "authors": "Seltzer LJ, Prososki AR, Ziegler TE, Pollak SD",
+     "year": 2012,
+     "title": "Instant messages vs. speech: hormones and why we still need to hear each other",
+     "where": "Evolution and Human Behavior 33",
+     "url": "https://cor.demismatch.com/corpus.html#e=820"
+    }
    ],
-   "source_note": "That a chat cannot carry the bond is argued in Cor, not yet tested.",
    "complaint": "I have no real friends anymore.",
    "feeling": "missing someone",
    "setting": "a group chat",
    "need": [
-    "EEA-SOC-07"
+    "EEA-SOC-07",
+    "EEA-SOC-17"
    ],
    "kind": "a fake",
    "name": "Human",
    "world": "With friends for life",
    "chip": "With a group chat",
-   "caption": "Foragers kept friends for decades, across long distances. A Ju/'hoansi adult had about 15 gift partners living up to 200 km away and spent 4.4 months a year living with them. Now friends move away, and the bond becomes a group chat.",
+   "caption": "Foragers kept their bonds for decades, across long distances. A Ju/'hoansi adult had about 15 gift partners living up to 200 km away and spent 4.4 months a year living with them. Now friends move away, and the bond becomes a group chat. After a stress test, a phone call with their mother kept girls' stress hormone low. Messaging with her did not.",
    "quote": "“I have no real friends anymore.”",
    "readout": {
     "need": "its friends",
@@ -2318,12 +3571,57 @@
   },
   {
    "key": "moving",
-   "shelf": "From Cor",
-   "cor_findings": [
-    604,
-    606
+   "sources": [
+    {
+     "findings": [
+      604
+     ],
+     "work": 116,
+     "grade": "tested",
+     "authors": "Smith KM, Larroucau T, Mabulla IA, Apicella CL",
+     "year": 2018,
+     "title": "Hunter-gatherers maintain assortativity in cooperation despite high levels of residential change and mixing",
+     "where": "Current Biology 28",
+     "url": "https://cor.demismatch.com/corpus.html#e=604"
+    },
+    {
+     "findings": [
+      1585
+     ],
+     "work": 844,
+     "grade": "tested",
+     "authors": "Kraft TS, Venkataraman VV, Tacey I, Dominy NJ, Endicott KM",
+     "year": 2019,
+     "title": "Foraging Performance, Prosociality, and Kin Presence Do Not Predict Lifetime Reproductive Success in Batek Hunter-Gatherers",
+     "where": "Human Nature 30",
+     "url": "https://cor.demismatch.com/corpus.html#e=1585"
+    },
+    {
+     "findings": [
+      606,
+      1049
+     ],
+     "work": 117,
+     "grade": "tested",
+     "authors": "Hill KR, Wood BM, Baggio J, Hurtado AM, Boyd RT",
+     "year": 2014,
+     "title": "Hunter-Gatherer Inter-Band Interaction Rates: Implications for Cumulative Culture",
+     "where": "PLoS ONE 9",
+     "url": "https://cor.demismatch.com/corpus.html#w=117"
+    },
+    {
+     "findings": [
+      1048
+     ],
+     "work": 174,
+     "grade": "tested",
+     "authors": "Hamilton MJ, Milne BT, Walker RS, Burger O, Brown JH",
+     "year": 2007,
+     "title": "The complex structure of hunter-gatherer social networks",
+     "where": "Proceedings of the Royal Society B: Biological Sciences 274",
+     "url": "https://cor.demismatch.com/corpus.html#e=1048"
+    }
    ],
-   "source_note": "The new city is Demismatch's reading.",
    "complaint": "I don't know anyone here.",
    "feeling": "loneliness",
    "setting": "a new city",
@@ -2335,7 +3633,7 @@
    "name": "Human",
    "world": "Among people it knows",
    "chip": "In a new city",
-   "caption": "Foragers moved camp every few weeks, and they moved among about a thousand people they knew. A move for a job goes to a city where nobody knows you. The people pass by.",
+   "caption": "Foragers moved camp every few weeks, the Batek about every eight days. They moved among about a thousand people they knew, and that was close to their whole people. A move for a job goes to a city where nobody knows you. The people pass by.",
    "quote": "“I don't know anyone here.”",
    "readout": {
     "need": "its people",
@@ -2411,22 +3709,56 @@
   },
   {
    "key": "conflict",
-   "shelf": "From Cor",
-   "cor_findings": [
-    1590
+   "sources": [
+    {
+     "findings": [
+      1590
+     ],
+     "work": 209,
+     "grade": "tested",
+     "authors": "Wiessner PW",
+     "year": 2014,
+     "title": "Embers of society: Firelight talk among the Ju/'hoansi Bushmen",
+     "where": "Proceedings of the National Academy of Sciences 111",
+     "url": "https://cor.demismatch.com/corpus.html#e=1590"
+    },
+    {
+     "findings": [
+      677
+     ],
+     "work": 166,
+     "grade": "",
+     "authors": "Woodburn J",
+     "year": 1982,
+     "title": "Egalitarian societies",
+     "where": "Man 17",
+     "url": "https://cor.demismatch.com/corpus.html#e=677"
+    },
+    {
+     "findings": [
+      1063
+     ],
+     "work": 503,
+     "grade": "tested",
+     "authors": "Rathje S, Van Bavel JJ, van der Linden S",
+     "year": 2021,
+     "title": "Out-group animosity drives engagement on social media",
+     "where": "Proceedings of the National Academy of Sciences 118",
+     "url": "https://cor.demismatch.com/corpus.html#e=1063"
+    }
    ],
-   "source_note": "The comment thread is Demismatch's reading.",
    "complaint": "I can't let it go.",
    "feeling": "anger",
    "setting": "a comment thread",
    "need": [
+    "EEA-SOC-10",
     "EEA-SOC-09"
    ],
    "kind": "too much",
    "name": "Human",
    "world": "Face to face",
    "chip": "In a comment thread",
-   "caption": "Among the Ju/'hoansi a third of daytime talk was complaint or criticism, and close to 95% of disputes were between the people directly affected. They talked it out. Where talk failed, somebody moved away. A comment thread has no end and no way out, and strangers keep joining.",
+   "caption": "Among the Ju/'hoansi a third of daytime talk was complaint or criticism, and close to 95% of disputes were between the people directly affected. They talked it out. Where talk failed, somebody moved away. A comment thread has no end. You can leave and it goes on without you, and strangers keep joining. In 2.7 million posts, each word about the other political side raised the odds of a share by about 67%.",
    "quote": "“I can't let it go.”",
    "readout": {
     "need": "to settle it",
@@ -2502,23 +3834,57 @@
   },
   {
    "key": "food",
-   "shelf": "From Cor",
-   "cor_findings": [
-    730,
-    866
+   "sources": [
+    {
+     "findings": [
+      730
+     ],
+     "work": 218,
+     "grade": "tested",
+     "authors": "Marlowe FW, Berbesque JC, Wood B and others",
+     "year": 2014,
+     "title": "Honey, Hadza, hunter-gatherers, and human evolution",
+     "where": "Journal of Human Evolution 71",
+     "url": "https://cor.demismatch.com/corpus.html#e=730"
+    },
+    {
+     "findings": [
+      75,
+      76
+     ],
+     "work": 34,
+     "grade": "",
+     "authors": "Moss M",
+     "year": 2013,
+     "title": "Salt Sugar Fat: How the Food Giants Hooked Us",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#w=34"
+    },
+    {
+     "findings": [
+      866
+     ],
+     "work": 352,
+     "grade": "tested",
+     "authors": "Hall KD, Ayuketah A, Brychta R and others",
+     "year": 2019,
+     "title": "Ultra-Processed Diets Cause Excess Calorie Intake and Weight Gain: An Inpatient Randomized Controlled Trial of Ad Libitum Food Intake",
+     "where": "Cell Metabolism 30",
+     "url": "https://cor.demismatch.com/corpus.html#e=866"
+    }
    ],
-   "source_note": "The trial lasted two weeks per diet.",
    "complaint": "I can't stop eating.",
    "feeling": "craving",
    "setting": "a supermarket",
    "need": [
-    "EEA-DIET-02"
+    "EEA-DIET-02",
+    "EEA-DIET-03"
    ],
    "kind": "a fake that beats the real thing",
    "name": "Human",
    "world": "With ripe fruit",
    "chip": "With sweets everywhere",
-   "caption": "The Hadza rank honey as their favourite food. A taste for sweet food made sense when it had to be found. Factory food is built to be eaten fast. In a trial, 20 adults ate about 500 calories a day more on ultra-processed food than on unprocessed food with the same sugar, fat and fibre on offer.",
+   "caption": "The Hadza rank honey as their favourite food. A taste for sweet food made sense when it had to be found. Factory food is built to be craved. Companies test dozens of versions of a product to find the level of sugar, salt and fat people want most. In a trial, 20 adults ate about 500 calories a day more on ultra-processed food than on unprocessed food with the same sugar, fat and fibre on offer, and gained 0.9 kg in two weeks.",
    "quote": "“I can't stop eating.”",
    "readout": {
     "need": "food",
@@ -2598,12 +3964,45 @@
   },
   {
    "key": "movement",
-   "shelf": "From Cor",
-   "cor_findings": [
-    196,
-    289
+   "sources": [
+    {
+     "findings": [
+      196,
+      202
+     ],
+     "work": 57,
+     "grade": "tested",
+     "authors": "Lieberman D",
+     "year": 2021,
+     "title": "Exercised: The Science of Physical Activity, Rest and Health",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#w=57"
+    },
+    {
+     "findings": [
+      715
+     ],
+     "work": 204,
+     "grade": "tested",
+     "authors": "Raichlen DA, Pontzer H, Harris JA and others",
+     "year": 2017,
+     "title": "Physical activity patterns and biomarkers of cardiovascular disease risk in hunter-gatherers",
+     "where": "American Journal of Human Biology 29",
+     "url": "https://cor.demismatch.com/corpus.html#e=715"
+    },
+    {
+     "findings": [
+      289
+     ],
+     "work": 63,
+     "grade": "tested",
+     "authors": "Raichlen DA, Pontzer H, Zderic TW and others",
+     "year": 2020,
+     "title": "Sitting, Squatting, and the Evolutionary Biology of Human Inactivity",
+     "where": "Proceedings of the National Academy of Sciences 117",
+     "url": "https://cor.demismatch.com/corpus.html#e=289"
+    }
    ],
-   "source_note": "The chair half is Demismatch's reading.",
    "complaint": "I'm restless.",
    "feeling": "restlessness",
    "setting": "a desk",
@@ -2614,7 +4013,7 @@
    "name": "Human",
    "world": "On the move with the others",
    "chip": "In a chair",
-   "caption": "A human body is built to move through the day. Hadza adults spend about 3 h 40 min a day in light activity and 2 h 14 min in harder activity. They rest about as many hours as people in rich countries, often squatting or kneeling. A chair asks nothing of the body for hours.",
+   "caption": "A human body is built to move through the day. Hadza adults spend about 3 h 40 min a day in light activity and 2 h 14 min in harder activity, 14 times the harder activity of adults in large US studies. They rest about as many hours as people in rich countries, and close to a third of that rest is squatting or kneeling, which keeps the leg muscles working. A chair asks nothing of the body for hours.",
    "quote": "“I'm restless.”",
    "readout": {
     "need": "to move",
@@ -2687,12 +4086,33 @@
   },
   {
    "key": "touch",
-   "shelf": "From Cor",
-   "cor_findings": [
-    429,
-    295
+   "sources": [
+    {
+     "findings": [
+      1709
+     ],
+     "work": 914,
+     "grade": "tested",
+     "authors": "Coan JA, Beckes L, Gonzalez MZ, Maresh EL, Brown CL, Hasselmo K",
+     "year": 2017,
+     "title": "Relationship status and perceived support in the social regulation of neural responses to threat",
+     "where": "Social Cognitive and Affective Neuroscience 12",
+     "url": "https://cor.demismatch.com/corpus.html#e=1709"
+    },
+    {
+     "findings": [
+      429,
+      295
+     ],
+     "work": 65,
+     "grade": "tested",
+     "authors": "Field T",
+     "year": 2014,
+     "title": "Touch",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#w=65"
+    }
    ],
-   "source_note": "The café counts are observations from the 1960s.",
    "complaint": "Nobody has touched me in weeks.",
    "feeling": "tension",
    "setting": "alone",
@@ -2703,7 +4123,7 @@
    "name": "Human",
    "world": "Among its people",
    "chip": "Alone",
-   "caption": "Humans calm each other by touch. Ten minutes of neck and shoulder massage from a partner lowered stress hormones more than kind words did. In cafés, pairs touched each other 110 times an hour in Paris and not once in London. A week can pass with no touch at all.",
+   "caption": "Humans calm each other by touch, and it takes someone close. Under threat of an electric shock, a partner's hand lowered the brain's response to the threat and a stranger's hand did nothing. Ten minutes of neck and shoulder massage from a partner lowered stress hormones more than kind words did. In cafés, pairs touched each other 110 times an hour in Paris and not once in London. A week can pass with no touch at all.",
    "quote": "“Nobody has touched me in weeks.”",
    "readout": {
     "need": "to be touched",
@@ -2788,9 +4208,45 @@
   },
   {
    "key": "commute",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "Cor grades this as argued, not yet tested.",
+   "sources": [
+    {
+     "findings": [
+      606,
+      1049
+     ],
+     "work": 117,
+     "grade": "tested",
+     "authors": "Hill KR, Wood BM, Baggio J, Hurtado AM, Boyd RT",
+     "year": 2014,
+     "title": "Hunter-Gatherer Inter-Band Interaction Rates: Implications for Cumulative Culture",
+     "where": "PLoS ONE 9",
+     "url": "https://cor.demismatch.com/corpus.html#w=117"
+    },
+    {
+     "findings": [
+      1322
+     ],
+     "work": 659,
+     "grade": "tested many times",
+     "authors": "Brooker RJ, Buss KA, Lemery-Chalfant K, Aksan N, Davidson RJ, Goldsmith HH",
+     "year": 2013,
+     "title": "The development of stranger fear in infancy and toddlerhood: normative development, individual differences, antecedents, and outcomes",
+     "where": "Developmental Science 16",
+     "url": "https://cor.demismatch.com/corpus.html#e=1322"
+    },
+    {
+     "findings": [
+      808
+     ],
+     "work": 296,
+     "grade": "tested",
+     "authors": "Draper P",
+     "year": 1973,
+     "title": "Crowding among hunter-gatherers: the !Kung Bushmen",
+     "where": "Science 182",
+     "url": "https://cor.demismatch.com/corpus.html#e=808"
+    }
+   ],
    "complaint": "Crowds wear me out.",
    "feeling": "alertness",
    "setting": "a commute",
@@ -2802,7 +4258,7 @@
    "name": "Human",
    "world": "Among thirty",
    "chip": "On a commute",
-   "caption": "For a forager nearly every face was a known one. A stranger was rare and worth a close look. A commute passes face after face, none of them known, and the looking never stops.",
+   "caption": "A forager met about a thousand people in a lifetime, and its whole people numbered about that many. Nearly every face was a known one, and a stranger was worth a close look. !Kung camps were packed tight, and the people in them showed no bodily signs of stress. A commute passes face after face, none of them known, and the looking never stops.",
    "quote": "“Crowds wear me out.”",
    "readout": {
     "need": "known faces",
@@ -2878,13 +4334,56 @@
   },
   {
    "key": "neighbours",
-   "shelf": "From Cor",
-   "cor_findings": [
-    603,
-    1592,
-    1602
+   "sources": [
+    {
+     "findings": [
+      754
+     ],
+     "work": 242,
+     "grade": "tested many times",
+     "authors": "Marlowe FW",
+     "year": 2005,
+     "title": "Hunter-gatherers and human evolution",
+     "where": "Evolutionary Anthropology: Issues, News, and Reviews 14",
+     "url": "https://cor.demismatch.com/corpus.html#e=754"
+    },
+    {
+     "findings": [
+      603
+     ],
+     "work": 116,
+     "grade": "tested",
+     "authors": "Smith KM, Larroucau T, Mabulla IA, Apicella CL",
+     "year": 2018,
+     "title": "Hunter-gatherers maintain assortativity in cooperation despite high levels of residential change and mixing",
+     "where": "Current Biology 28",
+     "url": "https://cor.demismatch.com/corpus.html#e=603"
+    },
+    {
+     "findings": [
+      1592
+     ],
+     "work": 269,
+     "grade": "",
+     "authors": "Hawkes K, O'Connell JF, Blurton Jones NG",
+     "year": 2001,
+     "title": "Hadza meat sharing",
+     "where": "Evolution and Human Behavior 22",
+     "url": "https://cor.demismatch.com/corpus.html#e=1592"
+    },
+    {
+     "findings": [
+      1602
+     ],
+     "work": 848,
+     "grade": "tested",
+     "authors": "Dunbar RIM",
+     "year": 2017,
+     "title": "Breaking Bread: the Functions of Social Eating",
+     "where": "Adaptive Human Behavior and Physiology 3",
+     "url": "https://cor.demismatch.com/corpus.html#e=1602"
+    }
    ],
-   "source_note": "That a camp answers what a block does not is Demismatch's reading.",
    "complaint": "I don't know my neighbours.",
    "feeling": "loneliness",
    "setting": "an apartment block",
@@ -2896,7 +4395,7 @@
    "name": "Human",
    "world": "In a camp",
    "chip": "In an apartment block",
-   "caption": "A Hadza camp holds about 30 people who all know each other and share their meat. In a UK poll of 2,000 adults, nearly 70% had never had a meal with a neighbour. The people are a wall away.",
+   "caption": "Across 263 forager societies the median camp held 27 people, and they all knew each other. Among the Hadza, at least 90% of the meat of a large animal goes to other households. In a UK poll of 2,000 adults, nearly 70% had never had a meal with a neighbour. The people are a wall away.",
    "quote": "“I don't know my neighbours.”",
    "readout": {
     "need": "the people next door",
@@ -2972,9 +4471,44 @@
   },
   {
    "key": "boredom",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "Cor grades this as argued, not yet tested.",
+   "sources": [
+    {
+     "findings": [
+      642
+     ],
+     "work": 146,
+     "grade": "",
+     "authors": "Alcaro A, Huber R, Panksepp J",
+     "year": 2007,
+     "title": "Behavioral functions of the mesolimbic dopaminergic system: An affective neuroethological perspective",
+     "where": "Brain Research Reviews 56",
+     "url": "https://cor.demismatch.com/corpus.html#e=642"
+    },
+    {
+     "findings": [
+      397
+     ],
+     "work": 3,
+     "grade": "tested many times",
+     "authors": "Panksepp J, Biven L",
+     "year": 2012,
+     "title": "The Archaeology of Mind: Neuroevolutionary Origins of Human Emotions",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#e=397"
+    },
+    {
+     "findings": [
+      583
+     ],
+     "work": 102,
+     "grade": "",
+     "authors": "van Vugt M, Colarelli SM, Li NP",
+     "year": 2024,
+     "title": "Digitally Connected, Evolutionarily Wired: An Evolutionary Mismatch Perspective on Digital Work",
+     "where": "Organizational Psychology Review 14",
+     "url": "https://cor.demismatch.com/corpus.html#e=583"
+    }
+   ],
    "complaint": "I'm bored out of my mind.",
    "feeling": "boredom",
    "setting": "a job",
@@ -3069,20 +4603,55 @@
   },
   {
    "key": "shopping",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor tests it.",
+   "sources": [
+    {
+     "findings": [
+      1585
+     ],
+     "work": 844,
+     "grade": "tested",
+     "authors": "Kraft TS, Venkataraman VV, Tacey I, Dominy NJ, Endicott KM",
+     "year": 2019,
+     "title": "Foraging Performance, Prosociality, and Kin Presence Do Not Predict Lifetime Reproductive Success in Batek Hunter-Gatherers",
+     "where": "Human Nature 30",
+     "url": "https://cor.demismatch.com/corpus.html#e=1585"
+    },
+    {
+     "findings": [
+      451
+     ],
+     "work": 22,
+     "grade": "tested many times",
+     "authors": "Berridge KC, Robinson TE",
+     "year": 1998,
+     "title": "What is the role of dopamine in reward: hedonic impact, reward learning, or incentive salience?",
+     "where": "Brain Research Reviews 28",
+     "url": "https://cor.demismatch.com/corpus.html#e=451"
+    },
+    {
+     "findings": [
+      133
+     ],
+     "work": 27,
+     "grade": "tested many times",
+     "authors": "Berridge KC",
+     "year": 2007,
+     "title": "The Debate over Dopamine's Role in Reward: The Case for Incentive Salience",
+     "where": "Psychopharmacology 191",
+     "url": "https://cor.demismatch.com/corpus.html#e=133"
+    }
+   ],
    "complaint": "I keep buying things I don't need.",
    "feeling": "wanting",
    "setting": "an online shop",
    "need": [
-    "EEA-DIET-03"
+    "EEA-SUBS-02"
    ],
    "kind": "a fake built on purpose",
    "name": "Human",
    "world": "Gathering",
    "chip": "With an endless shop",
-   "caption": "Gathering ends. The basket is full, and the wanting stops. An online shop is built to have no full basket. Each order helps for a moment, and the wanting starts again.",
+   "caption": "Gathering ends. The basket is full, and the wanting stops. An online shop is built to have no full basket. Each order helps for a moment, and the wanting starts again. Wanting and liking run on separate systems, so the wanting can go on after the pleasure is gone.",
    "quote": "“I keep buying things I don't need.”",
    "readout": {
     "need": "enough",
@@ -3166,12 +4735,35 @@
   },
   {
    "key": "gambling",
-   "shelf": "From Cor",
-   "cor_findings": [
-    73,
-    450
+   "sources": [
+    {
+     "findings": [
+      810
+     ],
+     "work": 298,
+     "grade": "",
+     "authors": "Hawkes K, O'Connell JF, Blurton Jones NG",
+     "year": 2014,
+     "title": "More lessons from the Hadza about men's work",
+     "where": "Human Nature 25",
+     "url": "https://cor.demismatch.com/corpus.html#e=810"
+    },
+    {
+     "findings": [
+      72,
+      450,
+      448,
+      73
+     ],
+     "work": 33,
+     "grade": "tested many times",
+     "authors": "Schull ND",
+     "year": 2012,
+     "title": "Addiction by Design: Machine Gambling in Las Vegas",
+     "where": "",
+     "url": "https://cor.demismatch.com/corpus.html#w=33"
+    }
    ],
-   "source_note": "The hunt is Demismatch's reading.",
    "complaint": "I can't stop gambling.",
    "feeling": "wanting",
    "setting": "a casino",
@@ -3182,7 +4774,7 @@
    "name": "Human",
    "world": "On a hunt",
    "chip": "At a slot machine",
-   "caption": "A hunt pays off some days and fails on others, and a human keeps trying. A slot machine is built on that. It pays out just often enough to keep the player playing, and the industry designs for play until the money is gone. Between 30% and 60% of gambling revenue comes from problem gamblers.",
+   "caption": "A big-game hunt fails far more often than it pays, and the hunter goes out again. A slot machine is built on that. Bet 25 coins and win back 15, and it plays the lights and music of a win. The industry designs for play until the money is gone. Between 30% and 60% of gambling revenue comes from problem gamblers.",
    "quote": "“I can't stop gambling.”",
    "readout": {
     "need": "a catch",
@@ -3270,9 +4862,56 @@
   },
   {
    "key": "play",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor tests it.",
+   "sources": [
+    {
+     "findings": [
+      847
+     ],
+     "work": 309,
+     "grade": "tested",
+     "authors": "Page AE, Emmott EH, Dyble M and others",
+     "year": 2021,
+     "title": "Children are important too: juvenile playgroups and maternal childcare in a foraging population, the Agta",
+     "where": "Philosophical Transactions of the Royal Society B 376",
+     "url": "https://cor.demismatch.com/corpus.html#e=847"
+    },
+    {
+     "findings": [
+      785
+     ],
+     "work": 273,
+     "grade": "tested",
+     "authors": "Lew-Levy S, Boyette AH, Crittenden AN, Hewlett BS, Lamb ME",
+     "year": 2020,
+     "title": "Gender-typed and gender-segregated play among Tanzanian Hadza and Congolese BaYaka hunter-gatherer children and adolescents",
+     "where": "Child Development 91",
+     "url": "https://cor.demismatch.com/corpus.html#e=785"
+    },
+    {
+     "findings": [
+      786
+     ],
+     "work": 274,
+     "grade": "tested many times",
+     "authors": "Lew-Levy S, Lavi N, Reckin R, Cristobal-Azkarate J, Ellis-Davies K",
+     "year": 2018,
+     "title": "How do hunter-gatherer children learn social and gender norms? A meta-ethnographic review",
+     "where": "Cross-Cultural Research 52",
+     "url": "https://cor.demismatch.com/corpus.html#e=786"
+    },
+    {
+     "findings": [
+      1268
+     ],
+     "work": 621,
+     "grade": "tested",
+     "authors": "Koepp MJ, Gunn RN, Lawrence AD and others",
+     "year": 1998,
+     "title": "Evidence for striatal dopamine release during a video game",
+     "where": "Nature 393",
+     "url": "https://cor.demismatch.com/corpus.html#e=1268"
+    }
+   ],
    "complaint": "I can't stop gaming.",
    "feeling": "restlessness",
    "setting": "a game",
@@ -3283,7 +4922,7 @@
    "name": "Child",
    "world": "With other children",
    "chip": "With a game on a screen",
-   "caption": "Children play rough with other children, and the play ends when they are worn out. A game on a screen is built never to wear out. It hands out wins faster than a real game does, and the child stays.",
+   "caption": "Forager children spend their days in a group of other children of mixed ages, and the play ends when they are worn out. A game on a screen is built never to wear out. It hands out wins faster than a real game does, and the child stays.",
    "quote": "“I can't stop gaming.”",
    "readout": {
     "need": "to play",
@@ -3364,9 +5003,44 @@
   },
   {
    "key": "noise",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "Cor has this for birds. No human study of it is in Cor.",
+   "sources": [
+    {
+     "findings": [
+      1962
+     ],
+     "work": 1073,
+     "grade": "tested",
+     "authors": "Grade AM, Sieving KE",
+     "year": 2016,
+     "title": "When the birds go unheard: highway noise disrupts information transfer between bird species",
+     "where": "Biology Letters 12",
+     "url": "https://cor.demismatch.com/corpus.html#e=1962"
+    },
+    {
+     "findings": [
+      1965
+     ],
+     "work": 1075,
+     "grade": "tested",
+     "authors": "Quinn JL, Whittingham MJ, Butler SJ, Cresswell W",
+     "year": 2006,
+     "title": "Noise, predation risk compensation and vigilance in the chaffinch Fringilla coelebs",
+     "where": "Journal of Avian Biology 37",
+     "url": "https://cor.demismatch.com/corpus.html#e=1965"
+    },
+    {
+     "findings": [
+      1970
+     ],
+     "work": 1079,
+     "grade": "tested",
+     "authors": "Evans JC, Dall SRX, Kight CR",
+     "year": 2018,
+     "title": "Effects of ambient noise on zebra finch vigilance and foraging efficiency",
+     "where": "PLOS ONE 13",
+     "url": "https://cor.demismatch.com/corpus.html#e=1970"
+    }
+   ],
    "complaint": "I can never relax at home.",
    "feeling": "tension",
    "setting": "a road",
@@ -3454,20 +5128,44 @@
   },
   {
    "key": "open-plan",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor tests it.",
+   "sources": [
+    {
+     "findings": [
+      808
+     ],
+     "work": 296,
+     "grade": "tested",
+     "authors": "Draper P",
+     "year": 1973,
+     "title": "Crowding among hunter-gatherers: the !Kung Bushmen",
+     "where": "Science 182",
+     "url": "https://cor.demismatch.com/corpus.html#e=808"
+    },
+    {
+     "findings": [
+      1320
+     ],
+     "work": 658,
+     "grade": "tested",
+     "authors": "Asendorpf JB",
+     "year": 1989,
+     "title": "Shyness as a final common pathway for two different kinds of inhibition",
+     "where": "Journal of Personality and Social Psychology 57",
+     "url": "https://cor.demismatch.com/corpus.html#e=1320"
+    }
+   ],
    "complaint": "I can't get anything done.",
    "feeling": "irritation",
    "setting": "an office",
    "need": [
-    "EEA-SOC-03"
+    "EEA-SOC-03",
+    "EEA-SOC-08"
    ],
    "kind": "too much",
    "name": "Human",
    "world": "Working with its people",
    "chip": "In an open-plan office",
-   "caption": "A human works well beside people it knows. An open-plan office puts it within reach of everyone at once, and each of them can interrupt it at any moment.",
+   "caption": "A human works well beside people it knows. An open-plan office puts it within reach of dozens it barely knows, and each of them can interrupt it at any moment.",
    "quote": "“I can't get anything done.”",
    "readout": {
     "need": "its people",
@@ -3538,9 +5236,56 @@
   },
   {
    "key": "anniversary",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor tests it.",
+   "sources": [
+    {
+     "findings": [
+      732
+     ],
+     "work": 220,
+     "grade": "tested many times",
+     "authors": "Anderson C, Hildreth JAD, Howland L",
+     "year": 2015,
+     "title": "Is the desire for status a fundamental human motive? A review of the empirical literature",
+     "where": "Psychological Bulletin 141",
+     "url": "https://cor.demismatch.com/corpus.html#e=732"
+    },
+    {
+     "findings": [
+      1042
+     ],
+     "work": 489,
+     "grade": "tested",
+     "authors": "Anderson C, Kraus MW, Galinsky AD, Keltner D",
+     "year": 2012,
+     "title": "The local-ladder effect: social status and subjective well-being",
+     "where": "Psychological Science 23",
+     "url": "https://cor.demismatch.com/corpus.html#e=1042"
+    },
+    {
+     "findings": [
+      620
+     ],
+     "work": 126,
+     "grade": "tested many times",
+     "authors": "Leary MR, Tambor ES, Terdal SK, Downs DL",
+     "year": 1995,
+     "title": "Self-Esteem as an Interpersonal Monitor: The Sociometer Hypothesis",
+     "where": "Journal of Personality and Social Psychology 68",
+     "url": "https://cor.demismatch.com/corpus.html#e=620"
+    },
+    {
+     "findings": [
+      508
+     ],
+     "work": 73,
+     "grade": "tested",
+     "authors": "Dunbar RIM",
+     "year": 2016,
+     "title": "Do online social media cut through the constraints that limit the size of offline social networks?",
+     "where": "Royal Society Open Science 3",
+     "url": "https://cor.demismatch.com/corpus.html#e=508"
+    }
+   ],
    "complaint": "Does anyone even notice what I do?",
    "feeling": "being overlooked",
    "setting": "a networking site",
@@ -3631,9 +5376,44 @@
   },
   {
    "key": "team-building",
-   "shelf": "Demismatch's reading",
-   "cor_findings": [],
-   "source_note": "No study in Cor tests it.",
+   "sources": [
+    {
+     "findings": [
+      1520
+     ],
+     "work": 802,
+     "grade": "tested",
+     "authors": "Hall JA",
+     "year": 2019,
+     "title": "How many hours does it take to make a friend?",
+     "where": "Journal of Social and Personal Relationships 36",
+     "url": "https://cor.demismatch.com/corpus.html#e=1520"
+    },
+    {
+     "findings": [
+      479
+     ],
+     "work": 66,
+     "grade": "",
+     "authors": "Trivers RL",
+     "year": 1971,
+     "title": "The Evolution of Reciprocal Altruism",
+     "where": "The Quarterly Review of Biology 46",
+     "url": "https://cor.demismatch.com/corpus.html#e=479"
+    },
+    {
+     "findings": [
+      752
+     ],
+     "work": 240,
+     "grade": "tested",
+     "authors": "Wiessner P, Huang C",
+     "year": 2022,
+     "title": "A 44-y perspective on the influence of cash on Ju/'hoansi Bushman networks of sharing and gifting",
+     "where": "Proceedings of the National Academy of Sciences 119",
+     "url": "https://cor.demismatch.com/corpus.html#e=752"
+    }
+   ],
    "complaint": "I don't belong here.",
    "feeling": "not belonging",
    "setting": "an office",
