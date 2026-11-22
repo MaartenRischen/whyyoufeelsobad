@@ -614,7 +614,7 @@
       620
      ],
      "work": 126,
-     "grade": "tested many times",
+     "grade": "tested",
      "authors": "Leary MR, Tambor ES, Terdal SK, Downs DL",
      "year": 1995,
      "title": "Self-Esteem as an Interpersonal Monitor: The Sociometer Hypothesis",
@@ -626,7 +626,7 @@
       754
      ],
      "work": 242,
-     "grade": "tested many times",
+     "grade": "tested",
      "authors": "Marlowe FW",
      "year": 2005,
      "title": "Hunter-gatherers and human evolution",
@@ -752,7 +752,7 @@
       754
      ],
      "work": 242,
-     "grade": "tested many times",
+     "grade": "tested",
      "authors": "Marlowe FW",
      "year": 2005,
      "title": "Hunter-gatherers and human evolution",
@@ -2063,7 +2063,7 @@
       631
      ],
      "work": 136,
-     "grade": "tested many times",
+     "grade": "tested",
      "authors": "Khalsa SBS, Jewett ME, Cajochen C, Czeisler CA",
      "year": 2003,
      "title": "A phase response curve to single bright light pulses in human subjects",
@@ -2322,7 +2322,7 @@
       2308
      ],
      "work": 298,
-     "grade": "",
+     "grade": "tested",
      "authors": "Hawkes K, O'Connell JF, Blurton Jones NG",
      "year": 2014,
      "title": "More lessons from the Hadza about men's work",
@@ -2460,7 +2460,7 @@
       621
      ],
      "work": 126,
-     "grade": "tested many times",
+     "grade": "tested",
      "authors": "Leary MR, Tambor ES, Terdal SK, Downs DL",
      "year": 1995,
      "title": "Self-Esteem as an Interpersonal Monitor: The Sociometer Hypothesis",
@@ -2888,7 +2888,7 @@
       2308
      ],
      "work": 298,
-     "grade": "",
+     "grade": "tested",
      "authors": "Hawkes K, O'Connell JF, Blurton Jones NG",
      "year": 2014,
      "title": "More lessons from the Hadza about men's work",
@@ -4016,7 +4016,8 @@
     },
     {
      "findings": [
-      289
+      289,
+      288
      ],
      "work": 63,
      "grade": "tested",
@@ -4024,7 +4025,7 @@
      "year": 2020,
      "title": "Sitting, Squatting, and the Evolutionary Biology of Human Inactivity",
      "where": "Proceedings of the National Academy of Sciences 117",
-     "url": "https://cor.demismatch.com/corpus.html#e=289"
+     "url": "https://cor.demismatch.com/corpus.html#w=63"
     }
    ],
    "complaint": "I'm restless.",
@@ -4375,7 +4376,7 @@
       754
      ],
      "work": 242,
-     "grade": "tested many times",
+     "grade": "tested",
      "authors": "Marlowe FW",
      "year": 2005,
      "title": "Hunter-gatherers and human evolution",
@@ -4411,7 +4412,7 @@
       2308
      ],
      "work": 298,
-     "grade": "",
+     "grade": "tested",
      "authors": "Hawkes K, O'Connell JF, Blurton Jones NG",
      "year": 2014,
      "title": "More lessons from the Hadza about men's work",
@@ -4677,18 +4678,7 @@
     },
     {
      "findings": [
-      451
-     ],
-     "work": 22,
-     "grade": "tested many times",
-     "authors": "Berridge KC, Robinson TE",
-     "year": 1998,
-     "title": "What is the role of dopamine in reward: hedonic impact, reward learning, or incentive salience?",
-     "where": "Brain Research Reviews 28",
-     "url": "https://cor.demismatch.com/corpus.html#e=451"
-    },
-    {
-     "findings": [
+      451,
       133
      ],
      "work": 27,
@@ -4697,7 +4687,7 @@
      "year": 2007,
      "title": "The Debate over Dopamine's Role in Reward: The Case for Incentive Salience",
      "where": "Psychopharmacology 191",
-     "url": "https://cor.demismatch.com/corpus.html#e=133"
+     "url": "https://cor.demismatch.com/corpus.html#w=27"
     }
    ],
    "complaint": "I keep buying things I don't need.",
@@ -5325,7 +5315,7 @@
       620
      ],
      "work": 126,
-     "grade": "tested many times",
+     "grade": "tested",
      "authors": "Leary MR, Tambor ES, Terdal SK, Downs DL",
      "year": 1995,
      "title": "Self-Esteem as an Interpersonal Monitor: The Sociometer Hypothesis",
