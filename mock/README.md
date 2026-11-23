@@ -96,12 +96,16 @@ Address: /mock/humans-first/ (unlinked, noindex). The live home page in another 
 live one (the bar on top flips between the two). Maarten, 23 Nov 2026: "maybe it's much stronger to actually
 start explaining the concept of mismatch, not with animals but with humans".
 
-- Order: title and short answer; six humans, each showing only the mismatched half of its loop; the name of
-  the thing and one animal (the orca, both halves); "Six more animals" behind a fold (the four other animals
+- Order: title and short answer; six humans from the library, each loop whole (its world, the change, the
+  mismatched world); the name of the thing and one animal (the orca, both halves); "Six more animals" behind a fold (the four other animals
   of the grid, the hatchling, the bear); then the human loops with both halves, with the phone before the
   pike and porn before the oystercatcher; the rest of the live page unchanged.
+- The first version showed only the mismatched half of the six opening loops. Maarten, 15:20: the version
+  from before the mismatch has to be there "right at the start", "the only way to show what is really
+  happening here in these diagrams". The six are loops the rest of the page does not show (anxious, sleep,
+  eating, boss, crying baby, friends), so no drawing comes twice.
 - No drawing is redrawn and no fact is added. The six opening drawings come from `library/`; their captions
-  are cut from the library captions.
+  are whole sentences of the library captions, with some sentences left out.
 - `humans-first/index.html`, `page.js` and `first.css` are written by `build_humans_first.py` (project doc
   `claude/builders/wyfsb-humans-first-build.py`), which reads the live `index.html` and `library/index.html`
   of this repo. Do not edit them by hand. The builder in the workspace repo (`wyfsb/page2/build.py`) does
