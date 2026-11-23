@@ -5,6 +5,17 @@
 .sec .lt.say{font-style:italic;color:var(--teal-deep)}
 .now .lw{margin-top:8px}
 
+/* loops one under the other, never in a grid: each is a group of its own, so the one nearest the middle of
+   the screen plays. On a wide screen the drawing is large, with its words beside it. */
+.sec > .stack{max-width:none}
+.stack > * + *{margin-top:34px}
+@media (min-width:1000px){
+  .stack > * + *{margin-top:64px}
+  .stack .lone .dg{grid-template-columns:minmax(0,760px) minmax(0,1fr);column-gap:48px;padding-top:26px}
+  .stack .lt.say{font-size:var(--t-card)}
+  .stack .lone .lc{margin-top:14px}
+}
+
 /* the fold with the other animals */
 .sec.fold{padding-top:0;padding-bottom:0}
 .sec > details.more{max-width:none}
@@ -15,5 +26,5 @@ details.more>summary:focus-visible{outline:2px solid var(--teal);outline-offset:
 .mo-go::after{content:" +"}
 details.more[open] .mo-go::after{content:" \2212"}
 details.more>summary:hover .mo-go{background:var(--oxblood);color:var(--parchment-soft)}
-details.more .dgrid{margin-top:8px}
+details.more .stack{margin-top:8px}
 details.more .note{margin:18px 0 26px;max-width:var(--read)}

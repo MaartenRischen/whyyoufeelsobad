@@ -116,5 +116,10 @@ start explaining the concept of mismatch, not with animals but with humans".
   `claude/builders/wyfsb-humans-first-build.py`), which reads the live `index.html` and `library/index.html`
   of this repo. Do not edit them by hand. The builder in the workspace repo (`wyfsb/page2/build.py`) does
   not know this order yet.
+- No grid at any width (Maarten, 18:23: on a desktop "it's weird that they're in a grid but playing one by
+  one", "just make em real big so it has the same effect; they start playing as soon as the user scrolls to
+  them"). The six opening loops and the six animals in the fold stand one under the other, each a `.dpair.lone`
+  in a `.stack`; on a wide screen the drawing is 760 px wide with its words beside it. The loop nearest the
+  middle of the screen plays.
 - `humans-first/page.js` is the live `page.js` with two changes: a diagram with `data-from` starts on that
   beat, and a diagram inside a shut fold gets no turn.
