@@ -104,8 +104,14 @@ start explaining the concept of mismatch, not with animals but with humans".
   from before the mismatch has to be there "right at the start", "the only way to show what is really
   happening here in these diagrams". The six are loops the rest of the page does not show (anxious, sleep,
   eating, boss, crying baby, friends), so no drawing comes twice.
-- No drawing is redrawn and no fact is added. The six opening drawings come from `library/`; their captions
-  are whole sentences of the library captions, with some sentences left out.
+- No fact is added. The six opening loops keep the library's beats, readouts and captions (whole sentences of
+  the library captions, with some left out). Their drawings are redrawn (`wyfsb_literal.py`, project doc
+  `claude/builders/wyfsb-literal.py`). Maarten, 16:10, on the library drawings: "I was frowning before I
+  understood it", "be much more literal", "it's not a bunch of bears on television. It's war and destruction",
+  "too many thought steps". Rules of the redraw: a thing looks like the thing (a television with a stand and
+  the word NEWS, a phone with a chat and a thumbs-up, a sleeper lying in a bed); one short word in the drawing
+  where a shape alone could be read two ways (NEWS, WAR, BOSS, 3 AM, WAA, HA); nothing stands in for something
+  else. The rest of the page and `library/` still have the older drawings.
 - `humans-first/index.html`, `page.js` and `first.css` are written by `build_humans_first.py` (project doc
   `claude/builders/wyfsb-humans-first-build.py`), which reads the live `index.html` and `library/index.html`
   of this repo. Do not edit them by hand. The builder in the workspace repo (`wyfsb/page2/build.py`) does
