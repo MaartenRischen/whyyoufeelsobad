@@ -6,15 +6,22 @@
 .sec .tg{font:400 var(--t-meta)/1.5 var(--mono);letter-spacing:.01em;color:var(--dim);margin:4px 0 0}
 .sec .tg a{color:inherit}
 
-/* the studies under a caption: full references, each opens in Cor. Open by default; the summary line folds them. */
+/* the studies under a caption: full references, each opens in Cor. Open by default; the summary line folds them.
+   The summary names what is in the list, as on whatreally.is (Maarten, 23 Nov 2026, option A; Open Brain 5315):
+   "4 sources: Hrdy 2009; Sear & Mace 2008; ... Close -". The words come from look/srcline.py. */
 .sec details.srcs{margin:8px 0 0}
-.sec details.srcs>summary{display:inline-flex;align-items:baseline;gap:4px;cursor:pointer;list-style:none;font:500 var(--t-meta)/1.2 var(--mono);color:var(--dim);padding:4px 0}
+.sec details.srcs>summary{display:block;box-sizing:border-box;min-height:44px;padding:11px 0;cursor:pointer;list-style:none;font:400 var(--t-meta)/1.4 var(--serif);color:var(--dim);text-align:left}
 .sec details.srcs>summary::-webkit-details-marker{display:none}
-.sec details.srcs>summary::after{content:"+";font-weight:600;margin-left:2px}
-.sec details.srcs[open]>summary::after{content:"\2212"}
+.sec details.srcs>summary .sl-n{font-weight:600;color:var(--ink)}
+.sec details.srcs>summary .sl-c{font:500 var(--t-meta)/1.4 var(--mono);color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}
+.sec details.srcs>summary .sl-c::after{content:"+";display:inline-block;margin-left:4px;font-weight:600;text-decoration:none}
+.sec details.srcs[open]>summary .sl-c::after{content:"\2212"}
+.sec details.srcs>summary .sl-x,.sec details.srcs[open]>summary .sl-o{display:none}
+.sec details.srcs[open]>summary .sl-x{display:inline}
 .sec details.srcs>summary:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
 .sec details.srcs ol{list-style:none;margin:2px 0 0;padding:0}
-.sec details.srcs li{font:400 var(--t-meta)/1.45 var(--serif);margin:0;padding:5px 0;border-top:1px solid var(--card-line);overflow-wrap:anywhere}
+.sec details.srcs li{font:400 var(--t-meta)/1.45 var(--serif);margin:0;padding:5px 0;overflow-wrap:anywhere}
+.sec details.srcs li+li{border-top:1px solid var(--rule)}
 .sec details.srcs li a{color:inherit;text-decoration-thickness:1px;text-underline-offset:2px}
 .sec details.srcs .gl{font:600 var(--t-meta)/1.45 var(--mono);color:var(--teal-deep)}
 .dgrid.lib .dg{cursor:pointer}
