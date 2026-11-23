@@ -89,3 +89,22 @@ the same place. The still is the mismatched world with the lost answer drawn fai
   them by hand.
 - The page loads `page/page.css` and `page/page.js` unchanged. The loops are rows of one `.dgrid`, so the runner
   gives them turns: one loop moves at a time.
+
+## humans-first/ - the home page with humans first (hub chat, 23 Nov 2026)
+
+Address: /mock/humans-first/ (unlinked, noindex). The live home page in another order, to compare with the
+live one (the bar on top flips between the two). Maarten, 23 Nov 2026: "maybe it's much stronger to actually
+start explaining the concept of mismatch, not with animals but with humans".
+
+- Order: title and short answer; six humans, each showing only the mismatched half of its loop; the name of
+  the thing and one animal (the orca, both halves); "Six more animals" behind a fold (the four other animals
+  of the grid, the hatchling, the bear); then the human loops with both halves, with the phone before the
+  pike and porn before the oystercatcher; the rest of the live page unchanged.
+- No drawing is redrawn and no fact is added. The six opening drawings come from `library/`; their captions
+  are cut from the library captions.
+- `humans-first/index.html`, `page.js` and `first.css` are written by `build_humans_first.py` (project doc
+  `claude/builders/wyfsb-humans-first-build.py`), which reads the live `index.html` and `library/index.html`
+  of this repo. Do not edit them by hand. The builder in the workspace repo (`wyfsb/page2/build.py`) does
+  not know this order yet.
+- `humans-first/page.js` is the live `page.js` with two changes: a diagram with `data-from` starts on that
+  beat, and a diagram inside a shut fold gets no turn.

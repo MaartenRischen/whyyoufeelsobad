@@ -1,0 +1,19 @@
+/* first.css - what the humans-first order adds to page.css (mock/humans-first/). It uses look.css names only
+   and sets no colour, typeface or text size of its own. Written by build_humans_first.py. */
+
+/* a loop of the opening run is headed by the human's own words */
+.sec .lt.say{font-style:italic;color:var(--teal-deep)}
+.now .lw{margin-top:8px}
+
+/* the fold with the other animals */
+.sec.fold{padding-top:0;padding-bottom:0}
+.sec > details.more{max-width:none}
+details.more>summary{display:block;list-style:none;cursor:pointer;padding:14px 0 16px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+.mo-go{display:inline-block;border:1px solid var(--oxblood);border-radius:4px;padding:10px 13px 9px;color:var(--oxblood);font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.mo-go::after{content:" +"}
+details.more[open] .mo-go::after{content:" \2212"}
+details.more>summary:hover .mo-go{background:var(--oxblood);color:var(--parchment-soft)}
+details.more .dgrid{margin-top:8px}
+details.more .note{margin:18px 0 26px;max-width:var(--read)}
