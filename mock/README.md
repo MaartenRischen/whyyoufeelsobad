@@ -129,5 +129,16 @@ start explaining the concept of mismatch, not with animals but with humans".
   included, as in Cor ("a proxy is a 'solution' to empty shelf that isn't a solution", Open Brain 1570); the
   live page kept the word for fakes built on purpose. Lines changed for that: "The next proxy was built on
   purpose." and "The lure and the feed on your phone are proxies built on purpose."
+- Copy pass (Maarten, 18:42: "this entire page could massively benefit from a strict no-ai-slop skill pass.
+  it's pretty bad"). The list `PASS` in the builder holds every old and new sentence. Kinds of change: closing
+  sayings turned into plain statements ("What that world had was answers." became "In that world a feeling got
+  its answer."), stacks of short sentences joined where one depends on the other, captions put in the third
+  person throughout, a caption and the line under it that said the same thing made one (the oystercatcher),
+  "Here is one label from start to finish." replaced by a sentence that says something, term cards in whole
+  sentences. Every claim, figure and condition is kept. Not touched: the lines Maarten wrote or approved one by
+  one (title, short answer, "It is hard to see in yourself...", "Nobody thinks the orca is the problem.",
+  "Humans are animals too...", "Your feelings are right.", "Humans need a world for humans.") and the block on
+  disease and medication, apart from one sentence that repeated the next. The rules tile now says eighteen
+  (the live rules page has eighteen).
 - `humans-first/page.js` is the live `page.js` with two changes: a diagram with `data-from` starts on that
   beat, and a diagram inside a shut fold gets no turn.
