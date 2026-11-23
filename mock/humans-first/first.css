@@ -5,6 +5,20 @@
 .sec .lt.say{font-style:italic;color:var(--teal-deep)}
 .now .lw{margin-top:8px}
 
+/* a term, named where the page first shows the thing: a small label, the term, one line saying what it is */
+.sec > .tcard,.sec > .tpair{max-width:var(--read)}
+.tcard{background:var(--card);border:1px solid var(--card-line);border-left:4px solid var(--oxblood);border-radius:var(--radius);padding:15px 18px 17px}
+.sec .tcard .tc-k{font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.sec .tcard .tc-n{font:600 var(--t-h2)/1.08 var(--serif);letter-spacing:-.012em;margin-top:7px}
+.sec .tcard .tc-d{font:400 var(--t-lead)/1.4 var(--serif);margin-top:8px}
+.tcard.g{border-left-color:var(--good)}
+.tcard.r{border-left-color:var(--bad)}
+.sec .tcard.g .tc-n{color:var(--good)}
+.sec .tcard.r .tc-n{color:var(--bad)}
+.tpair{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.sec.band .tcard{margin-top:18px}
+@media (min-width:720px){.tpair{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* loops one under the other, never in a grid: each is a group of its own, so the one nearest the middle of
    the screen plays. On a wide screen the drawing is large, with its words beside it. */
 .sec > .stack{max-width:none}

@@ -121,5 +121,13 @@ start explaining the concept of mismatch, not with animals but with humans".
   them"). The six opening loops and the six animals in the fold stand one under the other, each a `.dpair.lone`
   in a `.stack`; on a wide screen the drawing is 760 px wide with its words beside it. The loop nearest the
   middle of the screen plays.
+- Term labels (Maarten, 18:34: "clearly name and introduce with a nice clear label the terms as we use them,
+  when you introduce them"). A card with "This is called", the term and one line, where the page first shows
+  the thing: Evolutionary mismatch (after the six humans), Closed loop and Open loop (after the human in the
+  flat), Proxy (at "Sometimes an answer does come, and it is a fake."), Hyperstimulus (at "Some fakes work
+  better than the real thing."), EEA (before the camp). Proxy now names every fake answer, the office
+  included, as in Cor ("a proxy is a 'solution' to empty shelf that isn't a solution", Open Brain 1570); the
+  live page kept the word for fakes built on purpose. Lines changed for that: "The next proxy was built on
+  purpose." and "The lure and the feed on your phone are proxies built on purpose."
 - `humans-first/page.js` is the live `page.js` with two changes: a diagram with `data-from` starts on that
   beat, and a diagram inside a shut fold gets no turn.
