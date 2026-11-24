@@ -142,3 +142,14 @@ start explaining the concept of mismatch, not with animals but with humans".
   (the live rules page has eighteen).
 - `humans-first/page.js` is the live `page.js` with two changes: a diagram with `data-from` starts on that
   beat, and a diagram inside a shut fold gets no turn.
+
+**Fact cards (24 Nov 2026).** Maarten: "a distinctly differently graphically treated sprinkle of maybe mind-blowing
+new facts, but very important pillars of our thinking", each "at the appropriate time". Eight dark cards (oxblood,
+gold line "Most people don't know this", source line that opens the Cor finding), each placed after the loop it
+belongs to: what a feeling is (Nesse, Cor 348) after the six humans; ties to other people and survival
+(Holt-Lunstad, 463) after the lonely human; a media figure lifts mood and not loneliness (Stein, 1371) after the
+phone; wanting and liking (Berridge and Robinson, 45) after porn; the ultra-processed food trial (Hall, 866) after
+food; self-esteem as a measure of acceptance (Leary, 620) after "among thirty"; relatives and child survival
+(Sear and Mace, 703) after the camp; bad feelings as protection (Nesse, 346) before "Your feelings are right."
+Every text was checked against its Cor finding. A small study says in the card how many people or animals it had.
+The two Nesse cards are his reading and carry his name. Dunbar's 150 is left out: Cor holds a challenge to it.

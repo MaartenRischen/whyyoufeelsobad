@@ -19,6 +19,17 @@
 .sec.band .tcard{margin-top:18px}
 @media (min-width:720px){.tpair{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+/* a fact card: dark, so it reads as something apart from the page's own argument. A small gold line on top, the
+   fact in large type, the source under it. */
+.sec > .fact{max-width:var(--read)}
+.fact{background:var(--oxblood);color:var(--parchment-soft);border-radius:var(--radius);padding:18px 20px 17px;box-shadow:inset 5px 0 0 var(--gold)}
+.sec .fact .fk{font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.sec .fact .ft-x{font:400 var(--t-card)/1.3 var(--serif);letter-spacing:-.008em;margin-top:9px;text-wrap:pretty}
+.sec .fact .fs{font:400 var(--t-meta)/1.5 var(--mono);letter-spacing:.01em;margin-top:12px;color:rgba(242,232,207,.74)}
+.sec .fact .fs a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+.sec .fact .fs a:hover{color:var(--gold)}
+@media (min-width:720px){.fact{padding:24px 28px 22px}}
+
 /* loops one under the other, never in a grid: each is a group of its own, so the one nearest the middle of
    the screen plays. On a wide screen the drawing is large, with its words beside it. */
 .sec > .stack{max-width:none}
