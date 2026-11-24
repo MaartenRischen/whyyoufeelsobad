@@ -168,3 +168,9 @@ the small gold label: Emotions are signals; People with people live longer; Chee
 not liking; Ultra-processed food makes you eat more; Self-esteem measures acceptance; Humans raise children
 together; Bad feelings protect you. The first is his wording. A title says no more than the card's own text. The
 text under it is one size smaller, and two cards lost a first sentence that the title now says.
+
+**Fact cards, placement (24 Nov 2026, 08:01).** Maarten: "reconsider the placement. The first one probably needs to
+go much higher to make sense with the examples". "Emotions are signals" now stands right under the title and the
+short answer, before the six human loops, since every loop starts with a feeling. "Humans raise children together"
+moved from the camp to right under the baby's loop in the opening run (the run is cut in two sections there). The
+other six stay where they were: each already stands under the loop it explains.
