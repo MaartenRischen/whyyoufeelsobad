@@ -19,16 +19,23 @@
 .sec.band .tcard{margin-top:18px}
 @media (min-width:720px){.tpair{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* a fact card: dark, so it reads as something apart from the page's own argument. A small gold line on top, the
-   fact in large type, the source under it. */
+/* a fact card: dark green, so it reads as something apart from the page's own argument and from the term cards.
+   A small drawing, a gold line on top, the fact in large type, the source under it. */
 .sec > .fact{max-width:var(--read)}
-.fact{background:var(--oxblood);color:var(--parchment-soft);border-radius:var(--radius);padding:18px 20px 17px;box-shadow:inset 5px 0 0 var(--gold)}
-.sec .fact .fk{font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.sec .fact .ft-x{font:400 var(--t-card)/1.3 var(--serif);letter-spacing:-.008em;margin-top:9px;text-wrap:pretty}
-.sec .fact .fs{font:400 var(--t-meta)/1.5 var(--mono);letter-spacing:.01em;margin-top:12px;color:rgba(242,232,207,.74)}
+.fact{display:flex;flex-direction:column;align-items:flex-start;background:var(--teal-deep);color:var(--parchment-soft);border-radius:var(--radius);padding:18px 20px 17px}
+.fact .fb{display:contents}
+.fact .fp{order:1;display:block;width:100%;max-width:250px;height:auto;margin:16px 0 4px -4px}
+.sec .fact .fk{order:0;background:var(--gold);color:var(--oxblood);border-radius:3px;padding:5px 9px 4px;font:600 var(--t-label)/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.sec .fact .ft-x{order:2;font:400 var(--t-card)/1.3 var(--serif);letter-spacing:-.008em;margin-top:10px;text-wrap:pretty}
+.sec .fact .fs{order:3;font:400 var(--t-meta)/1.5 var(--mono);letter-spacing:.01em;margin-top:12px;color:rgba(242,232,207,.8)}
 .sec .fact .fs a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
 .sec .fact .fs a:hover{color:var(--gold)}
-@media (min-width:720px){.fact{padding:24px 28px 22px}}
+@media (min-width:720px){
+  .fact{display:grid;grid-template-columns:230px minmax(0,1fr);column-gap:28px;align-items:center;padding:24px 28px 22px 24px}
+  .fact .fb{display:block}
+  .fact .fp{order:0;max-width:none;margin:0}
+  .sec .fact .fk{display:inline-block}
+}
 
 /* loops one under the other, never in a grid: each is a group of its own, so the one nearest the middle of
    the screen plays. On a wide screen the drawing is large, with its words beside it. */

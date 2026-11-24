@@ -153,3 +153,11 @@ food; self-esteem as a measure of acceptance (Leary, 620) after "among thirty"; 
 (Sear and Mace, 703) after the camp; bad feelings as protection (Nesse, 346) before "Your feelings are right."
 Every text was checked against its Cor finding. A small study says in the card how many people or animals it had.
 The two Nesse cards are his reading and carry his name. Dunbar's 150 is left out: Cor holds a challenge to it.
+
+**Fact cards, second round (24 Nov 2026, 07:41).** Maarten: "They need their own little graphics for sure", and
+green, not oxblood, "because it feels more eye-catching". Each card now has its own small drawing (a dial from bad
+to good; one person alone and five together with +50%; a person on a phone with MOOD ticked and LONELINESS crossed;
+a rat and a sweet drop with LIKES ticked and WANTS crossed; two bars with +500; an included and a left-out person
+with a gauge each; a baby among mother and relatives; a thermometer equal to an anxious person). The card is dark
+green (--teal-deep) with a gold label and gold marks. On a phone: label, drawing, text, source. On a desktop the
+drawing stands left of the text. The drawings are written in the builder (P_FEELING and the rest).
