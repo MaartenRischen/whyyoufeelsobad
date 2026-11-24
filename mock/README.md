@@ -181,3 +181,9 @@ element categories". A term label has no box and no fill now: a green line (--te
 half way along its top, and the small "This is called" is green. Closed loop keeps green, Open loop keeps the
 colour of an unanswered need. The kinds of thing on the page now each look different: a drawing with its readout, a
 term (green half border on the page colour), a fact card (filled dark green block with a drawing), a statement band.
+
+**Buttons and labels (24 Nov 2026, 08:12).** Maarten, with a phone screenshot: "Clickable buttons like 'six more
+animals' should look different than labels like 'in a flat alone'". The fold button was a dark rectangle in small
+capitals after a tap, the same as a label. It is now a round-ended green outline with a plus in a green circle
+(a minus when open). It fills green only under a mouse, so on a phone it never turns into a filled shape after a
+tap. Labels stay dark rectangles.

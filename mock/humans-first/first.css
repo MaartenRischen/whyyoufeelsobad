@@ -53,15 +53,20 @@
   .stack .lone .lc{margin-top:14px}
 }
 
-/* the fold with the other animals */
+/* the fold with the other animals. Maarten, 24 Nov 2026, 08:12: "Clickable buttons like 'six more animals' should
+   look different than labels like 'in a flat alone'". A label is a dark rectangle. A button is a round-ended green
+   outline with a plus in a circle, and it fills only under a mouse, never after a tap. */
 .sec.fold{padding-top:0;padding-bottom:0}
 .sec > details.more{max-width:none}
 details.more>summary{display:block;list-style:none;cursor:pointer;padding:14px 0 16px}
 details.more>summary::-webkit-details-marker{display:none}
 details.more>summary:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
-.mo-go{display:inline-block;border:1px solid var(--oxblood);border-radius:4px;padding:10px 13px 9px;color:var(--oxblood);font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
-.mo-go::after{content:" +"}
-details.more[open] .mo-go::after{content:" \2212"}
-details.more>summary:hover .mo-go{background:var(--oxblood);color:var(--parchment-soft)}
+.mo-go{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--teal);border-radius:999px;padding:6px 18px 6px 7px;color:var(--teal-deep);font:600 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.mo-go::before{content:"+";display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--teal);color:var(--parchment-soft);font:600 var(--t-body)/1 var(--mono);letter-spacing:0}
+details.more[open] .mo-go::before{content:"\2212"}
+@media (hover:hover){
+  details.more>summary:hover .mo-go{background:var(--teal);color:var(--parchment-soft)}
+  details.more>summary:hover .mo-go::before{background:var(--parchment-soft);color:var(--teal-deep)}
+}
 details.more .stack{margin-top:8px}
 details.more .note{margin:18px 0 26px;max-width:var(--read)}
