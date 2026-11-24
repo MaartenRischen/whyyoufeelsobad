@@ -161,3 +161,10 @@ a rat and a sweet drop with LIKES ticked and WANTS crossed; two bars with +500; 
 with a gauge each; a baby among mother and relatives; a thermometer equal to an anxious person). The card is dark
 green (--teal-deep) with a gold label and gold marks. On a phone: label, drawing, text, source. On a desktop the
 drawing stands left of the text. The drawings are written in the builder (P_FEELING and the rest).
+
+**Fact cards, third round (24 Nov 2026, 07:48).** Maarten: "They need big summarising titles like 'EMOTIONS ARE
+SIGNALS'", with "Most people don't know this" "small on top". Each card now has a large title in capitals under
+the small gold label: Emotions are signals; People with people live longer; Cheered up, still lonely; Wanting is
+not liking; Ultra-processed food makes you eat more; Self-esteem measures acceptance; Humans raise children
+together; Bad feelings protect you. The first is his wording. A title says no more than the card's own text. The
+text under it is one size smaller, and two cards lost a first sentence that the title now says.
