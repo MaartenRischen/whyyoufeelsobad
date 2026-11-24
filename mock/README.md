@@ -187,3 +187,8 @@ animals' should look different than labels like 'in a flat alone'". The fold but
 capitals after a tap, the same as a label. It is now a round-ended green outline with a plus in a green circle
 (a minus when open). It fills green only under a mouse, so on a phone it never turns into a filled shape after a
 tap. Labels stay dark rectangles.
+
+**Live (24 Nov 2026, 08:22).** Maarten: "Put this online". The humans-first page is the home page now. The builder
+writes `index.html`, `first.css` and `first.js` in the repo root. The animals-first page it builds from is kept here
+as `humans-first/source-animals-first.html`. `humans-first/index.html` only sends a visitor on to the home page.
+The repo root README has the warning about `wyfsb/publish.py`.

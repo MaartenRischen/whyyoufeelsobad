@@ -1,4 +1,4 @@
-/* page.js of mock/humans-first/: the live page.js with two changes (build_humans_first.py).
+/* first.js: the home page's runner. It is page.js with two changes (build_humans_first.py).
    1 A diagram with data-from starts on that beat, so a loop can show its mismatched half only.
    2 A diagram that is not laid out (inside a shut fold) gets no turn.
 
