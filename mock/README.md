@@ -174,3 +174,10 @@ go much higher to make sense with the examples". "Emotions are signals" now stan
 short answer, before the six human loops, since every loop starts with a feeling. "Humans raise children together"
 moved from the camp to right under the baby's loop in the opening run (the run is cut in two sections there). The
 other six stay where they were: each already stands under the loop it explains.
+
+**Term labels, half border (24 Nov 2026, 08:05).** Maarten: give the labels like "This is called Evolutionary
+mismatch" "a nice half border that's green", to get "the page to look not too uniform, and distinguish the specific
+element categories". A term label has no box and no fill now: a green line (--teal) runs down its left side and
+half way along its top, and the small "This is called" is green. Closed loop keeps green, Open loop keeps the
+colour of an unanswered need. The kinds of thing on the page now each look different: a drawing with its readout, a
+term (green half border on the page colour), a fact card (filled dark green block with a drawing), a statement band.

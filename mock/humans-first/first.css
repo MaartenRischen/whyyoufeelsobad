@@ -5,19 +5,23 @@
 .sec .lt.say{font-style:italic;color:var(--teal-deep)}
 .now .lw{margin-top:8px}
 
-/* a term, named where the page first shows the thing: a small label, the term, one line saying what it is */
+/* a term, named where the page first shows the thing: a small label, the term, one line saying what it is.
+   Maarten, 24 Nov 2026, 08:05: "a nice half border that's green", so that the kinds of thing on the page look
+   different from each other. A term has no box: a green line runs down its left side and half way along its top.
+   A fact card is a filled dark green block. */
 .sec > .tcard,.sec > .tpair{max-width:var(--read)}
-.tcard{background:var(--card);border:1px solid var(--card-line);border-left:4px solid var(--oxblood);border-radius:var(--radius);padding:15px 18px 17px}
-.sec .tcard .tc-k{font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.tcard{--tc:var(--teal);position:relative;padding:17px 0 6px 20px}
+.tcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:50%;border-left:4px solid var(--tc);border-top:4px solid var(--tc);border-top-left-radius:10px;pointer-events:none}
+.sec .tcard .tc-k{font:500 var(--t-label)/1.35 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--tc)}
 .sec .tcard .tc-n{font:600 var(--t-h2)/1.08 var(--serif);letter-spacing:-.012em;margin-top:7px}
 .sec .tcard .tc-d{font:400 var(--t-lead)/1.4 var(--serif);margin-top:8px}
-.tcard.g{border-left-color:var(--good)}
-.tcard.r{border-left-color:var(--bad)}
+.tcard.g{--tc:var(--good)}
+.tcard.r{--tc:var(--bad)}
 .sec .tcard.g .tc-n{color:var(--good)}
 .sec .tcard.r .tc-n{color:var(--bad)}
-.tpair{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
-.sec.band .tcard{margin-top:18px}
-@media (min-width:720px){.tpair{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tpair{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.sec.band .tcard{margin-top:20px}
+@media (min-width:720px){.tpair{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}}
 
 /* a fact card: dark green, so it reads as something apart from the page's own argument and from the term cards.
    A small drawing, a gold line on top, the fact in large type, the source under it. */
