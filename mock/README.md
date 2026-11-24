@@ -192,3 +192,17 @@ tap. Labels stay dark rectangles.
 writes `index.html`, `first.css` and `first.js` in the repo root. The animals-first page it builds from is kept here
 as `humans-first/source-animals-first.html`. `humans-first/index.html` only sends a visitor on to the home page.
 The repo root README has the warning about `wyfsb/publish.py`.
+
+**Small drawings in places that were words only (24 Nov 2026, 09:24, on the live page).** Maarten, with a screenshot
+of the Closed loop and Open loop labels: "little clarifying graphics, like this closed loop and open loop thing",
+"all throughout the website, more and immediately clear graphics is always good. Make sure it doesn't take up much
+more space though". Added:
+- each of the six term labels has a small drawing in its empty top right corner (orca in the sea and in a tank;
+  act and answer; act, wall and fading dots; act and a dashed answer from outlined people; a bird turning from its
+  egg to a giant dashed egg; people around a fire). They use the signs of the big loop drawings.
+- "Humans are animals too." has an orca, an equals sign and a human over it; "Sometimes nothing is fake." has three
+  people and a crowd.
+- the line "Then it gets a name" has a person and a name tag that says DEPRESSION.
+- each of the six things to do under "So now what" has a small sign in front of it.
+The page is 286 px taller on a phone than before (20,846 to 21,132). Not done: the long block on disease and
+medication (its wording is settled, a drawing there needs his word), the other statement bands, the library page.
