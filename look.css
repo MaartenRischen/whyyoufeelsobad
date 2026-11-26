@@ -1,4 +1,4 @@
-/* look.css - the one look for every Demismatch site. Version 2026-11-21.1
+/* look.css - the one look for every Demismatch site. Version 2026-11-27.1
    The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
    Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
    Every public site loads this file before its own stylesheet. A site's own stylesheet
@@ -92,7 +92,7 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .cb-in>summary:focus-visible{outline:2.5px solid var(--gold);outline-offset:4px;border-radius:2px}
 .cb-h{display:flex;align-items:flex-start;gap:10px;margin:0;font:600 clamp(1.15rem,2.3vw,1.6rem)/1.2 var(--serif);letter-spacing:.01em}
 .cb-h .rings{margin-top:.1em}
-.cb-h strong{font-weight:800}   /* 21 Nov 2026: "100% HUMAN SCIENCE" in bold, the rest of the headline on the next line */
+.cb-h strong{font-weight:800;white-space:nowrap}   /* 27 Nov 2026: line 1 'NOT "AI SLOP". 100% HUMAN SCIENCE.' in bold, never wrapped; line 2 'TRIPLE CHECKED WITHOUT MERCY.' (Maarten: two lines in total) */
 .cb-lead{display:block;max-width:var(--read);margin-top:10px;font:400 var(--t-body)/1.5 var(--serif)}
 .cb-more{display:inline-block;margin-top:14px;background:var(--parchment-soft);color:var(--oxblood);border:1px solid var(--parchment-soft);border-radius:4px;padding:10px 13px 9px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
 .cb-more::after{content:" +"}
@@ -117,6 +117,22 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .ft{width:calc(100% - 2*var(--gut));max-width:calc(var(--max) - 2*var(--gut));margin:44px auto 0;padding:18px 0 44px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;font:400 var(--t-meta)/1.6 var(--mono);letter-spacing:.01em;color:var(--dim)}
 .ft a{color:var(--ink)}
 .ft .nmd{font-weight:500;color:var(--ink)}
+
+/* phones (27 Nov 2026, Maarten: the bar looked unfinished and the banner was far too big).
+   The bar: Demismatch on its own line, the five sites in two columns under it, filled top to bottom.
+   The banner shut: smaller type, one sentence under the headline, a smaller button. */
+@media (max-width:719px){
+  .d-in{display:grid;grid-template-columns:auto auto;grid-template-rows:repeat(4,auto);grid-auto-flow:column;justify-content:space-between;align-items:start;gap:6px 14px;padding:11px var(--gut) 10px;letter-spacing:.04em}
+  .doors .dm{grid-row:1;grid-column:1/-1;margin:0 0 2px;letter-spacing:.14em}
+  .doors a{justify-self:start}
+  .cb-in{padding:12px var(--gut) 14px}
+  .cb-in[open]{padding-bottom:20px}
+  .cb-h{gap:9px;font-size:clamp(12px,calc((100vw - 64px)/24),17px);line-height:1.25}
+  .cb-h .rings{width:20px;height:20px;margin-top:0}
+  .cb-lead{margin:6px 0 0 29px;font-size:.9rem;line-height:1.45}
+  .cb-more{margin:9px 0 0 29px;padding:7px 10px 6px;letter-spacing:.12em}
+  .cb-t,.cb-3{font-size:.95rem}
+}
 
 @media (min-width:720px){
   .cb-in{padding:20px var(--gut) 22px}
