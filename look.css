@@ -1,4 +1,4 @@
-/* look.css - the one look for every Demismatch site. Version 2026-11-27.5
+/* look.css - the one look for every Demismatch site. Version 2026-11-27.6
    The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
    Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
    Every public site loads this file before its own stylesheet. A site's own stylesheet
@@ -135,8 +135,8 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
   .cb-in{padding:12px var(--gut) 14px}
   .cb-in[open]{padding-bottom:20px}
   .cb-h{gap:9px;font-size:17px;line-height:1.25}
-  .cb-k{font-size:.66rem;letter-spacing:.1em}
-  .cb-h .rings{width:20px;height:20px;margin-top:calc(.66rem*1.3 + 8px)}
+  .cb-k{font-size:.62rem;letter-spacing:.06em}
+  .cb-h .rings{width:20px;height:20px;margin-top:calc(.62rem*1.3 + 8px)}
   .cb-lead{margin:6px 0 0 29px;font-size:.9rem;line-height:1.45}
   .cb-more{margin:9px 0 0 29px;padding:7px 10px 6px;letter-spacing:.12em}
   .cb-t,.cb-3,.cb-l{font-size:.95rem}
