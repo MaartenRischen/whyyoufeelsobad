@@ -1,4 +1,4 @@
-/* look.css - the one look for every Demismatch site. Version 2026-11-27.2
+/* look.css - the one look for every Demismatch site. Version 2026-11-27.3
    The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
    Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
    Every public site loads this file before its own stylesheet. A site's own stylesheet
@@ -109,6 +109,10 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .cb-3{margin:0;padding:10px 0 0 1.7em;max-width:var(--read);list-style:decimal;font:400 var(--t-body)/1.5 var(--serif)}
 .cb-3 li{padding:4px 0 4px .3em}
 .cb-3 li::marker{font-weight:600;color:var(--gold)}
+.cb-l{margin:0;padding:8px 0 0 1.4em;max-width:var(--read);list-style:disc;font:400 var(--t-body)/1.5 var(--serif)}   /* 27 Nov 2026: links to the thinking behind the sites */
+.cb-l li{padding:3px 0 3px .2em}
+.cb-l li::marker{color:var(--gold)}
+.cb-l a{color:inherit;font-weight:500;text-decoration-thickness:1px;text-underline-offset:3px}
 .cb-go{margin:0}
 .cb-btn{display:inline-block;background:var(--parchment-soft);color:var(--oxblood);font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;margin-top:18px;padding:11px 16px 10px;border-radius:4px}
 .cb-btn:hover{background:var(--gold)}
@@ -131,7 +135,7 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
   .cb-h .rings{width:20px;height:20px;margin-top:0}
   .cb-lead{margin:6px 0 0 29px;font-size:.9rem;line-height:1.45}
   .cb-more{margin:9px 0 0 29px;padding:7px 10px 6px;letter-spacing:.12em}
-  .cb-t,.cb-3{font-size:.95rem}
+  .cb-t,.cb-3,.cb-l{font-size:.95rem}
 }
 
 @media (min-width:720px){
