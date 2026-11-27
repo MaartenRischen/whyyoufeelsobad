@@ -1,4 +1,4 @@
-/* look.css - the one look for every Demismatch site. Version 2026-11-27.6
+/* look.css - the one look for every Demismatch site. Version 2026-11-27.7
    The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
    Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
    Every public site loads this file before its own stylesheet. A site's own stylesheet
@@ -126,12 +126,12 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .ft .nmd{font-weight:500;color:var(--ink)}
 
 /* phones (27 Nov 2026, Maarten: the bar looked unfinished and the banner was far too big).
-   The bar: Demismatch on its own line, the five sites in two columns under it, filled top to bottom.
+   The bar: one run of small labels, two lines at most (Maarten, 27 Nov 2026, 18:23).
    The banner shut: smaller type, one sentence under the headline, a smaller button. */
 @media (max-width:719px){
-  .d-in{display:grid;grid-template-columns:auto auto;grid-template-rows:repeat(4,auto);grid-auto-flow:column;justify-content:space-between;align-items:start;gap:6px 14px;padding:11px var(--gut) 10px;letter-spacing:.04em}
-  .doors .dm{grid-row:1;grid-column:1/-1;margin:0 0 2px;letter-spacing:.14em}
-  .doors a{justify-self:start}
+  .d-in{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 11px;padding:7px var(--gut) 6px;font-size:.6rem;letter-spacing:.03em}   /* 27 Nov 2026, 18:23: two lines at most */
+  .doors .dm{margin-right:0;letter-spacing:.08em}
+  .doors a{padding:2px 0 1px}
   .cb-in{padding:12px var(--gut) 14px}
   .cb-in[open]{padding-bottom:20px}
   .cb-h{gap:9px;font-size:17px;line-height:1.25}
