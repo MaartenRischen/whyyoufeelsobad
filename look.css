@@ -1,4 +1,4 @@
-/* look.css - the one look for every Demismatch site. Version 2026-11-27.3
+/* look.css - the one look for every Demismatch site. Version 2026-11-27.4
    The look of cor.demismatch.com and demismatch.com, taken from Cor's css/tokens.css.
    Maarten's pick of 19 Nov 2026: option A, "all Cor" (Open Brain thought 4948).
    Every public site loads this file before its own stylesheet. A site's own stylesheet
@@ -94,6 +94,7 @@ a:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius
 .cb-h .rings{margin-top:.1em}
 .cb-h strong{font-weight:800;white-space:nowrap}   /* 27 Nov 2026: line 1 'NOT "AI SLOP". 100% HUMAN SCIENCE.' in bold, never wrapped; line 2 'TRIPLE CHECKED WITHOUT MERCY.' (Maarten: two lines in total) */
 .cb-lead{display:block;max-width:var(--read);margin-top:10px;font:400 var(--t-body)/1.5 var(--serif)}
+.cb-lead a{color:inherit;font-weight:500;text-decoration-thickness:1px;text-underline-offset:3px}   /* 27 Nov 2026: Cor is a link in the shut view */
 .cb-more{display:inline-block;margin-top:14px;background:var(--parchment-soft);color:var(--oxblood);border:1px solid var(--parchment-soft);border-radius:4px;padding:10px 13px 9px;font:500 var(--t-label)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
 .cb-more::after{content:" +"}
 .cb-in[open] .cb-more::after{content:" \2212"}
